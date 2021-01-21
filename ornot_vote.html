@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-01-21 Thu 10:59 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ornot.vote</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Yasushi Sakai" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="http://yasushisakai.com">🏠</a>
+</div>
+<div id="content">
+<h1 class="title">ornot.vote</h1>
+
+<p>
+hosted:
+</p>
+
+<p>
+<a href="https://ornot.vote">https://ornot.vote</a>
+</p>
+
+
+<p>
+open sourced:
+</p>
+
+<ul class="org-ul">
+<li><a href="https://github.com/yasushisakai/ornot-server">https://github.com/yasushisakai/ornot-server</a></li>
+
+<li><a href="https://github.com/yasushisakai/ornot-app">https://github.com/yasushisakai/ornot-app</a></li>
+
+<li><a href="https://github.com/yasushisakai/liq">https://github.com/yasushisakai/liq</a></li>
+</ul>
+
+
+<p>
+used for:
+</p>
+
+<ol class="org-ol">
+<li><a href="makuhari_city_ws.html">Makuhari City WS</a></li>
+</ol>
+
+<div id="outline-container-org42de3f8" class="outline-2">
+<h2 id="org42de3f8"><span class="section-number-2">1</span> <span class="todo TODO">TODO</span> svelte side</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+general refactoring is needed
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8511343" class="outline-2">
+<h2 id="org8511343"><span class="section-number-2">2</span> <span class="todo TODO">TODO</span> dump data base</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+just to backup the state, before nuking&#x2026;.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf4dac9b" class="outline-2">
+<h2 id="orgf4dac9b"><span class="section-number-2">3</span> <span class="done DONE">DONE</span> Settings should just link to result</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+want to make a forward chain data structure within Results
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">Setting : &#9633; &#8594; &#9633; &#8594; &#9633;
+          &#8595;   &#8595;   &#8595;
+Results : &#9670;   &#9670;   &#9670;
+</pre>
+</div>
+
+<p>
+to make sure it&rsquo;s reproducible, we need to get the commit it of the program.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5fa4a1b" class="outline-2">
+<h2 id="org5fa4a1b"><span class="section-number-2">4</span> <span class="done DONE">DONE</span> nuclear handle with care!!</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+this deletes everything.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X DELETE https://ornot.vote/api/v1/nuclear
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orge225774" class="outline-2">
+<h2 id="orge225774"><span class="section-number-2">5</span> <span class="done DONE">DONE</span> make token:user<sub>id</sub> data base</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+auth relying on GET-ing the whole user object, which I should hold a separate look up
+that has <code>access_token:user_id</code>
+</p>
+
+<p>
+partially because often times I&rsquo;m requesting user data for different purposes.
+</p>
+
+<p>
+we now have the <code>access_token:user_id</code> but each time someone clear caches and tries to register their nickname,
+we make another temp code which trickles down to a new access<sub>token</sub>
+</p>
+
+<p>
+to address this, we need invalidate(DEL) the previous temp<sub>code</sub>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0727e2a" class="outline-2">
+<h2 id="org0727e2a"><span class="section-number-2">6</span> <span class="done DONE">DONE</span> tokens, codes should be base58</h2>
+</div>
+<div id="outline-container-org11484ea" class="outline-2">
+<h2 id="org11484ea"><span class="section-number-2">7</span> <span class="done DONE">DONE</span> APIs for Auth</h2>
+<div class="outline-text-2" id="text-7">
+<ol class="org-ol">
+<li><p>
+user asks for a temp code
+</p>
+
+<p>
+<code>jq</code> is just to pretty print the output. This will send a email to the
+address specified. That email will have a url such a as this
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>sign-up</label><pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST -d <span style="color: #A3BE8C;">'{"nickname":"yasushi", "email":"yasushisakai@pm.me"}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> https://ornot.vote/api/v1/user/signup | jq
+</pre>
+</div>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>result of sign up, an email.</label><pre class="src src-text">Hi yasushi, this is a tiny note to let you know your temp code.
+
+use the below url to verify that you own this email address.
+
+    {URL}
+
+bye and have a nice day :)
+</pre>
+</div></li>
+
+<li value="2"><p>
+check the temp code
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>check the temp code</label><pre class="src src-bash"><span style="color: #8FBCBB;">curl</span>  https://ornot.vote/api/v1/user/HEhYiU6KWziwgaVAzT4YWv38hneuJn2dLJsYsAYwzoyS/code/265UgAdf9gt1A7b7XpMSboBNPXYvY4D31Pw14NHZ5T5r1Qgw6Ls5XYEBYmL4LWTReGpDDq6rjLbSRxqX8WUwAL2P | jq
+</pre>
+</div>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>result of check temp code</label><pre class="src src-text">   "32aZk7DL48KCwaivpTCMeeyJ7FHn53LMJLMATCKBpmb5V7FtmhqLNrJyYqkR6YySckrjK2hVKEeAa738n8EnvKrR"
+</pre>
+</div>
+
+<p>
+the user now has an access token. we check that putting that in subsequent requests.
+</p></li>
+
+<li><p>
+authorize with access token
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>example of endpoint with auth. put the <code>access_token</code> under the &ldquo;Authorization&rdquo; header</label><pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -H <span style="color: #A3BE8C;">"Authorization: bearer 2y6XdnsvwDKLdSpg6SqbvkrxPYAQiU5GPdcht47EhyCPBofaTmef6BsNTmyVXrDpbdd9zbevmrNFCzJnERQs8svM"</span>  https://ornot.vote/api/v1/user/4X2N89Y3guJoY3vwmTmn2zJuxwWPMRQXBdoAaPPbNVtD/check
+</pre>
+</div>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 6: </span>simple result</label><pre class="src src-text">   yes
+</pre>
+</div>
+
+<p>
+testing out the master key
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -H <span style="color: #A3BE8C;">"Authorization: bearer secret"</span>  https://ornot.vote/api/v1/user/4X2N89Y3guJoY3vwmTmn2zJuxwWPMRQXBdoAaPPbNVtD/check
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgfb19c7e" class="outline-2">
+<h2 id="orgfb19c7e"><span class="section-number-2">8</span> <span class="done DONE">DONE</span> force add users</h2>
+<div class="outline-text-2" id="text-8">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 7: </span>sign-up</label><pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST -d <span style="color: #A3BE8C;">'{"nickname":"yasushi", "email":"yasushisakai@pm.me"}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> https://ornot.vote/api/v1/user/signup | jq
+</pre>
+</div>
+
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 8: </span>force add</label><pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST -d <span style="color: #A3BE8C;">'{"nickname":"yasushi", "email":"yasushisakai@pm.me"}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> https://ornot.vote/api/v1/user/force_add | jq
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf844bfb" class="outline-2">
+<h2 id="orgf844bfb"><span class="section-number-2">9</span> <span class="done DONE">DONE</span> debugging (normal path)</h2>
+<div class="outline-text-2" id="text-9">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST -d <span style="color: #A3BE8C;">'{"nickname":"alice", "email":"alice@test.com"}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> https://ornot.vote/api/v1/user/force_add &amp;&amp; <span style="color: #A3BE8C;">\</span>
+<span style="color: #8FBCBB;">curl</span> -X POST -d <span style="color: #A3BE8C;">'{"nickname":"bob", "email":"bob@test.com"}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> https://ornot.vote/api/v1/user/force_add &amp;&amp; <span style="color: #A3BE8C;">\</span>
+<span style="color: #8FBCBB;">curl</span> -X POST -d <span style="color: #A3BE8C;">'{"nickname":"charlie", "email":"charlie@test.com"}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> https://ornot.vote/api/v1/user/force_add
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-text">   [{"id":"LDF8e1kPPSHxviRCXDTdjc4KiYyum1sWtFQFoZioPzH","nickname":"alice","is_verified":true},"2zG6TzEWdwWj9vMNELVMmm9broh5JK2HYssH9gRbuFsBzYVRHNQzSuKm3jXzmHM716uLYfuSoKqdGJnH4Jjujo5u"][{"id":"HUTPBwX93cis679hzKbaKdW1JTDmdJRbmcRutMiMwyvE","nickname":"bob","is_verified":true},"2whsQZfiXxWQAWSKThx24szqYev3LkBMMs8xafkcXtATbmjaEcyiLUuQBahaj3yU9QdYewAHt5Uo4LA3JC4MFfde"][{"id":"J68FXm8HDZkN3e8gNMVrm7Kg75Krz9QCg1Nf8JZSADDW","nickname":"charlie","is_verified":true},"2xthzEUftUFdEnJS9xBNcKeewuK4HcTvohArsSJ9HqkP4k88LeN9Cz7BbQM13NrvCJtfnSz6oBWqaCizMkf8iVgR"]
+</pre>
+</div>
+
+<ol class="org-ol">
+<li><p>
+adding a plan
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X PUT -d <span style="color: #A3BE8C;">'{"title":"What to eat for breakfast", "description":"what to eat today"}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> https://ornot.vote/api/v1/topic | jq
+</pre>
+</div></li>
+
+<li><p>
+adding a users to a topic
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST https://ornot.vote/api/v1/topic/EFc3ubcwZFtF73gqhgVHWVtJdsPNSita1B2rf8LdmFVB/user/J68FXm8HDZkN3e8gNMVrm7Kg75Krz9QCg1Nf8JZSADDW &amp;&amp; <span style="color: #A3BE8C;">\</span>
+<span style="color: #8FBCBB;">curl</span> -X POST https://ornot.vote/api/v1/topic/EFc3ubcwZFtF73gqhgVHWVtJdsPNSita1B2rf8LdmFVB/user/HUTPBwX93cis679hzKbaKdW1JTDmdJRbmcRutMiMwyvE &amp;&amp; <span style="color: #A3BE8C;">\</span>
+<span style="color: #8FBCBB;">curl</span> -X POST https://ornot.vote/api/v1/topic/EFc3ubcwZFtF73gqhgVHWVtJdsPNSita1B2rf8LdmFVB/user/LDF8e1kPPSHxviRCXDTdjc4KiYyum1sWtFQFoZioPzH
+</pre>
+</div></li>
+</ol>
+
+
+<ol class="org-ol">
+<li><p>
+get topic info
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X GET https://ornot.vote/api/v1/topic/EFc3ubcwZFtF73gqhgVHWVtJdsPNSita1B2rf8LdmFVB | jq
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-text">   {
+     "id": "EFc3ubcwZFtF73gqhgVHWVtJdsPNSita1B2rf8LdmFVB",
+     "title": "What to eat for breakfast",
+     "description": "what to eat today",
+     "setting_hash": "FxJpTuXF39AUf5LYtUJvenXAotXiNM26qqPnBQBstUGt",
+     "setting_prev_hash": "Gw7GroDLi62unVKGhJzd7cbxxvp42rcnvTwqqaWXVjye",
+     "setting": {
+       "voters": [
+         "J68FXm8HDZkN3e8gNMVrm7Kg75Krz9QCg1Nf8JZSADDW",
+         "HUTPBwX93cis679hzKbaKdW1JTDmdJRbmcRutMiMwyvE",
+         "LDF8e1kPPSHxviRCXDTdjc4KiYyum1sWtFQFoZioPzH"
+       ],
+       "plans": [
+         {
+           "title": "cereal",
+           "description": null
+         },
+         {
+           "title": "bread",
+           "description": null
+         },
+         {
+           "title": "rice",
+           "description": null
+         },
+         {
+           "title": "left_over_pizza",
+           "description": null
+         }
+       ],
+       "votes": {
+         "HUTPBwX93cis679hzKbaKdW1JTDmdJRbmcRutMiMwyvE": {
+           "bread": 0.4,
+           "cereal": 0.2,
+           "left_over_pizza": 0.1,
+           "rice": 0.3
+         },
+         "LDF8e1kPPSHxviRCXDTdjc4KiYyum1sWtFQFoZioPzH": {
+           "HUTPBwX93cis679hzKbaKdW1JTDmdJRbmcRutMiMwyvE": 0.5,
+           "bread": 0.3,
+           "left_over_pizza": 0.2
+         }
+       }
+     },
+     "result": {
+       "votes": {
+         "(Blank)": 1,
+         "bread": 0.8999999999999999,
+         "cereal": 0.29999999999999993,
+         "left_over_pizza": 0.35,
+         "rice": 0.4499999999999999
+       },
+       "influence": {
+         "HUTPBwX93cis679hzKbaKdW1JTDmdJRbmcRutMiMwyvE": 1.5,
+         "J68FXm8HDZkN3e8gNMVrm7Kg75Krz9QCg1Nf8JZSADDW": 1,
+         "LDF8e1kPPSHxviRCXDTdjc4KiYyum1sWtFQFoZioPzH": 1
+       }
+     }
+   }
+</pre>
+</div></li>
+</ol>
+
+
+<ol class="org-ol">
+<li><p>
+add some plans
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST https://ornot.vote/api/v1/topic/EFc3ubcwZFtF73gqhgVHWVtJdsPNSita1B2rf8LdmFVB/plan/cereal &amp;&amp; <span style="color: #A3BE8C;">\</span>
+<span style="color: #8FBCBB;">curl</span> -X POST https://ornot.vote/api/v1/topic/EFc3ubcwZFtF73gqhgVHWVtJdsPNSita1B2rf8LdmFVB/plan/bread &amp;&amp; <span style="color: #A3BE8C;">\</span>
+<span style="color: #8FBCBB;">curl</span> -X POST https://ornot.vote/api/v1/topic/EFc3ubcwZFtF73gqhgVHWVtJdsPNSita1B2rf8LdmFVB/plan/rice &amp;&amp; <span style="color: #A3BE8C;">\</span>
+<span style="color: #8FBCBB;">curl</span> -X POST https://ornot.vote/api/v1/topic/EFc3ubcwZFtF73gqhgVHWVtJdsPNSita1B2rf8LdmFVB/plan/left_over_pizza
+</pre>
+</div></li>
+</ol>
+
+
+<ol class="org-ol">
+<li><p>
+vote and calculate
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X PUT -d <span style="color: #A3BE8C;">'{"cereal": 0.2, "rice": 0.3, "bread": 0.4, "left_over_pizza":0.1}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> https://ornot.vote/api/v1/topic/EFc3ubcwZFtF73gqhgVHWVtJdsPNSita1B2rf8LdmFVB/vote/HUTPBwX93cis679hzKbaKdW1JTDmdJRbmcRutMiMwyvE | jq
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X PUT -d <span style="color: #A3BE8C;">'{"HUTPBwX93cis679hzKbaKdW1JTDmdJRbmcRutMiMwyvE": 0.2, "LDF8e1kPPSHxviRCXDTdjc4KiYyum1sWtFQFoZioPzH": 0.8}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> https://ornot.vote/api/v1/topic/EFc3ubcwZFtF73gqhgVHWVtJdsPNSita1B2rf8LdmFVB/vote/J68FXm8HDZkN3e8gNMVrm7Kg75Krz9QCg1Nf8JZSADDW | jq
+</pre>
+</div></li>
+</ol>
+
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X PUT -d <span style="color: #A3BE8C;">'{"HUTPBwX93cis679hzKbaKdW1JTDmdJRbmcRutMiMwyvE":0.5, "left_over_pizza":0.2, "bread":0.3}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> https://ornot.vote/api/v1/topic/EFc3ubcwZFtF73gqhgVHWVtJdsPNSita1B2rf8LdmFVB/vote/LDF8e1kPPSHxviRCXDTdjc4KiYyum1sWtFQFoZioPzH | jq
+</pre>
+</div>
+
+<p>
+second time should not calculate
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X PUT -d <span style="color: #A3BE8C;">'{"HUTPBwX93cis679hzKbaKdW1JTDmdJRbmcRutMiMwyvE":0.5, "left_over_pizza":0.2, "bread":0.3}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> https://ornot.vote/api/v1/topic/EFc3ubcwZFtF73gqhgVHWVtJdsPNSita1B2rf8LdmFVB/vote/LDF8e1kPPSHxviRCXDTdjc4KiYyum1sWtFQFoZioPzH | jq
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7b2b876" class="outline-2">
+<h2 id="org7b2b876"><span class="section-number-2">10</span> <span class="done DONE">DONE</span> get setting, raw calculate</h2>
+<div class="outline-text-2" id="text-10">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X GET https://ornot.vote/api/v1/setting/Gw7GroDLi62unVKGhJzd7cbxxvp42rcnvTwqqaWXVjye
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> -d <span style="color: #A3BE8C;">'{"voters":["J68FXm8HDZkN3e8gNMVrm7Kg75Krz9QCg1Nf8JZSADDW","HUTPBwX93cis679hzKbaKdW1JTDmdJRbmcRutMiMwyvE","LDF8e1kPPSHxviRCXDTdjc4KiYyum1sWtFQFoZioPzH"],"plans":[{"title":"cereal","description":null},{"title":"bread","description":null},{"title":"rice","description":null},{"title":"left_over_pizza","description":null}],"votes":{"HUTPBwX93cis679hzKbaKdW1JTDmdJRbmcRutMiMwyvE":{"bread":0.4,"cereal":0.2,"left_over_pizza":0.1,"rice":0.3}}}'</span> https://ornot.vote/api/v1/calculate_raw | jq
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-text">   {
+     "votes": {
+       "(Blank)": 2,
+       "bread": 0.3999999999999999,
+       "cereal": 0.19999999999999996,
+       "left_over_pizza": 0.09999999999999998,
+       "rice": 0.29999999999999993
+     },
+     "influence": {
+       "HUTPBwX93cis679hzKbaKdW1JTDmdJRbmcRutMiMwyvE": 1,
+       "J68FXm8HDZkN3e8gNMVrm7Kg75Krz9QCg1Nf8JZSADDW": 1,
+       "LDF8e1kPPSHxviRCXDTdjc4KiYyum1sWtFQFoZioPzH": 1
+     }
+   }
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-01-16 13:58</p>
+<p class="author">Author: Yasushi Sakai</p>
+<p class="date">Created: 2021-01-21 Thu 10:59</p>
+</div>
+</body>
+</html>
