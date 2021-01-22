@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-21 Thu 10:59 -->
+<!-- 2021-01-21 Thu 21:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Consensus Algorithms</title>
@@ -226,22 +226,51 @@
 
 
 <p>
+90-年代 -&gt; 無作為的故障(omissive)
+</p>
+
+<p>
 fault tolerance (堅牢性)
 </p>
 
 <div id="outline-container-org7406b87" class="outline-2">
 <h2 id="org7406b87"><span class="section-number-2">1</span> Paxos <a class='org-ref-reference' href="#lamport2019part">lamport2019part</a></h2>
+<div class="outline-text-2" id="text-1">
+<p>
+単一の値に対して合意する。古代ギリシアのパクソス等の官僚は皆パートタイムで事件簿やそのほか台帳を分散的に管理していた。その考古学的な方法を元にランポートが説明している。
+</p>
+</div>
 </div>
 
 <div id="outline-container-org4f55398" class="outline-2">
 <h2 id="org4f55398"><span class="section-number-2">2</span> Raft <a class='org-ref-reference' href="#ongaro2014search">ongaro2014search</a></h2>
 <div class="outline-text-2" id="text-2">
 <p>
+Paxos 難しすぎて実装・メンテがキツすぎるという批評からもっと簡単な合意アルゴリズムを開発。どれだけ学生が理解したかを指標にしているところが面白い。Raft はイカダ。ログの寄せ集めだから。数珠繋ぎになっているログに対する合意形成。リーダーと過半数を使っている。
+</p>
+
+<p>
+そのほか分散システムについては MIT の分散システムの授業が良い。[<a href="https://pdos.csail.mit.edu/6.824/">https://pdos.csail.mit.edu/6.824/</a>]
+</p>
+
+<p>
 &#x2014;
 </p>
 
 <p>
 blockchain stuff, Byzantine fault <a class='org-ref-reference' href="#lamport2019byzantine">lamport2019byzantine</a>
+</p>
+
+<p>
+ビザンチン将軍
+</p>
+
+<p>
+comission
+</p>
+
+<p>
+作為的も含める
 </p>
 
 <p>
@@ -252,12 +281,114 @@ blockchain stuff, Byzantine fault <a class='org-ref-reference' href="#lamport201
 
 <div id="outline-container-org76e224e" class="outline-2">
 <h2 id="org76e224e"><span class="section-number-2">3</span> Proof of Work</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #81A1C1;">import</span> hashlib
+
+<span style="color: #D8DEE9;">prev</span> = f<span style="color: #A3BE8C;">'000000: origin'</span>
+<span style="color: #D8DEE9;">prev_hash</span> = hashlib.sha256(<span style="color: #81A1C1;">bytes</span>(prev,<span style="color: #A3BE8C;">'utf-8'</span>)).hexdigest()
+<span style="color: #81A1C1;">print</span>(<span style="color: #A3BE8C;">'origin: '</span>+ prev)
+<span style="color: #D8DEE9;">prefix</span> = prev_hash[:<span style="color: #B48EAD; font-weight: bold;">6</span>]
+
+<span style="color: #D8DEE9;">n</span> = <span style="color: #B48EAD; font-weight: bold;">0</span>;
+<span style="color: #81A1C1;">while</span> n &lt; <span style="color: #B48EAD; font-weight: bold;">5</span>:
+    <span style="color: #D8DEE9;">nonce</span> = <span style="color: #B48EAD; font-weight: bold;">0</span>;
+    <span style="color: #81A1C1;">while</span> <span style="color: #81A1C1;">True</span>:
+        <span style="color: #D8DEE9;">cur</span> = f<span style="color: #A3BE8C;">'{prefix}: data:"new transaction" no: "{n}" nonce:"{nonce}"'</span>
+        <span style="color: #D8DEE9;">cur_hash</span> = hashlib.sha256(<span style="color: #81A1C1;">bytes</span>(cur,<span style="color: #A3BE8C;">'utf-8'</span>)).hexdigest()
+        <span style="color: #81A1C1;">if</span> prev_hash &gt; cur_hash: <span style="color: #6f7787;"># </span><span style="color: #6f7787;">if this is smaller</span>
+            <span style="color: #D8DEE9;">prev</span> = cur
+            <span style="color: #D8DEE9;">prev_hash</span> = cur_hash
+            <span style="color: #D8DEE9;">prefix</span> = prev_hash[:<span style="color: #B48EAD; font-weight: bold;">6</span>]
+            <span style="color: #81A1C1;">print</span>(f<span style="color: #A3BE8C;">'next block: {prefix} nonce: {nonce}'</span>)
+            <span style="color: #81A1C1;">print</span>(f<span style="color: #A3BE8C;">'  hash: {cur_hash}'</span>)
+            <span style="color: #81A1C1;">print</span>(f<span style="color: #A3BE8C;">'  data: {cur}'</span>)
+            <span style="color: #D8DEE9;">n</span> += <span style="color: #B48EAD; font-weight: bold;">1</span>
+            <span style="color: #81A1C1;">break</span>
+        <span style="color: #81A1C1;">else</span>:
+            <span style="color: #D8DEE9;">nonce</span> += <span style="color: #B48EAD; font-weight: bold;">1</span> <span style="color: #6f7787;"># </span><span style="color: #6f7787;">the nonce can be anything to solve the sha puzzle</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-text">origin: 000000: origin
+next block: 46f7d8 nonce: 4
+  46f7d85d73104873bfb44c3bcad288c690e7aa9fbaea6409360202773fc1eb98
+  79a198: data:"new transaction" no: "0" nonce:"4"
+next block: 058b27 nonce: 6
+  058b2702c1d37b83b2071702894bb712b0daf853e2d85b22a8fc040926b2f0ab
+  46f7d8: data:"new transaction" no: "1" nonce:"6"
+.
+.
+.
+  0165517dbccd44850442e8b2d3998fb4e24b735a7c77ac64c449fe15b87d5038
+  032ce1: data:"new transaction" no: "3" nonce:"29"
+next block: 003a8c nonce: 254
+  003a8c9d01188d9e2cef6039140e81b0891b9e94cd53450f0899559da6d6c654
+  016551: data:"new transaction" no: "4" nonce:"254"
+</pre>
+</div>
+
+<p>
+note the hash is getting smaller making the <code>sha256</code> puzzle harder to solve.
+The node that chooses the right data - nonce pair gets to append to the next chain.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org9d4af1d" class="outline-2">
+<h2 id="org9d4af1d"><span class="section-number-2">4</span> Proof of Stake</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #81A1C1;">import</span> random
+<span style="color: #81A1C1;">import</span> numpy <span style="color: #81A1C1;">as</span> np
+
+<span style="color: #D8DEE9;">alice</span> = <span style="color: #A3BE8C;">'alice'</span>
+<span style="color: #D8DEE9;">bob</span> = <span style="color: #A3BE8C;">'bob'</span>
+<span style="color: #D8DEE9;">charlie</span> = <span style="color: #A3BE8C;">'charlie'</span>
+
+<span style="color: #6f7787;"># </span><span style="color: #6f7787;">alice holds three stakes</span>
+<span style="color: #D8DEE9;">a</span> = [alice, alice, alice]
+
+<span style="color: #6f7787;"># </span><span style="color: #6f7787;">bob holds two stakes</span>
+<span style="color: #D8DEE9;">b</span> = [bob, bob]
+
+<span style="color: #6f7787;"># </span><span style="color: #6f7787;">charlie holds one stake</span>
+<span style="color: #D8DEE9;">c</span> = [charlie]
+
+<span style="color: #D8DEE9;">bag</span> = a + b + c
+
+<span style="color: #D8DEE9;">winners</span> = <span style="color: #A3BE8C;">''</span>
+
+<span style="color: #D8DEE9;">prev_win</span> = random.choice(a+b+c)
+<span style="color: #D8DEE9;">winners</span> += prev_win
+
+<span style="color: #81A1C1;">for</span> i <span style="color: #81A1C1;">in</span> <span style="color: #81A1C1;">range</span>(<span style="color: #B48EAD; font-weight: bold;">5</span>):
+    <span style="color: #D8DEE9;">cur_win</span> = random.choice(bag)
+
+    <span style="color: #81A1C1;">if</span> cur_win == prev_win: <span style="color: #6f7787;"># </span><span style="color: #6f7787;">prevents too much consecutive wins</span>
+        <span style="color: #D8DEE9;">cur_win</span> = random.choice(bag)
+
+    <span style="color: #D8DEE9;">winners</span> += f<span style="color: #A3BE8C;">', {cur_win}'</span>
+    bag.append(cur_win)
+    <span style="color: #D8DEE9;">prev_win</span> = cur_win
+
+<span style="color: #81A1C1;">print</span>(winners)
+
+<span style="color: #D8DEE9;">a</span> = np.array(bag)
+<span style="color: #D8DEE9;">unique</span>, <span style="color: #D8DEE9;">counts</span> = np.unique(a, return_counts=<span style="color: #81A1C1;">True</span>)
+<span style="color: #81A1C1;">print</span>(<span style="color: #81A1C1;">dict</span>(<span style="color: #81A1C1;">zip</span>(unique, counts)))
+
+</pre>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2021-01-16 19:39</p>
 <p class="author">Author: Yasushi Sakai</p>
-<p class="date">Created: 2021-01-21 Thu 10:59</p>
+<p class="date">Created: 2021-01-21 Thu 21:06</p>
 </div>
 </body>
 </html>
