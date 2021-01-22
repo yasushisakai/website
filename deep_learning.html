@@ -6,7 +6,7 @@
 <!-- 2021-01-22 Fri 13:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>index</title>
+<title>Deep Learning</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Yasushi Sakai" />
 <style type="text/css">
@@ -217,23 +217,100 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
 <a href="http://yasushisakai.com">🏠</a>
 </div>
 <div id="content">
+<h1 class="title">Deep Learning</h1>
+
+
+<div id="org9d16f7e" class="figure">
+<p><img src="images/neural_network.png" alt="neural_network.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>neural network</p>
+</div>
 
 <p>
-memo
+各層のノードのは重みづけ \(W\) とバイアス \(b\) を求める最適化手法。
 </p>
 
-<ul class="org-ul">
-<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2021-01-23 Sat&gt; </span></span> <a href="makuhari_city_ws.html">Makuhari City WS</a></li>
+<p>
+\[
+\ z^{[l]}_i = W^{[l]}_i a^{[l-1]}_i + b^{[l]}
+\]
+</p>
+
+<p>
+\[
+\ a^{[l]}_i = \sigma(z^{[l]})
+\]
+</p>
+
+<p>
+ここで、それに加えて、非線形な関数 \(\sigma\) をはさんでいる。
+</p>
+
+
+<div id="orga5b2cf0" class="figure">
+<p><img src="images/layers_desision.png" alt="layers_desision.png" />
+</p>
+<p><span class="figure-number">Figure 2: </span>our voting process</p>
+</div>
+
+<p>
+各入力が、次の全てのノードに対して、重みづけを行って*投票*しているのと変わらない。
+</p>
+
+
+<div id="orgfc5d827" class="figure">
+<p><img src="images/dl_techniques.png" alt="dl_techniques.png" />
+</p>
+<p><span class="figure-number">Figure 3: </span>other techniques used in DL</p>
+</div>
+
+<p>
+ある任意の層の出力を近接しない別の層に渡すのは、GRU(Gated Recurrent Unit)
+<a class='org-ref-reference' href="#chung2014empirical">chung2014empirical</a>, や LSTM (Long Short Term Memory)
+<a class='org-ref-reference' href="#hochreiter1997long">hochreiter1997long</a> で応用されている。-&gt;勾配消失問題。これは深いネットワークに対して、最初の方の層の重みづけが、最終的な結果に影響しにくいという問題を解決するために考えられている。ちょうど、人一人の一票が時として、最終的な政策や&ldquo;生活の向上に影響しない&rdquo;不満とも捉えられる。
+</p>
+
+<p>
+Convolution （畳み込み）は、各層への順伝搬(Forward Prop)時にいちいち完全グラフでは計算量が大きすぎるために、カーネルを用意して、各層間の繋がりを制限したもの。投票に置き換えると、都民が全ての公園に対する詳細な判断をするのは難しいし、コストがかかるので、自分の生活に関わる、（例えば地理的に近いとか、小さい子供がいるとか）といったことに対するトピックに限定して投票させることに近い。
+</p>
+
+<p>
+<h1 class='org-ref-bib-h1'>Bibliography</h1>
+<ul class='org-ref-bib'><li><a id="chung2014empirical">[chung2014empirical]</a> <a name="chung2014empirical"></a>Chung, Gulcehre, Cho & Bengio, Empirical evaluation of gated recurrent neural networks on sequence modeling, <i>arXiv preprint arXiv:1412.3555</i>,  (2014).</li>
+<li><a id="hochreiter1997long">[hochreiter1997long]</a> <a name="hochreiter1997long"></a>Hochreiter & Schmidhuber, Long short-term memory, <i>Neural computation</i>, <b>9(8)</b>, 1735-1780 (1997).</li>
 </ul>
+</p>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2021-01-21 11:05</p>
+<p class="date">Date: 2021-01-22 11:48</p>
 <p class="author">Author: Yasushi Sakai</p>
 <p class="date">Created: 2021-01-22 Fri 13:13</p>
 </div>
