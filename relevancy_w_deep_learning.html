@@ -6,7 +6,7 @@
 <!-- 2021-01-22 Fri 21:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Liquid Democracy</title>
+<title>relevancy w/ Deep Learning</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Yasushi Sakai" />
 <style type="text/css">
@@ -245,372 +245,72 @@
 <a href="http://yasushisakai.com">🏠</a>
 </div>
 <div id="content">
-<h1 class="title">Liquid Democracy</h1>
+<h1 class="title">relevancy w/ Deep Learning</h1>
 
-<div id="outline-container-org0f6b700" class="outline-2">
-<h2 id="org0f6b700"><span class="section-number-2">1</span> The third &rsquo;Democracy&rsquo;</h2>
-<div class="outline-text-2" id="text-1">
-</div>
-<div id="outline-container-org67decc3" class="outline-3">
-<h3 id="org67decc3"><span class="section-number-3">1.1</span> Current known democratic processes</h3>
-<div class="outline-text-3" id="text-1-1">
-</div>
-<div id="outline-container-orga7ede7a" class="outline-4">
-<h4 id="orga7ede7a"><span class="section-number-4">1.1.1</span> Direct Democracy</h4>
-<div class="outline-text-4" id="text-1-1-1">
-<p>
-people vote for policies directly. This type of democracy only works when each
-of the members are informed and can estimate the impact of each policy.
+
+<div id="org1844488" class="figure">
+<p><img src="images/neural_network.png" alt="neural_network.png" width="100%" />
 </p>
-
-
-<div id="org98c9f20" class="figure">
-<p><img src="./images/approval_voting.jpg" alt="approval_voting.jpg" width="100%" />
-</p>
+<p><span class="figure-number">Figure 1: </span>neural network</p>
 </div>
 
 <p>
-similar but different <a href="https://en.wikipedia.org/wiki/Approval_voting">Approval Voting</a>
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgbba7bd2" class="outline-4">
-<h4 id="orgbba7bd2"><span class="section-number-4">1.1.2</span> Representative Democracy</h4>
-<div class="outline-text-4" id="text-1-1-2">
-<p>
-you choose a representative (usually someone) to decide for you. Cuts costs for
-informed concent, but trades off control.
-</p>
-
-
-<div id="org8ac5654" class="figure">
-<p><img src="./images/democracy_06.jpg" alt="democracy_06.jpg" width="100%" />
-</p>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgbc0cf21" class="outline-3">
-<h3 id="orgbc0cf21"><span class="section-number-3">1.2</span> different democracies and their flaws</h3>
-<div class="outline-text-3" id="text-1-2">
-
-<div id="orgfa2beae" class="figure">
-<p><img src="./images/no_silver_bullet.png" alt="no_silver_bullet.png" width="100%" />
-</p>
-</div>
-
-<p>
-From the eyes of Aristotle, every form of democracies has their own short
-commings. To him, it&rsquo;s rather unsmart to <b>pick</b> and impose which one is the
-best, but to analyze and what are the possible alternatives that best suits for
-the community is far more important. <a class='org-ref-reference' href="#yamcha2010saikyo">yamcha2010saikyo</a>
-</p>
-
-<p>
-<a href="https://www.thoughtco.com/aristotle-on-democracy-111992">https://www.thoughtco.com/aristotle-on-democracy-111992</a>
-</p>
-
-<p>
-飲茶. 史上最強の哲学入門 (Japanese Edition) (Kindle Locations 1497-1499).
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgda46e3a" class="outline-3">
-<h3 id="orgda46e3a"><span class="section-number-3">1.3</span> Liquid Democracy</h3>
-<div class="outline-text-3" id="text-1-3">
-<p>
-Democracy that you can vote for both policies and people <a class='org-ref-reference' href="#malone2018superminds">malone2018superminds</a>.
-</p>
-
-
-<div id="orged14c88" class="figure">
-<p><img src="./images/liquid_democracy.jpg" alt="liquid_democracy.jpg" width="100%" />
-</p>
-</div>
-</div>
-
-<div id="outline-container-org4e78439" class="outline-4">
-<h4 id="org4e78439"><span class="section-number-4">1.3.1</span> Example1: Deciding Breakfast</h4>
-<div class="outline-text-4" id="text-1-3-1">
-<p>
-As a family we need to decide what to have for breakfast. The options are Rice
-or Bread.
-</p>
-
-<ul class="org-ul">
-<li>Minori put 0.1 points to Yasushi and Ray to deicide, and voted directy 0.1 and
-0.7 points respectively to Rice and Bread.</li>
-
-<li>Yasushi voted 0.2 points to Minori and 0.3 points to Ray. He gave half of his
-vote to Rice.</li>
-
-<li>Ray gave 0.4 points to her parents and gave the remainder for eating Bread.</li>
-</ul>
-
-<p>
-some points to consider
-</p>
-
-<ul class="org-ul">
-<li>Minori contradics. She is giving 0.1 points to rice while giving it 0.7 to
-bread.</li>
-<li>Yasushi is the only one directly voting for Rice</li>
-<li>Ray has limited knowledge and may not know how Rice tastes.</li>
-</ul>
-
-<ol class="org-ol">
-<li>Voting matrix</li>
-</ol>
-
-<p>
-The Voting Matrix (\(V\)) will be:
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-right" />
-
-<col  class="org-right" />
-
-<col  class="org-right" />
-
-<col  class="org-right" />
-
-<col  class="org-right" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">-</td>
-<td class="org-right">Minori</td>
-<td class="org-right">Yasushi</td>
-<td class="org-right">Ray</td>
-<td class="org-right">* Rice</td>
-<td class="org-right">* Bread</td>
-</tr>
-
-<tr>
-<td class="org-left">Minori</td>
-<td class="org-right">0.0</td>
-<td class="org-right">0.2</td>
-<td class="org-right">0.4</td>
-<td class="org-right">0.0</td>
-<td class="org-right">0.0</td>
-</tr>
-
-<tr>
-<td class="org-left">Yasushi</td>
-<td class="org-right">0.1</td>
-<td class="org-right">0.0</td>
-<td class="org-right">0.4</td>
-<td class="org-right">0.0</td>
-<td class="org-right">0.0</td>
-</tr>
-
-<tr>
-<td class="org-left">Ray</td>
-<td class="org-right">0.1</td>
-<td class="org-right">0.3</td>
-<td class="org-right">0.0</td>
-<td class="org-right">0.0</td>
-<td class="org-right">0.0</td>
-</tr>
-
-<tr>
-<td class="org-left">* Rice</td>
-<td class="org-right">0.1</td>
-<td class="org-right">0.5</td>
-<td class="org-right">0.0</td>
-<td class="org-right">1.0</td>
-<td class="org-right">0.0</td>
-</tr>
-
-<tr>
-<td class="org-left">* Bread</td>
-<td class="org-right">0.7</td>
-<td class="org-right">0.0</td>
-<td class="org-right">0.2</td>
-<td class="org-right">0.0</td>
-<td class="org-right">1.0</td>
-</tr>
-</tbody>
-</table>
-
-<p>
-\[
-\ \begin{bmatrix}
-\ 0.0 & 0.2 & 0.4 & 0.0 & 0.0 \\
-\ 0.1 & 0.0 & 0.4 & 0.0 & 0.0 \\
-\ 0.1 & 0.3 & 0.0 & 0.0 & 0.0 \\
-\ 0.1 & 0.5 & 0.0 & 1.0 & 0.0 \\
-\ 0.7 & 0.0 & 0.2 & 0.0 & 1.0
-\ \end{bmatrix}
-\]
-</p>
-
-<ol class="org-ol">
-<li>results:</li>
-</ol>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-right" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">Plan</td>
-<td class="org-right">Votes</td>
-</tr>
-
-<tr>
-<td class="org-left">Rice</td>
-<td class="org-right">1.1725</td>
-</tr>
-
-<tr>
-<td class="org-left">fread</td>
-<td class="org-right">1.8275</td>
-</tr>
-</tbody>
-</table>
-
-<p>
-so we have bread this morning.
-</p>
-
-<ol class="org-ol">
-<li>influences:</li>
-</ol>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-right" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">Representative</td>
-<td class="org-right">influence</td>
-</tr>
-
-<tr>
-<td class="org-left">Minori</td>
-<td class="org-right">11.0</td>
-</tr>
-
-<tr>
-<td class="org-left">Yasushi</td>
-<td class="org-right">4.625</td>
-</tr>
-
-<tr>
-<td class="org-left">Ray</td>
-<td class="org-right">3.5</td>
-</tr>
-</tbody>
-</table>
-
-<p>
-Minori has the most influence for deciding breakfast.
-</p>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-org070f290" class="outline-3">
-<h3 id="org070f290"><span class="section-number-3">1.4</span> Math</h3>
-<div class="outline-text-3" id="text-1-4">
-<p>
-based on <a class='org-ref-reference' href="#suzuki2013nameteki">suzuki2013nameteki</a> ref pp 141-148
-</p>
-
-\begin{bmatrix}
-\ v_{11} & v_{12} & v_{13} & \cdots & v_{1n} & 0 & 0 & 0 & \cdots & 0 \\
-\ v_{21} & v_{22} & v_{23} & \cdots & v_{2n} & 0 & 0 & 0 & \cdots & 0 \\
-\ v_{31} & v_{32} & v_{33} & \cdots & v_{3n} & 0 & 0 & 0 & \cdots & 0 \\
-\ \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
-\ v_{n1} & v_{n2} & v_{n3} & \cdots & v_{nn} & 0 & 0 & 0 & \cdots & 0 \\
-\ v_{(n+1)1} & v_{(n+1)2} & v_{(n+1)3} & \cdots & v_{(n+1)n} & 1 & 0 & 0 & \cdots & 0 \\
-\ v_{(n+2)1} & v_{(n+2)2} & v_{(n+2)3} & \cdots & v_{(n+2)n} & 0 & 1 & 0 & \cdots & 0 \\
-\ v_{(n+3)1} & v_{(n+3)2} & v_{(n+3)3} & \cdots & v_{(n+3)n} & 0 & 0 & 1 & \cdots & \vdots \\
-\ \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \vdots & \ddots & 0 \\
-\ v_{(n+m)1} & v_{(n+m)2} & v_{(n+m)3} & \cdots & v_{(n+m)n} & 0 & 0 & \cdots & 0 & 1 \\
-\end{bmatrix}
-
-<p>
-\[
-\ A_{t+1} = VA_t
-\]
-</p>
-
-<p>
-where the \(V\) is the voting matrix and \(A_0\) is \(I\).
-when \(A'\) is the result with enough recusive operations that
-convergeses, the vote result is.
+各層のノードのは重みづけ \(W\) とバイアス \(b\) を求める最適化手法。
 </p>
 
 <p>
 \[
-a_i=\sum_{j=1}^{M} A'_{ij}   \; \textrm{for all} \; i
+\ z^{[l]}_i = W^{[l]}_i a^{[l-1]}_i + b^{[l]}
 \]
-</p>
-
-<p>
-the infulence of each member can be calculated by:
 </p>
 
 <p>
 \[
-\frac{\sum_{j=1}^{H} \sum_{t=0}^{\infty} A_{ij}(t)}{\sum_{t=0}^{\infty}
-A_{ii}(t)} \; \textrm{for all} \; 1 \leq i \leq H
+\ a^{[l]}_i = \sigma(z^{[l]})
 \]
 </p>
-</div>
-</div>
-</div>
 
-<div id="outline-container-org712b088" class="outline-2">
-<h2 id="org712b088"><span class="section-number-2">2</span> <span class="todo TODO">TODO</span> code</h2>
-<div class="outline-text-2" id="text-2">
 <p>
-↓　↓　↓
+ここで、それに加えて、非線形な関数 \(\sigma\) をはさんでいる。
 </p>
-</div>
+
+
+<div id="org01be24e" class="figure">
+<p><img src="images/layers_desision.png" alt="layers_desision.png" width="100%" />
+</p>
+<p><span class="figure-number">Figure 2: </span>our voting process</p>
 </div>
 
-<div id="outline-container-org4708d5e" class="outline-2">
-<h2 id="org4708d5e"><span class="section-number-2">3</span> let&rsquo;s try it out</h2>
-<div class="outline-text-2" id="text-3">
 <p>
-<a href="ornot_vote.html">ornot.vote</a>
+各入力が、次の全てのノードに対して、重みづけを行って*投票*しているのと変わらない。
+</p>
+
+
+<div id="org9857779" class="figure">
+<p><img src="images/dl_techniques.png" alt="dl_techniques.png" width="100%" />
+</p>
+<p><span class="figure-number">Figure 3: </span>other techniques used in DL</p>
+</div>
+
+<p>
+ある任意の層の出力を近接しない別の層に渡すのは、GRU(Gated Recurrent Unit)
+<a class='org-ref-reference' href="#chung2014empirical">chung2014empirical</a>, や LSTM (Long Short Term Memory)
+<a class='org-ref-reference' href="#hochreiter1997long">hochreiter1997long</a> で応用されている。-&gt;勾配消失問題。これは深いネットワークに対して、最初の方の層の重みづけが、最終的な結果に影響しにくいという問題を解決するために考えられている。ちょうど、人一人の一票が時として、最終的な政策や&ldquo;生活の向上に影響しない&rdquo;不満とも捉えられる。
+</p>
+
+<p>
+Convolution （畳み込み）は、各層への順伝搬(Forward Prop)時にいちいち完全グラフでは計算量が大きすぎるために、カーネルを用意して、各層間の繋がりを制限したもの。投票に置き換えると、都民が全ての公園に対する詳細な判断をするのは難しいし、コストがかかるので、自分の生活に関わる、（例えば地理的に近いとか、小さい子供がいるとか）といったことに対するトピックに限定して投票させることに近い。
 </p>
 
 <p>
 <h1 class='org-ref-bib-h1'>Bibliography</h1>
-<ul class='org-ref-bib'><li><a id="yamcha2010saikyo">[yamcha2010saikyo]</a> <a name="yamcha2010saikyo"></a>"飲茶 & 板垣, 史上最強の哲学入門, マガジン・マガジン (2010).</li>
-<li><a id="malone2018superminds">[malone2018superminds]</a> <a name="malone2018superminds"></a>Malone, Superminds: The surprising power of people and computers  thinking together, Little, Brown Spark (2018).</li>
-<li><a id="suzuki2013nameteki">[suzuki2013nameteki]</a> <a name="suzuki2013nameteki"></a>Suzuki, なめらかな社会とその敵: PICSY\textperiodcentered 分人民主  主義\textperiodcentered 構成的社会契約論, 勁草書房 (2013).</li>
+<ul class='org-ref-bib'><li><a id="chung2014empirical">[chung2014empirical]</a> <a name="chung2014empirical"></a>Chung, Gulcehre, Cho & Bengio, Empirical evaluation of gated recurrent neural networks on sequence modeling, <i>arXiv preprint arXiv:1412.3555</i>,  (2014).</li>
+<li><a id="hochreiter1997long">[hochreiter1997long]</a> <a name="hochreiter1997long"></a>Hochreiter & Schmidhuber, Long short-term memory, <i>Neural computation</i>, <b>9(8)</b>, 1735-1780 (1997).</li>
 </ul>
 </p>
 </div>
-</div>
-</div>
 <div id="postamble" class="status">
-<p class="date">Date: 2019-07-17</p>
+<p class="date">Date: 2021-01-22 11:48</p>
 <p class="author">Author: Yasushi Sakai</p>
 <p class="date">Created: 2021-01-22 Fri 21:41</p>
 </div>
