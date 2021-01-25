@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-25 Mon 09:24 -->
+<!-- 2021-01-24 Sun 09:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>index</title>
+<title>multi-signature</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Yasushi Sakai" />
 <style type="text/css">
@@ -217,27 +217,108 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
 <a href="http://yasushisakai.com">🏠</a>
 </div>
 <div id="content">
+<h1 class="title">multi-signature</h1>
+
 
 <p>
-memo
+trying to check if I understand the concept of it
 </p>
 
-<ul class="org-ul">
-<li><a href="makuhari_city_ws.html">Makuhari City WS</a></li>
 
-<li><a href="command_line_video.html">command line video</a></li>
-</ul>
+<p>
+the combination is \(nC_k\) where \(n\) is the total number of members,
+and \(k\) is the least required number of agreements.
+</p>
+
+<p>
+\[
+\ nC_k = \frac{n!}{k!(n-k)!}
+\]
+</p>
+
+<p>
+for example, if there were three people (the usual three), how many keys should
+that multi-sig hold?
+</p>
+
+<p>
+This will be \(3C_2\) which is 3.
+</p>
+
+<p>
+the combination is:
+</p>
+
+<p>
+<code>alice-bob</code>, <code>alice-charlie</code> and <code>bob-charlie</code>.
+</p>
+
+<p>
+if all three agreed, that should still pass, but it&rsquo;s effectively same as <code>alice-bob</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #81A1C1;">import</span> hashlib
+
+<span style="color: #D8DEE9;">alice</span> = hashlib.sha256(b<span style="color: #A3BE8C;">"alice"</span>).hexdigest()
+<span style="color: #D8DEE9;">bob</span> = hashlib.sha256(b<span style="color: #A3BE8C;">"bob"</span>).hexdigest()
+<span style="color: #D8DEE9;">charlie</span> = hashlib.sha256(b<span style="color: #A3BE8C;">"charlie"</span>).hexdigest()
+
+<span style="color: #6f7787;"># </span><span style="color: #6f7787;">within the three people, it passes when more than two of the people agrees.</span>
+
+
+<span style="color: #81A1C1;">def</span> <span style="color: #8FBCBB;">msig</span>(components):
+    <span style="color: #D8DEE9;">sig</span> = []
+
+    <span style="color: #81A1C1;">for</span> i <span style="color: #81A1C1;">in</span> <span style="color: #81A1C1;">range</span>(<span style="color: #81A1C1;">len</span>(components)):
+        <span style="color: #81A1C1;">for</span> j <span style="color: #81A1C1;">in</span> <span style="color: #81A1C1;">range</span>(i, <span style="color: #81A1C1;">len</span>(components)):
+            <span style="color: #81A1C1;">if</span> (i == j):
+                <span style="color: #81A1C1;">continue</span>
+            sig.push(hashlib.sha256(<span style="color: #81A1C1;">sorted</span>([components[i],components[j]]).join().<span style="color: #81A1C1;">bytes</span>(<span style="color: #A3BE8C;">'utf-8'</span>)).hexdigest())
+
+    <span style="color: #81A1C1;">return</span> sig
+
+<span style="color: #D8DEE9;">components</span> = [alice, bob, charlie]
+
+<span style="color: #D8DEE9;">sig</span> = msig(components)
+
+sig <span style="color: #81A1C1;">in</span> components
+
+</pre>
+</div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2021-01-21 11:05</p>
+<p class="date">Date: 2021-01-23 16:03</p>
 <p class="author">Author: Yasushi Sakai</p>
-<p class="date">Created: 2021-01-25 Mon 09:24</p>
+<p class="date">Created: 2021-01-24 Sun 09:53</p>
 </div>
 </body>
 </html>
