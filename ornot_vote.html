@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-22 Fri 21:37 -->
+<!-- 2021-01-28 Thu 06:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ornot.vote</title>
@@ -265,11 +265,42 @@ used for:
 <p>
 just to backup the state, before nuking&#x2026;.
 </p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -s https://ornot.vote/api/v1/topics | jq -rc <span style="color: #A3BE8C;">'.[][0]'</span> | awk <span style="color: #A3BE8C;">'{print "</span><span style="color: #A3BE8C;">curl</span><span style="color: #A3BE8C;"> -s https://ornot.vote/api/v1/topic/"$1" | jq .  &gt; topic_"$1".json"}'</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -s https://ornot.vote/api/v1/topic/AA4oVns1YhCRjmo9cJCGnH39s2T4TeG9fLyaQtGazfLu | jq .  &gt; topic_AA4oVns1YhCRjmo9cJCGnH39s2T4TeG9fLyaQtGazfLu.json
+<span style="color: #8FBCBB;">curl</span> -s https://ornot.vote/api/v1/topic/F2pQEdN7jNYniDSgcBsHKVoZNavTZma7rwgYMBzz6yFm | jq .  &gt; topic_F2pQEdN7jNYniDSgcBsHKVoZNavTZma7rwgYMBzz6yFm.json
+<span style="color: #8FBCBB;">curl</span> -s https://ornot.vote/api/v1/topic/B7WV2tdkJjGwBTCWazM8Yvw4F9ZFFUctZfKHf6fUeiQQ | jq .  &gt; topic_B7WV2tdkJjGwBTCWazM8Yvw4F9ZFFUctZfKHf6fUeiQQ.json
+<span style="color: #8FBCBB;">curl</span> -s https://ornot.vote/api/v1/topic/AB9uxDM42uZBwXNvHr4xw8NAhgs7AdsjB5J3z3BkXe8J | jq .  &gt; topic_AB9uxDM42uZBwXNvHr4xw8NAhgs7AdsjB5J3z3BkXe8J.json
+<span style="color: #8FBCBB;">curl</span> -s https://ornot.vote/api/v1/topic/8PQPLAG3Adhcd6Y5HbbMxXjcLnd34c8yT8xQgReyBDDC | jq .  &gt; topic_8PQPLAG3Adhcd6Y5HbbMxXjcLnd34c8yT8xQgReyBDDC.json
+<span style="color: #8FBCBB;">curl</span> -s https://ornot.vote/api/v1/topic/E5Jp7VUFZSLjrPkV1AyeMuGgbMmC2kAE7zERTPW3YvJe | jq .  &gt; topic_E5Jp7VUFZSLjrPkV1AyeMuGgbMmC2kAE7zERTPW3YvJe.json
+<span style="color: #8FBCBB;">curl</span> -s https://ornot.vote/api/v1/topic/2FUsnGggm1UsAY4isD1xMncXaKacLscfZHr4EfzPWEUU | jq .  &gt; topic_2FUsnGggm1UsAY4isD1xMncXaKacLscfZHr4EfzPWEUU.json
+<span style="color: #8FBCBB;">curl</span> -s https://ornot.vote/api/v1/topic/6yb1gJdfyZosCtWhcjSadYmkFT3ErNNRmNpHboohuL1 | jq .  &gt; topic_6yb1gJdfyZosCtWhcjSadYmkFT3ErNNRmNpHboohuL1.json
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">find</span> topic*.json
+</pre>
+</div>
 </div>
 </div>
 
+
+
+
+
+
+
+
+
+
 <div id="outline-container-orge26b0c8" class="outline-2">
-<h2 id="orge26b0c8"><span class="section-number-2">2</span> <span class="todo TODO">TODO</span> look for CUDA implementation for the matrix manipulation</h2>
+<h2 id="orge26b0c8"><span class="section-number-2">2</span> <span class="done DONE">DONE</span> look for CUDA implementation for the matrix manipulation</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 the calculation is simple enough
@@ -650,7 +681,7 @@ second time should not calculate
 <div id="postamble" class="status">
 <p class="date">Date: 2021-01-16 13:58</p>
 <p class="author">Author: Yasushi Sakai</p>
-<p class="date">Created: 2021-01-22 Fri 21:37</p>
+<p class="date">Created: 2021-01-28 Thu 06:52</p>
 </div>
 </body>
 </html>
