@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-01-30 Sat 15:23 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Yasushi Sakai (酒井 康史)</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Yasushi Sakai" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="http://yasushisakai.com">🏠</a>
+</div>
+<div id="content">
+<h1 class="title">Yasushi Sakai (酒井 康史)</h1>
+
+
+<div id="org80522e1" class="figure">
+<p><img src="images/me_2019_square.jpg" alt="me_2019_square.jpg" width="100%" />
+</p>
+</div>
+
+<p>
+<a href="images/me_2019.jpg">high resolution image</a>
+</p>
+
+<p>
+(日本語<a href="#org1063a6b">略歴は一番下にあります</a>)
+</p>
+
+<p>
+Yasushi Sakai is a researcher, artist, and an architect that lives in the
+computer terminal. Currently a research assistant and a Phd candidate at the MIT
+Media Lab CityScience group, his work scales from designing micro controller
+schematics from mega structures, converting tangible artifacts to intangible
+experiences.
+</p>
+
+<p>
+His interest focuses on the blurry distinction between machine and human from
+the perspective of intelligence and methods of creation including large scale
+city planning that incorporates social aspects of this collective machine as a
+whole.
+</p>
+
+<p>
+His work has been selected to the Siggraph Art Exhibition (2018), Chile Biennial
+Art Exhibition (2017) and Japan Media Art Festival(2015) along with winning
+hackathons such as the Art Hack Day (2015), and World Bank&rsquo;s global innovation
+challenge(2015).
+</p>
+
+<div id="outline-container-orgccc2299" class="outline-2">
+<h2 id="orgccc2299"><span class="section-number-2">1</span> Employments</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>2011 - 2015 Architect, <b>Nikken Sekkei</b>, Architectural Design Department, Digital Design Lab</li>
+
+<li>2011 (internship) <b>MEME</b>, Boston, MA
+assistant for scripting</li>
+
+<li>2010 (internship) <b>Ryoji Ikeda</b>, remote
+assistant in CG modelling, rendering, architectural drawings for exhibitions</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0b5cb66" class="outline-2">
+<h2 id="org0b5cb66"><span class="section-number-2">2</span> Education</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>2018-202? Media Arts and Science, Massachusetts Institute of Technology, PhD</li>
+<li>2017-2015 Media Arts and Science, Massachusetts Institute of Technology, M.S</li>
+<li>2010-2008 Environmental Design and Governance, Keio University (Japan), M.A</li>
+<li>2008-2010 Environmental Information, Keio University, B.A</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9b18987" class="outline-2">
+<h2 id="org9b18987"><span class="section-number-2">3</span> Awards / Exhibits</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orga329adf" class="outline-3">
+<h3 id="orga329adf"><span class="section-number-3">3.1</span> 2018</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li><a href="https://dl.acm.org/citation.cfm?id=3207676">SIGGRAPH Art Gallery *</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf33abf8" class="outline-3">
+<h3 id="orgf33abf8"><span class="section-number-3">3.2</span> 2017</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li><a href="http://www.bienaldeartesmediales.cl/13/en/obra/diastrofismos/">Chile Biennale *</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org000e4d7" class="outline-3">
+<h3 id="org000e4d7"><span class="section-number-3">3.3</span> 2014</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li><a href="http://archive.j-mediaarts.jp/festival/2014/entertainment/works/18ej_lmnarchitecturecom/">18th Japan Media Arts Festival, Jury Selection **</a></li>
+<li>100 Innovators of the Next Era, Elected</li>
+<li>Code for Resilience Global Innovation Challenge, Grand Prize, World Bank, London</li>
+<li><a href="http://algodeq.org/?page=award_list">ALGODEeQ -international programming competition for architecture, cities, and general design-, Grand Prize**</a></li>
+<li>Art Hack Day 2014, Golden Art Hack Award, Tokyo</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org11af0f8" class="outline-3">
+<h3 id="org11af0f8"><span class="section-number-3">3.4</span> 2010</h3>
+<div class="outline-text-3" id="text-3-4">
+<ul class="org-ul">
+<li>Excellent Undergraduate Architectural Design Exhibition, Elected, Lemon Gasui</li>
+<li>Shigeru Ito prize, Grand Prize, Keio University</li>
+</ul>
+
+
+<p>
+*​: collaboration with Nicole L&rsquo;Huillier and Thomas Sanchez
+</p>
+
+<p>
+**​: collaboration with Daisuke Tsunoda
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaf47a39" class="outline-2">
+<h2 id="orgaf47a39"><span class="section-number-2">4</span> Publication</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li><i>Jett-sen: A Mobile Sensor Fusion Platform for City Knowledge Abstraction</i> Andres Rico, Yasushi Sakai</li>
+
+<li><i>Diastrofismos</i> Thresholds vol47: Repeat, Nicole L&rsquo;Huillier, Thomas Sanchez, Yasushi Sakai</li>
+
+<li>Alonso, L., et al. <a href="https://link.springer.com/chapter/10.1007/978-3-319-96661-8_27">CityScope: A Data-Driven Interactive Simulation Tool for
+Urban Design. Use Case Volpe</a>, ICC 2018, <a href="https://citation-needed.springer.com/v2/references/10.1007/978-3-319-96661-8_27?format=bibtex&amp;flavour=citation">cite</a></li>
+
+<li>Noyman, Ariel, Yasushi Sakai, and K. Larson. &ldquo;Cityscopear: urban design and
+crowdsourced engagement platform.&rdquo; CHI 2018 CHI Conference on Human Factors in
+Computing Systems 2018.  <a href="https://scholar.google.com/scholar?cluster=3129263634454241079&amp;hl=en&amp;as_sdt=40000005&amp;sciodt=0,22">cite</a></li>
+
+<li><i><a href="https://link.springer.com/chapter/10.1007/978-3-319-24208-8_32">Implementation of Decentralized Version Control in Collective Design
+Modelling</a></i>, Design Modelling Symposium 2015, Yasushi Sakai, Tsunoda Daisuke</li>
+
+<li><i>Potentials in Applying Collective Intelligence in Architecture, 35th
+Informatics, Systems, Technology Symposium</i>, AIJ (Architectural Institute of
+Japan), Tokyo, Yasushi Sakai</li>
+
+<li><i>Analyzing Spatial Complexity within the Neighborhood of Visual Cognition</i>,</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7a3314c" class="outline-2">
+<h2 id="org7a3314c"><span class="section-number-2">5</span> Media</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>2014 100 Innovators of the Next Era <b>Nikkei Architeture</b></li>
+<li>2010 House in Hanegi Park - Cherry <b>Jyutaku-Tokushu (住宅特集)</b> design assistant</li>
+<li>2010 Temporary Shelter for Haiti Earthquake refugees, participated as project manager <b>Shinkenchiku (新建築)</b></li>
+<li>2008 Hualin Temporary elementary school (Chengdu, China) <b>Shinkenchiku (新建築)</b> construction assistant</li>
+<li>2008 Case study House-13 -Atelier of Stained Glass Artist-  design assistant</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org65ca111" class="outline-2">
+<h2 id="org65ca111"><span class="section-number-2">6</span> Skills</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>CAD/BIM and visual programming software (Revit, ArchiCAD, Rhinoceros, Grasshopper)</li>
+<li>Circuitry Design, microcontrollers(ATMEGA)</li>
+<li>Programming, in the order love (Rust, swift, JavaScript(TypeScript), python, JAVA(processing/Android),
+C++, C#, PHP)</li>
+<li>and most importantly GIT</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgdf86fff" class="outline-2">
+<h2 id="orgdf86fff"><span class="section-number-2">7</span> 略歴 <a id="org1063a6b"></a></h2>
+<div class="outline-text-2" id="text-7">
+<p>
+1985 年生まれ。日建設計/デジタルデザインラボを経て、現在 MIT Media Lab 博士課程兼リサーチアシスタント。人とテクノロジーの関係を探りつつ、なかでも&ldquo;都市という機械&rdquo;
+を対象に研究する。分散ヴァージョン管理システムや新しい民主プロセスを参照し、建築や都市における集団的合意形成をサポートするシステムの開発に携わる。
+</p>
+
+<p>
+業績としてクーパーヒューイット美術館(米国 NY 州, 2018)や Siggraph(カナダ, 2018)など展示や、文化庁メディア芸術祭審査員推薦作品(2014)や Golden Art Hack Award(2014)などの受賞がある。
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2020-03-20</p>
+<p class="author">Author: Yasushi Sakai</p>
+<p class="date">Created: 2021-01-30 Sat 15:23</p>
+</div>
+</body>
+</html>

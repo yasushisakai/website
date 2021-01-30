@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-28 Thu 06:52 -->
+<!-- 2021-01-30 Sat 15:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ornot.vote</title>
@@ -258,59 +258,13 @@ used for:
 <li><a href="makuhari_city_ws.html">Makuhari City WS</a></li>
 </ol>
 
-
-<div id="outline-container-org8511343" class="outline-2">
-<h2 id="org8511343"><span class="section-number-2">1</span> <span class="todo TODO">TODO</span> dump data base</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-just to backup the state, before nuking&#x2026;.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -s https://ornot.vote/api/v1/topics | jq -rc <span style="color: #A3BE8C;">'.[][0]'</span> | awk <span style="color: #A3BE8C;">'{print "</span><span style="color: #A3BE8C;">curl</span><span style="color: #A3BE8C;"> -s https://ornot.vote/api/v1/topic/"$1" | jq .  &gt; topic_"$1".json"}'</span>
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -s https://ornot.vote/api/v1/topic/AA4oVns1YhCRjmo9cJCGnH39s2T4TeG9fLyaQtGazfLu | jq .  &gt; topic_AA4oVns1YhCRjmo9cJCGnH39s2T4TeG9fLyaQtGazfLu.json
-<span style="color: #8FBCBB;">curl</span> -s https://ornot.vote/api/v1/topic/F2pQEdN7jNYniDSgcBsHKVoZNavTZma7rwgYMBzz6yFm | jq .  &gt; topic_F2pQEdN7jNYniDSgcBsHKVoZNavTZma7rwgYMBzz6yFm.json
-<span style="color: #8FBCBB;">curl</span> -s https://ornot.vote/api/v1/topic/B7WV2tdkJjGwBTCWazM8Yvw4F9ZFFUctZfKHf6fUeiQQ | jq .  &gt; topic_B7WV2tdkJjGwBTCWazM8Yvw4F9ZFFUctZfKHf6fUeiQQ.json
-<span style="color: #8FBCBB;">curl</span> -s https://ornot.vote/api/v1/topic/AB9uxDM42uZBwXNvHr4xw8NAhgs7AdsjB5J3z3BkXe8J | jq .  &gt; topic_AB9uxDM42uZBwXNvHr4xw8NAhgs7AdsjB5J3z3BkXe8J.json
-<span style="color: #8FBCBB;">curl</span> -s https://ornot.vote/api/v1/topic/8PQPLAG3Adhcd6Y5HbbMxXjcLnd34c8yT8xQgReyBDDC | jq .  &gt; topic_8PQPLAG3Adhcd6Y5HbbMxXjcLnd34c8yT8xQgReyBDDC.json
-<span style="color: #8FBCBB;">curl</span> -s https://ornot.vote/api/v1/topic/E5Jp7VUFZSLjrPkV1AyeMuGgbMmC2kAE7zERTPW3YvJe | jq .  &gt; topic_E5Jp7VUFZSLjrPkV1AyeMuGgbMmC2kAE7zERTPW3YvJe.json
-<span style="color: #8FBCBB;">curl</span> -s https://ornot.vote/api/v1/topic/2FUsnGggm1UsAY4isD1xMncXaKacLscfZHr4EfzPWEUU | jq .  &gt; topic_2FUsnGggm1UsAY4isD1xMncXaKacLscfZHr4EfzPWEUU.json
-<span style="color: #8FBCBB;">curl</span> -s https://ornot.vote/api/v1/topic/6yb1gJdfyZosCtWhcjSadYmkFT3ErNNRmNpHboohuL1 | jq .  &gt; topic_6yb1gJdfyZosCtWhcjSadYmkFT3ErNNRmNpHboohuL1.json
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-bash"><span style="color: #8FBCBB;">find</span> topic*.json
-</pre>
-</div>
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-<div id="outline-container-orge26b0c8" class="outline-2">
-<h2 id="orge26b0c8"><span class="section-number-2">2</span> <span class="done DONE">DONE</span> look for CUDA implementation for the matrix manipulation</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-the calculation is simple enough
-</p>
-</div>
+<div id="outline-container-org671e0a5" class="outline-2">
+<h2 id="org671e0a5"><span class="section-number-2">1</span> <span class="todo TODO">TODO</span> restore database</h2>
 </div>
 
 <div id="outline-container-org0a012fe" class="outline-2">
-<h2 id="org0a012fe"><span class="section-number-2">3</span> <span class="todo TODO">TODO</span> cool user graphical interface</h2>
-<div class="outline-text-2" id="text-3">
+<h2 id="org0a012fe"><span class="section-number-2">2</span> <span class="todo TODO">TODO</span> cool user graphical interface</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 use p5js or hand crafted svgs?
 </p>
@@ -318,8 +272,8 @@ use p5js or hand crafted svgs?
 </div>
 
 <div id="outline-container-org13dc5c9" class="outline-2">
-<h2 id="org13dc5c9"><span class="section-number-2">4</span> <span class="todo TODO">TODO</span> make it possible to trace votes</h2>
-<div class="outline-text-2" id="text-4">
+<h2 id="org13dc5c9"><span class="section-number-2">3</span> <span class="todo TODO">TODO</span> make it possible to trace votes</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 the data structure holds a forward chain, but the
 front end does not let us see it.
@@ -327,9 +281,40 @@ front end does not let us see it.
 </div>
 </div>
 
-<div id="outline-container-org42de3f8" class="outline-2">
-<h2 id="org42de3f8"><span class="section-number-2">5</span> <span class="done DONE">DONE</span> svelte side</h2>
+<div id="outline-container-org8511343" class="outline-2">
+<h2 id="org8511343"><span class="section-number-2">4</span> <span class="done DONE">DONE</span> dump data base</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+there should be an endpoint for dumping the whole thing.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> localhost:8080/api/v1/dump
+</pre>
+</div>
+
+<p>
+will output a tuple
+</p>
+
+<p>
+you can back up the redis itself too&#x2026; <a href="redis.html">redis</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge26b0c8" class="outline-2">
+<h2 id="orge26b0c8"><span class="section-number-2">5</span> <span class="done DONE">DONE</span> look for CUDA implementation for the matrix manipulation</h2>
 <div class="outline-text-2" id="text-5">
+<p>
+the calculation is simple enough
+</p>
+</div>
+</div>
+
+<div id="outline-container-org42de3f8" class="outline-2">
+<h2 id="org42de3f8"><span class="section-number-2">6</span> <span class="done DONE">DONE</span> svelte side</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 general refactoring is needed
 </p>
@@ -337,8 +322,8 @@ general refactoring is needed
 </div>
 
 <div id="outline-container-orgf4dac9b" class="outline-2">
-<h2 id="orgf4dac9b"><span class="section-number-2">6</span> <span class="done DONE">DONE</span> Settings should just link to result</h2>
-<div class="outline-text-2" id="text-6">
+<h2 id="orgf4dac9b"><span class="section-number-2">7</span> <span class="done DONE">DONE</span> Settings should just link to result</h2>
+<div class="outline-text-2" id="text-7">
 <p>
 want to make a forward chain data structure within Results
 </p>
@@ -357,8 +342,8 @@ to make sure it&rsquo;s reproducible, we need to get the commit it of the progra
 </div>
 
 <div id="outline-container-org5fa4a1b" class="outline-2">
-<h2 id="org5fa4a1b"><span class="section-number-2">7</span> <span class="done DONE">DONE</span> nuclear handle with care!!</h2>
-<div class="outline-text-2" id="text-7">
+<h2 id="org5fa4a1b"><span class="section-number-2">8</span> <span class="done DONE">DONE</span> nuclear handle with care!!</h2>
+<div class="outline-text-2" id="text-8">
 <p>
 this deletes everything.
 </p>
@@ -372,8 +357,8 @@ this deletes everything.
 
 
 <div id="outline-container-orge225774" class="outline-2">
-<h2 id="orge225774"><span class="section-number-2">8</span> <span class="done DONE">DONE</span> make token:user<sub>id</sub> data base</h2>
-<div class="outline-text-2" id="text-8">
+<h2 id="orge225774"><span class="section-number-2">9</span> <span class="done DONE">DONE</span> make token:user<sub>id</sub> data base</h2>
+<div class="outline-text-2" id="text-9">
 <p>
 auth relying on GET-ing the whole user object, which I should hold a separate look up
 that has <code>access_token:user_id</code>
@@ -395,11 +380,11 @@ to address this, we need invalidate(DEL) the previous temp<sub>code</sub>
 </div>
 
 <div id="outline-container-org0727e2a" class="outline-2">
-<h2 id="org0727e2a"><span class="section-number-2">9</span> <span class="done DONE">DONE</span> tokens, codes should be base58</h2>
+<h2 id="org0727e2a"><span class="section-number-2">10</span> <span class="done DONE">DONE</span> tokens, codes should be base58</h2>
 </div>
 <div id="outline-container-org11484ea" class="outline-2">
-<h2 id="org11484ea"><span class="section-number-2">10</span> <span class="done DONE">DONE</span> APIs for Auth</h2>
-<div class="outline-text-2" id="text-10">
+<h2 id="org11484ea"><span class="section-number-2">11</span> <span class="done DONE">DONE</span> APIs for Auth</h2>
+<div class="outline-text-2" id="text-11">
 <ol class="org-ol">
 <li><p>
 user asks for a temp code
@@ -470,8 +455,8 @@ testing out the master key
 </div>
 
 <div id="outline-container-orgfb19c7e" class="outline-2">
-<h2 id="orgfb19c7e"><span class="section-number-2">11</span> <span class="done DONE">DONE</span> force add users</h2>
-<div class="outline-text-2" id="text-11">
+<h2 id="orgfb19c7e"><span class="section-number-2">12</span> <span class="done DONE">DONE</span> force add users</h2>
+<div class="outline-text-2" id="text-12">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 7: </span>sign-up</label><pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST -d <span style="color: #A3BE8C;">'{"nickname":"yasushi", "email":"yasushisakai@pm.me"}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> https://ornot.vote/api/v1/user/signup | jq
 </pre>
@@ -486,8 +471,8 @@ testing out the master key
 </div>
 
 <div id="outline-container-orgf844bfb" class="outline-2">
-<h2 id="orgf844bfb"><span class="section-number-2">12</span> <span class="done DONE">DONE</span> debugging (normal path)</h2>
-<div class="outline-text-2" id="text-12">
+<h2 id="orgf844bfb"><span class="section-number-2">13</span> <span class="done DONE">DONE</span> debugging (normal path)</h2>
+<div class="outline-text-2" id="text-13">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST -d <span style="color: #A3BE8C;">'{"nickname":"alice", "email":"alice@test.com"}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> https://ornot.vote/api/v1/user/force_add &amp;&amp; <span style="color: #A3BE8C;">\</span>
 <span style="color: #8FBCBB;">curl</span> -X POST -d <span style="color: #A3BE8C;">'{"nickname":"bob", "email":"bob@test.com"}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> https://ornot.vote/api/v1/user/force_add &amp;&amp; <span style="color: #A3BE8C;">\</span>
@@ -646,8 +631,8 @@ second time should not calculate
 </div>
 
 <div id="outline-container-org7b2b876" class="outline-2">
-<h2 id="org7b2b876"><span class="section-number-2">13</span> <span class="done DONE">DONE</span> get setting, raw calculate</h2>
-<div class="outline-text-2" id="text-13">
+<h2 id="org7b2b876"><span class="section-number-2">14</span> <span class="done DONE">DONE</span> get setting, raw calculate</h2>
+<div class="outline-text-2" id="text-14">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X GET https://ornot.vote/api/v1/setting/Gw7GroDLi62unVKGhJzd7cbxxvp42rcnvTwqqaWXVjye
 </pre>
@@ -681,7 +666,7 @@ second time should not calculate
 <div id="postamble" class="status">
 <p class="date">Date: 2021-01-16 13:58</p>
 <p class="author">Author: Yasushi Sakai</p>
-<p class="date">Created: 2021-01-28 Thu 06:52</p>
+<p class="date">Created: 2021-01-30 Sat 15:33</p>
 </div>
 </body>
 </html>
