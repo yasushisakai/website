@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-01-31 Sun 10:41 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Votables</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Yasushi Sakai" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="http://yasushisakai.com">🏠</a>
+</div>
+<div id="content">
+<h1 class="title">Votables</h1>
+
+<p>
+For <a href="ornot_vote.html">ornot.vote</a>, I just started to use one &rsquo;string&rsquo; to represent a plan, because
+I knew this is a complicated topic how to define what a vote is or a &rsquo;votable&rsquo;
+is, even when mechanically writing <a href="https://doc.rust-lang.org/rust-by-example/trait.html">traits</a>.
+</p>
+
+<p>
+I can imagine this topic going all over the place, from technical implementation
+to philosophical statements.
+</p>
+
+<p>
+This is a memo how to start thinking about different votes and voters. Perhaps I
+name this abstract concept a &rsquo;Votable&rsquo;: Something that can and could be voted
+to.
+</p>
+
+<p>
+&rsquo;Votables&rsquo; can vote for&#x2026;.
+</p>
+
+<div id="outline-container-orgbb3cd8c" class="outline-2">
+<h2 id="orgbb3cd8c"><span class="section-number-2">1</span> 1. itself</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+It&rsquo;s a somewhat non intuitive from the beginning, but this is important. To get
+down the point, in order to capture the overall points to a plan, the plan needs
+to vote for solely itself. By making it vote for it selves, from the voting
+Matrix point of view, this creates a drain to suck every vote that was cast
+into.
+</p>
+
+<p>
+In contrast, the discussion of whether people should be able to vote for
+themselves is another thing. The general fact is to avoid every one casting
+their whole vote to themselves. If this happens, together with the fact that
+every plan votes for themselves, the result of the poll will be undefined.
+</p>
+
+<p>
+This gets increasingly unlikely if we have more participants, since the
+dimension of the matrix will follow. (really?)
+</p>
+
+<p>
+For the system, I&rsquo;m thinking to apply the &rsquo;one can not vote to him/herself&rsquo;
+rule, in favor of the stable output. This is because this tool is to help
+building consensus, but it&rsquo;s worth putting it in words that this is a deliberate
+design decision on purpose. This might change.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd29a8d8" class="outline-2">
+<h2 id="orgd29a8d8"><span class="section-number-2">2</span> 2. a plan.</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+In simple terms one can image &rsquo;plan&rsquo;s like &rsquo;ramen&rsquo;, &rsquo;kung pao chiken&rsquo;,
+&rsquo;pizza&rsquo;, &rsquo;sushi&rsquo;. When you want to decide what to eat.
+</p>
+
+<p>
+Yet these things could have different abstractness.
+</p>
+
+<p>
+&rsquo;Ramen&rsquo; could be specific type of Ramen, like &rsquo;Shio (<i>Salt:塩</i>)&rsquo; or &rsquo;Shoyu (<i>Soy
+sauce:醤油</i>)&rsquo; or &rsquo;Miso (<i>fermented bean paste:味噌</i>)&rsquo;. It could be also point to
+a signature dish at a specific Ramen place.
+</p>
+
+<p>
+Some options could be generalized (categorized), like &rsquo;ramen&rsquo; and &rsquo;sushi&rsquo;
+can be generalized to &rsquo;Japanese&rsquo;. Japanese could be generalized to Asian,
+with the combination of &rsquo;Chinese&rsquo;.
+</p>
+
+<p>
+But wait, there is even more abstractness&#x2026; why are we deciding on what to
+eat, when did we build consensus on this. Isn&rsquo;t considering how to save
+earth is the absolute top priority? Just for a simple &rsquo;text&rsquo; based option,
+if you think about generalization and categorization or in the terms of
+mathematical sets, it&rsquo;s interesting how abstract a &rsquo;votable&rsquo; thing is..
+</p>
+
+<p>
+Another discussion is the interface of the votes. Form the time being, plans are
+only expressive in the form of words, and the whole motivation to write this
+memo was to think about what other form should a plan take. A simple word like
+&rsquo;ramen&rsquo; is a pointer to the actual dish with hot animal broth with noodles. So
+even a &rsquo;word&rsquo; plan is a link. In the era of all information connected together,
+via the www, this usually means that any form of link could work. Like an url.
+This could also be a image. Here is other things I think it should be considered
+as plans.
+</p>
+
+<ul class="org-ul">
+<li>url</li>
+<li>image</li>
+<li>geolocation
+<ul class="org-ul">
+<li>point</li>
+<li>geofences</li>
+</ul></li>
+</ul>
+
+<p>
+Putting in &rsquo;smart contracts&rsquo; in the loop, a plan could be a function written in
+machine language, or in other words, an algorithm. Yet, this starts to look like
+a very different thing then simple options like &rsquo;ramen&rsquo; or an image of an fancy
+architectural rendering. I think is safe to put algorithms in the next category.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org32bf99d" class="outline-2">
+<h2 id="org32bf99d"><span class="section-number-2">3</span> 3. then comes the indirect component - we humans?</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Similar to algorithms we humans can be also a generalized bag of plans, we want
+to treat it so much different compared to inanimate &rsquo;plans&rsquo; like ramen.
+</p>
+
+<p>
+but more I develop it and feel the flow of the votes trying to converge, the
+difference is very subtle. Only one principal that a human can vote to any other
+plan or voter. As we thought about defining a plans is, some plans are
+relatively abstract then others. (Like japanese, ramen) these can vote for other
+votes, not to humans.
+</p>
+
+<p>
+The difference in abstractness within these dynamic voters is none. Meaning, if
+we have a group of people, for example a Senete, it has the same function as one
+individual voter, expect that it is an artificial group that consists by people
+assumed that we (or it) has more aggregated power.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfce5790" class="outline-2">
+<h2 id="orgfce5790"><span class="section-number-2">4</span> 4. Vote through time</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Not voting is widely considered unethical and I heard it is subject to
+prosecution in some places. But this can mean a lot of things. It could come
+from pure laziness. It could come from lacking confidence that the voter is
+not ready to decide given the amount of considerations that needs to take
+place, or positively endorsing other &rsquo;votables&rsquo;, declaring I voting for what
+ever the future result is. But if you can vote for the present or the future,
+there might be options to vote for the past. So a there might be a &rsquo;votable&rsquo;
+that points to the past.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org63f3316" class="outline-2">
+<h2 id="org63f3316"><span class="section-number-2">5</span> 5. Generalization</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+so how to distinguish types of votes is a deep path down the road. The most
+generalized definition I think is, a &rsquo;votable&rsquo; is an actor that votes for any
+number of other voters. I feel like [needs citation] it&rsquo;s close to the
+definition of Gottfried Wilhelm Leibniz, &rsquo;monad&rsquo; where the most smallest unit of the
+universe is this abstract entity that reflects it self.
+</p>
+
+<p>
+But this isn&rsquo;t too much useful when you want to make structures when you are programming.
+</p>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">can vote to</td>
+<td class="org-left">atomic plan</td>
+<td class="org-left">hyper plan</td>
+<td class="org-left">person</td>
+<td class="org-left">organization</td>
+<td class="org-left">poll</td>
+</tr>
+
+<tr>
+<td class="org-left">atomic</td>
+<td class="org-left">yes</td>
+<td class="org-left">yes</td>
+<td class="org-left">yes</td>
+<td class="org-left">yes</td>
+<td class="org-left">yes</td>
+</tr>
+
+<tr>
+<td class="org-left">hyper plan</td>
+<td class="org-left">no</td>
+<td class="org-left">yes</td>
+<td class="org-left">yes</td>
+<td class="org-left">yes</td>
+<td class="org-left">yes</td>
+</tr>
+
+<tr>
+<td class="org-left">person</td>
+<td class="org-left">no</td>
+<td class="org-left">no</td>
+<td class="org-left">yes</td>
+<td class="org-left">yes</td>
+<td class="org-left">yes</td>
+</tr>
+
+<tr>
+<td class="org-left">org</td>
+<td class="org-left">no</td>
+<td class="org-left">no</td>
+<td class="org-left">yes</td>
+<td class="org-left">yes</td>
+<td class="org-left">yes</td>
+</tr>
+
+<tr>
+<td class="org-left">poll</td>
+<td class="org-left">no</td>
+<td class="org-left">no</td>
+<td class="org-left">yes</td>
+<td class="org-left">yes</td>
+<td class="org-left">yes</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+a poll is an result from a different time zone.
+</p>
+
+<p>
+Another difference is atomic plans are static, they do not change their voting
+behavior. Hyper plans are deterministic. Once there is a clear consensus that
+Ramen is a type of Japanese dish, that categorization doesn&rsquo;t change too much
+often. Yet there will be some subtleties here, since Ramen might be considered
+Italian in the future. But for the sake of developing I think it&rsquo;s safe to
+assume that once an atomic plan is thought to be inside a hyper plan, it won&rsquo;t
+change within a single voting process. But the other way around is different, as
+atomic plans are added, the set of that hyper plan will alter. This structured
+feature is shared with organizations and polls. The behavior of voting is
+predictable. People&rsquo;s voting behavior is the most non deterministic. Essentially
+they are the ones to add other modes of &rsquo;vot-ables&rsquo; including other people and categories.
+</p>
+
+<p>
+(static) atomic plan &gt; (deterministic) &gt; hyper plans, polls, organization &gt; (non-deterministic) people
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-01-31 08:24</p>
+<p class="author">Author: Yasushi Sakai</p>
+<p class="date">Created: 2021-01-31 Sun 10:41</p>
+</div>
+</body>
+</html>
