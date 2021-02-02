@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-02-02 Tue 04:42 -->
+<!-- 2021-02-02 Tue 11:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ornot.vote</title>
@@ -285,6 +285,7 @@ ref: <a href="votables.html">votables</a>
 </div>
 </div>
 
+
 <div id="outline-container-org20c5de2" class="outline-3">
 <h3 id="org20c5de2"><span class="section-number-3">1.1</span> directly add a plan to topic</h3>
 <div class="outline-text-3" id="text-1-1">
@@ -303,13 +304,18 @@ first, add a new topic
 </pre>
 </div>
 
-<div class="code" id="orga9fe25c">
+<div class="code" id="org36445f0">
 <p>
 &ldquo;5E2syfDP3qqxessoAQww6u3kQW3TrSU3Wg1NJVNLV8x3&rdquo;
 </p>
 
 </div></li>
+</ol>
 
+
+
+
+<ol class="org-ol">
 <li><p>
 then add a new plan to that topic
 </p>
@@ -322,9 +328,15 @@ this case is using a simple plan.
 <div class="org-src-container">
 <pre class="src src-bash">   <span style="color: #8FBCBB;">curl</span> -X POST -d <span style="color: #A3BE8C;">'{"type":"simple", "data":"test plan"}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> localhost:8080/api/v1/topic/5E2syfDP3qqxessoAQww6u3kQW3TrSU3Wg1NJVNLV8x3/new_plan
 </pre>
+</div></li>
+</ol>
+
+<div class="org-src-container">
+<pre class="src src-bash">   <span style="color: #8FBCBB;">curl</span> -X POST -d <span style="color: #A3BE8C;">'{"type":"image", "data":"https://yasushisakai.com/images/me_2019_square.jpg"}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> localhost:8080/api/v1/topic/ryfJLbHJQ3tjcWn9sAYJDkz3NNpEMck3oZR5iBK4Cec/new_plan
+</pre>
 </div>
 
-<div class="code" id="orgcf6c999">
+<div class="code" id="org4b8e2f9">
 <p>
 [&ldquo;5E2syfDP3qqxessoAQww6u3kQW3TrSU3Wg1NJVNLV8x3&rdquo;,&ldquo;FP3FzRKprwjoDMRjTQ1X4thLEzeUJyHX5mrGCCrEACRi&rdquo;]
 </p>
@@ -333,8 +345,7 @@ this case is using a simple plan.
 
 <p>
 this will return the topic id and the plan id.
-</p></li>
-</ol>
+</p>
 </div>
 </div>
 
@@ -347,7 +358,7 @@ this will return the topic id and the plan id.
 </div>
 
 
-<div class="code" id="orgbfa59c5">
+<div class="code" id="orged52f4a">
 <p>
 &ldquo;gmq8jjszakwdv53laeg6zhvcsmwgeyugwgfsbz46uib&rdquo;
 </p>
@@ -359,7 +370,7 @@ this will return the topic id and the plan id.
 </pre>
 </div>
 
-<div class="code" id="org849a1df">
+<div class="code" id="org468b8b7">
 <p>
 {&ldquo;type&rdquo;:&ldquo;simple&rdquo;,&ldquo;data&rdquo;:&ldquo;simple plan example&rdquo;}
 </p>
@@ -376,7 +387,7 @@ this will return the topic id and the plan id.
 </pre>
 </div>
 
-<div class="code" id="org9dd0112">
+<div class="code" id="org7d17863">
 <p>
 &ldquo;hledzqqm166yqyarhnplbmfznw3qq1ge4pmhn9kah4ql&rdquo;
 </p>
@@ -388,7 +399,7 @@ this will return the topic id and the plan id.
 </pre>
 </div>
 
-<div class="code" id="orgb9985d6">
+<div class="code" id="org3509c86">
 <p>
 {
   &ldquo;type&rdquo;: &ldquo;long&rdquo;,
@@ -411,7 +422,7 @@ this will return the topic id and the plan id.
 </pre>
 </div>
 
-<div class="code" id="org045bfe3">
+<div class="code" id="org8d96958">
 <p>
 &ldquo;ek4ox9usaayawbycwamm48h14n8sdyys7cllubg7mehp&rdquo;
 </p>
@@ -423,7 +434,7 @@ this will return the topic id and the plan id.
 </pre>
 </div>
 
-<div class="code" id="org096fa6b">
+<div class="code" id="org3d691d2">
 <p>
 {
   &ldquo;type&rdquo;: &ldquo;url&rdquo;,
@@ -446,7 +457,7 @@ this will return the topic id and the plan id.
 </pre>
 </div>
 
-<div class="code" id="orgdf128e6">
+<div class="code" id="org5fb659e">
 <p>
 &ldquo;co5taruclmx3rxp2zy5y191rzzjmwjhfjwrb3ypfhnm8&rdquo;
 </p>
@@ -458,7 +469,7 @@ this will return the topic id and the plan id.
 </pre>
 </div>
 
-<div class="code" id="orgdee5b89">
+<div class="code" id="org2ecff9f">
 <p>
 {&ldquo;type&rdquo;:&ldquo;image&rdquo;,&ldquo;data&rdquo;:&ldquo;<img src="https://yasushisakai.com/images/me_2019_square.jpg" alt="me_2019_square.jpg" />&rdquo;}
 </p>
@@ -475,7 +486,7 @@ this will return the topic id and the plan id.
 </pre>
 </div>
 
-<div class="code" id="org6884801">
+<div class="code" id="org8a7f6a9">
 <p>
 &ldquo;32nj9etbotgdfcsznhh3ngeyvm3thj8ujrhcs2eqtswu&rdquo;
 </p>
@@ -491,7 +502,7 @@ the first element should be a string or null.
 </pre>
 </div>
 
-<div class="code" id="orgd95c4af">
+<div class="code" id="org224fe01">
 <p>
 {&ldquo;type&rdquo;:&ldquo;latlng&rdquo;,&ldquo;data&rdquo;:[&ldquo;mit media lab&rdquo;,{&ldquo;lat&rdquo;:42.3515853,&ldquo;lng&rdquo;:-71.1335335}]}
 </p>
@@ -508,7 +519,7 @@ the first element should be a string or null.
 </pre>
 </div>
 
-<div class="code" id="orgdbf36a2">
+<div class="code" id="org87b22da">
 <p>
 &ldquo;2byjbwbkx48ayu2qfweykg78wkss5fwsvxnen5danzqe&rdquo;
 </p>
@@ -520,7 +531,7 @@ the first element should be a string or null.
 </pre>
 </div>
 
-<div class="code" id="org97528df">
+<div class="code" id="orgf5335c5">
 <p>
 {
   &ldquo;type&rdquo;: &ldquo;circle&rdquo;,
@@ -547,7 +558,7 @@ the first element should be a string or null.
 </pre>
 </div>
 
-<div class="code" id="org8654499">
+<div class="code" id="orgfb6300b">
 <p>
 &ldquo;bqvwfn2ayxcdaiaachecu5kj5knawbjabktpxamtfz14&rdquo;
 </p>
@@ -559,7 +570,7 @@ the first element should be a string or null.
 </pre>
 </div>
 
-<div class="code" id="org7d08d21">
+<div class="code" id="org36dc5b5">
 <p>
 {
   &ldquo;type&rdquo;: &ldquo;path&rdquo;,
@@ -1002,7 +1013,7 @@ second time should not calculate
 <div id="postamble" class="status">
 <p class="date">Date: 2021-01-16 13:58</p>
 <p class="author">Author: Yasushi Sakai</p>
-<p class="date">Created: 2021-02-02 Tue 04:42</p>
+<p class="date">Created: 2021-02-02 Tue 11:53</p>
 </div>
 </body>
 </html>

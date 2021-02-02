@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-02-02 Tue 04:42 -->
+<!-- 2021-02-02 Tue 11:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ornot.vote ws preparation curl calls</title>
@@ -243,8 +243,12 @@
 
 <span style="color: #6f7787;"># </span><span style="color: #6f7787;">this is a hack, but add aliases</span>
 <span style="color: #8FBCBB;">curl</span> -X POST -d <span style="color: #A3BE8C;">'{"nickname":"Chinese(&#20013;&#33775;)", "email":"chinese@test.com"}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> localhost:8080/api/v1/user/force_add | jq
-
 <span style="color: #8FBCBB;">curl</span> -X POST -d <span style="color: #A3BE8C;">'{"nickname":"Japanese(&#21644;&#39135;)", "email":"japanese@test.com"}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> localhost:8080/api/v1/user/force_add | jq
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST locahost:8080/api/v1/topic/4iHV5PWkHJWHxRYQjLD1mdYop2DPawiaux8JjagjrQs1/user/LDF8e1kPPSHxviRCXDTdjc4KiYyum1sWtFQFoZioPzH
 </pre>
 </div>
 
@@ -348,7 +352,7 @@
 <div id="postamble" class="status">
 <p class="date">Date: 2021-01-21 22:32</p>
 <p class="author">Author: Yasushi Sakai</p>
-<p class="date">Created: 2021-02-02 Tue 04:42</p>
+<p class="date">Created: 2021-02-02 Tue 11:53</p>
 </div>
 </body>
 </html>
