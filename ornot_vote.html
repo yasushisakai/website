@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-31 Sun 10:43 -->
+<!-- 2021-02-02 Tue 04:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ornot.vote</title>
@@ -234,7 +234,7 @@ hosted:
 </p>
 
 <p>
-メールアドレス聞いてきますが、認証のためだけであり、ハッシュしちゃうので、保存はされません。サーバーコード参照のこと。認証は DI (三井さん)とつなげたいところ。
+メールアドレス聞いてきますが、認証のためだけであり、ハッシュしちゃうので、保存はされません。サーバーコード参照のこと。認証は di (三井さん)とつなげたいところ。
 </p>
 
 <p>
@@ -249,22 +249,21 @@ it&rsquo;s open sourced:
 <li><a href="https://github.com/yasushisakai/liq">https://github.com/yasushisakai/liq</a></li>
 </ul>
 
-
 <p>
 used for:
 </p>
 
 <ol class="org-ol">
-<li><a href="makuhari_city_ws.html">Makuhari City WS</a></li>
+<li><a href="makuhari_city_ws.html">makuhari city ws</a></li>
 
-<li>EPA: Details to come</li>
+<li>epa: details to come</li>
 
-<li>Shibuya</li>
+<li>shibuya</li>
 </ol>
 
 
-<div id="outline-container-org215d458" class="outline-2">
-<h2 id="org215d458"><span class="section-number-2">1</span> <span class="todo TODO">TODO</span> other &rsquo;Votable&rsquo;s</h2>
+<div id="outline-container-org7f67593" class="outline-2">
+<h2 id="org7f67593"><span class="section-number-2">1</span> todo other &rsquo;votable&rsquo;s</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>url</li>
@@ -277,33 +276,327 @@ used for:
 </ul>
 
 <p>
-ref: <a href="votables.html">Votables</a>
+ref: <a href="votables.html">votables</a>
 </p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> localhost:8080/api/v1/user/8VYVEzNLAQ6fYVpLAUe354LJ6FnJyLyoYXhQ8MqHdi6B/code/29Ktx5iSqaUxo6CDczEbUbgx2qXvQnGRUX5Ke63AUZnGx97VPHJpCHJNZrau9PiQ13dFKVpHoPutb2qRjs3KiQDh
+</pre>
 </div>
 </div>
 
-
-<div id="outline-container-orgeb5626e" class="outline-2">
-<h2 id="orgeb5626e"><span class="section-number-2">2</span> <span class="todo TODO">TODO</span> refactor model</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org20c5de2" class="outline-3">
+<h3 id="org20c5de2"><span class="section-number-3">1.1</span> directly add a plan to topic</h3>
+<div class="outline-text-3" id="text-1-1">
 <p>
-model.rs is complex enough to be a directory
+a sane way to add a plan is to directly add it to an existing topic. this
+endpoint shows you how.
 </p>
+
+<ol class="org-ol">
+<li><p>
+first, add a new topic
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">   <span style="color: #8FBCBB;">curl</span> -X PUT -d <span style="color: #A3BE8C;">'{"title":"test", "description":"a test topic"}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> localhost:8080/api/v1/topic | jq
+</pre>
+</div>
+
+<div class="code" id="orga9fe25c">
+<p>
+&ldquo;5E2syfDP3qqxessoAQww6u3kQW3TrSU3Wg1NJVNLV8x3&rdquo;
+</p>
+
+</div></li>
+
+<li><p>
+then add a new plan to that topic
+</p>
+
+<p>
+for the different plan types, the following examples will show in various cases.
+this case is using a simple plan.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">   <span style="color: #8FBCBB;">curl</span> -X POST -d <span style="color: #A3BE8C;">'{"type":"simple", "data":"test plan"}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> localhost:8080/api/v1/topic/5E2syfDP3qqxessoAQww6u3kQW3TrSU3Wg1NJVNLV8x3/new_plan
+</pre>
+</div>
+
+<div class="code" id="orgcf6c999">
+<p>
+[&ldquo;5E2syfDP3qqxessoAQww6u3kQW3TrSU3Wg1NJVNLV8x3&rdquo;,&ldquo;FP3FzRKprwjoDMRjTQ1X4thLEzeUJyHX5mrGCCrEACRi&rdquo;]
+</p>
+
+</div>
+
+<p>
+this will return the topic id and the plan id.
+</p></li>
+</ol>
 </div>
 </div>
 
-<div id="outline-container-org0a012fe" class="outline-2">
-<h2 id="org0a012fe"><span class="section-number-2">3</span> <span class="todo TODO">TODO</span> cool user graphical interface</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org3aab9d1" class="outline-3">
+<h3 id="org3aab9d1"><span class="section-number-3">1.2</span> simple example</h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -x put -d <span style="color: #A3BE8C;">'{"type":"simple", "data":"simple plan example"}'</span> -h <span style="color: #A3BE8C;">"content-type: application/json"</span> http://localhost:8080/api/v1/plan
+</pre>
+</div>
+
+
+<div class="code" id="orgbfa59c5">
+<p>
+&ldquo;gmq8jjszakwdv53laeg6zhvcsmwgeyugwgfsbz46uib&rdquo;
+</p>
+
+</div>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -x get http://localhost:8080/api/v1/plan/gmq8jjszakwdv53laeg6zhvcsmwgeyugwgfsbz46uib
+</pre>
+</div>
+
+<div class="code" id="org849a1df">
+<p>
+{&ldquo;type&rdquo;:&ldquo;simple&rdquo;,&ldquo;data&rdquo;:&ldquo;simple plan example&rdquo;}
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7c2b136" class="outline-3">
+<h3 id="org7c2b136"><span class="section-number-3">1.3</span> long example (with description)</h3>
+<div class="outline-text-3" id="text-1-3">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -x put -d <span style="color: #A3BE8C;">'{"type":"long", "data":["long plan example","longer description showing what this is"]}'</span> -h <span style="color: #A3BE8C;">"content-type: application/json"</span> http://localhost:8080/api/v1/plan
+</pre>
+</div>
+
+<div class="code" id="org9dd0112">
+<p>
+&ldquo;hledzqqm166yqyarhnplbmfznw3qq1ge4pmhn9kah4ql&rdquo;
+</p>
+
+</div>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -x get http://localhost:8080/api/v1/plan/hledzqqm166yqyarhnplbmfznw3qq1ge4pmhn9kah4ql | jq .
+</pre>
+</div>
+
+<div class="code" id="orgb9985d6">
+<p>
+{
+  &ldquo;type&rdquo;: &ldquo;long&rdquo;,
+  &ldquo;data&rdquo;: [
+    &ldquo;long plan example&rdquo;,
+    &ldquo;longer description showing what this is&rdquo;
+  ]
+}
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb7129a1" class="outline-3">
+<h3 id="orgb7129a1"><span class="section-number-3">1.4</span> url example (with description)</h3>
+<div class="outline-text-3" id="text-1-4">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -x put -d <span style="color: #A3BE8C;">'{"type":"url", "data":["yasushi", "https://yasushisakai.com"]}'</span> -h <span style="color: #A3BE8C;">"content-type: application/json"</span> http://localhost:8080/api/v1/plan
+</pre>
+</div>
+
+<div class="code" id="org045bfe3">
+<p>
+&ldquo;ek4ox9usaayawbycwamm48h14n8sdyys7cllubg7mehp&rdquo;
+</p>
+
+</div>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -x get http://localhost:8080/api/v1/plan/ek4ox9usaayawbycwamm48h14n8sdyys7cllubg7mehp | jq .
+</pre>
+</div>
+
+<div class="code" id="org096fa6b">
+<p>
+{
+  &ldquo;type&rdquo;: &ldquo;url&rdquo;,
+  &ldquo;data&rdquo;: [
+    &ldquo;yasushi&rdquo;,
+    &ldquo;<a href="https://yasushisakai.com">https://yasushisakai.com</a>&rdquo;
+  ]
+}
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd85b8cb" class="outline-3">
+<h3 id="orgd85b8cb"><span class="section-number-3">1.5</span> image example</h3>
+<div class="outline-text-3" id="text-1-5">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -x put -d <span style="color: #A3BE8C;">'{"type":"image", "data":"https://yasushisakai.com/images/me_2019_square.jpg"}'</span> -h <span style="color: #A3BE8C;">"content-type: application/json"</span> http://localhost:8080/api/v1/plan
+</pre>
+</div>
+
+<div class="code" id="orgdf128e6">
+<p>
+&ldquo;co5taruclmx3rxp2zy5y191rzzjmwjhfjwrb3ypfhnm8&rdquo;
+</p>
+
+</div>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -x get http://localhost:8080/api/v1/plan/co5taruclmx3rxp2zy5y191rzzjmwjhfjwrb3ypfhnm8
+</pre>
+</div>
+
+<div class="code" id="orgdee5b89">
+<p>
+{&ldquo;type&rdquo;:&ldquo;image&rdquo;,&ldquo;data&rdquo;:&ldquo;<img src="https://yasushisakai.com/images/me_2019_square.jpg" alt="me_2019_square.jpg" />&rdquo;}
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5a4d582" class="outline-3">
+<h3 id="org5a4d582"><span class="section-number-3">1.6</span> latlng example</h3>
+<div class="outline-text-3" id="text-1-6">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -x put -d <span style="color: #A3BE8C;">'{"type":"latlng", "data":["mit media lab", {"lat":42.3515853, "lng":-71.1335335}]}'</span> -h <span style="color: #A3BE8C;">"content-type: application/json"</span> http://localhost:8080/api/v1/plan
+</pre>
+</div>
+
+<div class="code" id="org6884801">
+<p>
+&ldquo;32nj9etbotgdfcsznhh3ngeyvm3thj8ujrhcs2eqtswu&rdquo;
+</p>
+
+</div>
+
+<p>
+the first element should be a string or null.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -x get http://localhost:8080/api/v1/plan/32nj9etbotgdfcsznhh3ngeyvm3thj8ujrhcs2eqtswu
+</pre>
+</div>
+
+<div class="code" id="orgd95c4af">
+<p>
+{&ldquo;type&rdquo;:&ldquo;latlng&rdquo;,&ldquo;data&rdquo;:[&ldquo;mit media lab&rdquo;,{&ldquo;lat&rdquo;:42.3515853,&ldquo;lng&rdquo;:-71.1335335}]}
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2d320e8" class="outline-3">
+<h3 id="org2d320e8"><span class="section-number-3">1.7</span> circular geofence example</h3>
+<div class="outline-text-3" id="text-1-7">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -x put -d <span style="color: #A3BE8C;">'{"type":"circle", "data":["keio sfc", {"lat": 35.3881712, "lng": 139.4254151, "radius": 30}]}'</span> -h <span style="color: #A3BE8C;">"content-type: application/json"</span> http://localhost:8080/api/v1/plan
+</pre>
+</div>
+
+<div class="code" id="orgdbf36a2">
+<p>
+&ldquo;2byjbwbkx48ayu2qfweykg78wkss5fwsvxnen5danzqe&rdquo;
+</p>
+
+</div>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -x get http://localhost:8080/api/v1/plan/2byjbwbkx48ayu2qfweykg78wkss5fwsvxnen5danzqe | jq .
+</pre>
+</div>
+
+<div class="code" id="org97528df">
+<p>
+{
+  &ldquo;type&rdquo;: &ldquo;circle&rdquo;,
+  &ldquo;data&rdquo;: [
+    &ldquo;keio sfc&rdquo;,
+    {
+      &ldquo;lat&rdquo;: 35.3881712,
+      &ldquo;lng&rdquo;: 139.4254151,
+      &ldquo;radius&rdquo;: 30
+    }
+  ]
+}
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb9aecdc" class="outline-3">
+<h3 id="orgb9aecdc"><span class="section-number-3">1.8</span> path example</h3>
+<div class="outline-text-3" id="text-1-8">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -x put -d <span style="color: #A3BE8C;">'{"type":"path", "data":[null, [[35.3881712,139.4254151],[42.3515853,-71.1335335]]]}'</span> -h <span style="color: #A3BE8C;">"content-type: application/json"</span> http://localhost:8080/api/v1/plan
+</pre>
+</div>
+
+<div class="code" id="org8654499">
+<p>
+&ldquo;bqvwfn2ayxcdaiaachecu5kj5knawbjabktpxamtfz14&rdquo;
+</p>
+
+</div>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -x get http://localhost:8080/api/v1/plan/bqvwfn2ayxcdaiaachecu5kj5knawbjabktpxamtfz14 | jq .
+</pre>
+</div>
+
+<div class="code" id="org7d08d21">
+<p>
+{
+  &ldquo;type&rdquo;: &ldquo;path&rdquo;,
+  &ldquo;data&rdquo;: [
+    null,
+    [
+      [
+        35.3881712,
+        139.4254151
+      ],
+      [
+        42.3515853,
+        -71.1335335
+      ]
+    ]
+  ]
+}
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orga8aa6ac" class="outline-2">
+<h2 id="orga8aa6ac"><span class="section-number-2">2</span> todo cool user graphical interface</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 use p5js or hand crafted svgs?
 </p>
 </div>
 </div>
 
-<div id="outline-container-org13dc5c9" class="outline-2">
-<h2 id="org13dc5c9"><span class="section-number-2">4</span> <span class="todo TODO">TODO</span> make it possible to trace votes</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org8fd5d24" class="outline-2">
+<h2 id="org8fd5d24"><span class="section-number-2">3</span> todo make it possible to trace votes</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 the data structure holds a forward chain, but the
 front end does not let us see it.
@@ -311,12 +604,31 @@ front end does not let us see it.
 </div>
 </div>
 
-<div id="outline-container-org671e0a5" class="outline-2">
-<h2 id="org671e0a5"><span class="section-number-2">5</span> <span class="done DONE">DONE</span> restore database</h2>
+<div id="outline-container-org8948cd7" class="outline-2">
+<h2 id="org8948cd7"><span class="section-number-2">4</span> todo look for cuda implementation for the matrix manipulation</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+the calculation is simple enough
+</p>
 </div>
-<div id="outline-container-org8511343" class="outline-2">
-<h2 id="org8511343"><span class="section-number-2">6</span> <span class="done DONE">DONE</span> dump data base</h2>
-<div class="outline-text-2" id="text-6">
+</div>
+
+<div id="outline-container-orgf0c58ee" class="outline-2">
+<h2 id="orgf0c58ee"><span class="section-number-2">5</span> done refactor model</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+model.rs is complex enough to be a directory
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3635889" class="outline-2">
+<h2 id="org3635889"><span class="section-number-2">6</span> done restore database</h2>
+</div>
+
+<div id="outline-container-orgf133638" class="outline-2">
+<h2 id="orgf133638"><span class="section-number-2">7</span> done dump data base</h2>
+<div class="outline-text-2" id="text-7">
 <p>
 there should be an endpoint for dumping the whole thing.
 </p>
@@ -325,6 +637,7 @@ there should be an endpoint for dumping the whole thing.
 <pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> localhost:8080/api/v1/dump
 </pre>
 </div>
+
 
 <p>
 will output a tuple
@@ -335,18 +648,8 @@ you can back up the redis itself too&#x2026; <a href="redis.html">redis</a>
 </p>
 </div>
 </div>
-
-<div id="outline-container-orge26b0c8" class="outline-2">
-<h2 id="orge26b0c8"><span class="section-number-2">7</span> <span class="done DONE">DONE</span> look for CUDA implementation for the matrix manipulation</h2>
-<div class="outline-text-2" id="text-7">
-<p>
-the calculation is simple enough
-</p>
-</div>
-</div>
-
-<div id="outline-container-org42de3f8" class="outline-2">
-<h2 id="org42de3f8"><span class="section-number-2">8</span> <span class="done DONE">DONE</span> svelte side</h2>
+<div id="outline-container-org69dce01" class="outline-2">
+<h2 id="org69dce01"><span class="section-number-2">8</span> done svelte side</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 general refactoring is needed
@@ -354,17 +657,17 @@ general refactoring is needed
 </div>
 </div>
 
-<div id="outline-container-orgf4dac9b" class="outline-2">
-<h2 id="orgf4dac9b"><span class="section-number-2">9</span> <span class="done DONE">DONE</span> Settings should just link to result</h2>
+<div id="outline-container-orge478112" class="outline-2">
+<h2 id="orge478112"><span class="section-number-2">9</span> done settings should just link to result</h2>
 <div class="outline-text-2" id="text-9">
 <p>
-want to make a forward chain data structure within Results
+want to make a forward chain data structure within results
 </p>
 
 <div class="org-src-container">
-<pre class="src src-text">Setting : &#9633; &#8594; &#9633; &#8594; &#9633;
+<pre class="src src-text">setting : &#9633; &#8594; &#9633; &#8594; &#9633;
           &#8595;   &#8595;   &#8595;
-Results : &#9670;   &#9670;   &#9670;
+results : &#9670;   &#9670;   &#9670;
 </pre>
 </div>
 
@@ -374,31 +677,31 @@ to make sure it&rsquo;s reproducible, we need to get the commit it of the progra
 </div>
 </div>
 
-<div id="outline-container-org5fa4a1b" class="outline-2">
-<h2 id="org5fa4a1b"><span class="section-number-2">10</span> <span class="done DONE">DONE</span> nuclear handle with care!!</h2>
+<div id="outline-container-org61d9eac" class="outline-2">
+<h2 id="org61d9eac"><span class="section-number-2">10</span> done nuclear handle with care!!</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 this deletes everything.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X DELETE https://ornot.vote/api/v1/nuclear
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -x delete https://ornot.vote/api/v1/nuclear
 </pre>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-orge225774" class="outline-2">
-<h2 id="orge225774"><span class="section-number-2">11</span> <span class="done DONE">DONE</span> make token:user<sub>id</sub> data base</h2>
+<div id="outline-container-org1c9b740" class="outline-2">
+<h2 id="org1c9b740"><span class="section-number-2">11</span> done make token:user<sub>id</sub> data base</h2>
 <div class="outline-text-2" id="text-11">
 <p>
-auth relying on GET-ing the whole user object, which I should hold a separate look up
+auth relying on get-ing the whole user object, which i should hold a separate look up
 that has <code>access_token:user_id</code>
 </p>
 
 <p>
-partially because often times I&rsquo;m requesting user data for different purposes.
+partially because often times i&rsquo;m requesting user data for different purposes.
 </p>
 
 <p>
@@ -407,16 +710,16 @@ we make another temp code which trickles down to a new access<sub>token</sub>
 </p>
 
 <p>
-to address this, we need invalidate(DEL) the previous temp<sub>code</sub>
+to address this, we need invalidate(del) the previous temp<sub>code</sub>
 </p>
 </div>
 </div>
 
-<div id="outline-container-org0727e2a" class="outline-2">
-<h2 id="org0727e2a"><span class="section-number-2">12</span> <span class="done DONE">DONE</span> tokens, codes should be base58</h2>
+<div id="outline-container-org05f4da6" class="outline-2">
+<h2 id="org05f4da6"><span class="section-number-2">12</span> done tokens, codes should be base58</h2>
 </div>
-<div id="outline-container-org11484ea" class="outline-2">
-<h2 id="org11484ea"><span class="section-number-2">13</span> <span class="done DONE">DONE</span> APIs for Auth</h2>
+<div id="outline-container-org61f39b2" class="outline-2">
+<h2 id="org61f39b2"><span class="section-number-2">13</span> done apis for auth</h2>
 <div class="outline-text-2" id="text-13">
 <ol class="org-ol">
 <li><p>
@@ -424,21 +727,21 @@ user asks for a temp code
 </p>
 
 <p>
-<code>jq</code> is just to pretty print the output. This will send a email to the
-address specified. That email will have a url such a as this
+<code>jq</code> is just to pretty print the output. this will send a email to the
+address specified. that email will have a url such a as this
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 1: </span>sign-up</label><pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST -d <span style="color: #A3BE8C;">'{"nickname":"yasushi", "email":"yasushisakai@pm.me"}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> https://ornot.vote/api/v1/user/signup | jq
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>sign-up</label><pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -x post -d <span style="color: #A3BE8C;">'{"nickname":"yasushi", "email":"yasushisakai@pm.me"}'</span> -h <span style="color: #A3BE8C;">"content-type:application/json"</span> https://ornot.vote/api/v1/user/signup | jq
 </pre>
 </div>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 2: </span>result of sign up, an email.</label><pre class="src src-text">Hi yasushi, this is a tiny note to let you know your temp code.
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>result of sign up, an email.</label><pre class="src src-text">hi yasushi, this is a tiny note to let you know your temp code.
 
 use the below url to verify that you own this email address.
 
-    {URL}
+    {url}
 
 bye and have a nice day :)
 </pre>
@@ -449,12 +752,12 @@ check the temp code
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 3: </span>check the temp code</label><pre class="src src-bash"><span style="color: #8FBCBB;">curl</span>  https://ornot.vote/api/v1/user/HEhYiU6KWziwgaVAzT4YWv38hneuJn2dLJsYsAYwzoyS/code/265UgAdf9gt1A7b7XpMSboBNPXYvY4D31Pw14NHZ5T5r1Qgw6Ls5XYEBYmL4LWTReGpDDq6rjLbSRxqX8WUwAL2P | jq
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>check the temp code</label><pre class="src src-bash"><span style="color: #8FBCBB;">curl</span>  https://ornot.vote/api/v1/user/hehyiu6kwziwgavazt4ywv38hneujn2dljsysaywzoys/code/265ugadf9gt1a7b7xpmsbobnpxyvy4d31pw14nhz5t5r1qgw6ls5xyebyml4lwtregpddq6rjlbsrxqx8wuwal2p | jq
 </pre>
 </div>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 4: </span>result of check temp code</label><pre class="src src-text">   "32aZk7DL48KCwaivpTCMeeyJ7FHn53LMJLMATCKBpmb5V7FtmhqLNrJyYqkR6YySckrjK2hVKEeAa738n8EnvKrR"
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>result of check temp code</label><pre class="src src-text">   "32azk7dl48kcwaivptcmeeyj7fhn53lmjlmatckbpmb5v7ftmhqlnrjyyqkr6yysckrjk2hvkeeaa738n8envkrr"
 </pre>
 </div>
 
@@ -467,7 +770,7 @@ authorize with access token
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 5: </span>example of endpoint with auth. put the <code>access_token</code> under the &ldquo;Authorization&rdquo; header</label><pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -H <span style="color: #A3BE8C;">"Authorization: bearer 2y6XdnsvwDKLdSpg6SqbvkrxPYAQiU5GPdcht47EhyCPBofaTmef6BsNTmyVXrDpbdd9zbevmrNFCzJnERQs8svM"</span>  https://ornot.vote/api/v1/user/4X2N89Y3guJoY3vwmTmn2zJuxwWPMRQXBdoAaPPbNVtD/check
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>example of endpoint with auth. put the <code>access_token</code> under the &ldquo;authorization&rdquo; header</label><pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -h <span style="color: #A3BE8C;">"authorization: bearer 2y6xdnsvwdkldspg6sqbvkrxpyaqiu5gpdcht47ehycpbofatmef6bsntmyvxrdpbdd9zbevmrnfczjnerqs8svm"</span>  https://ornot.vote/api/v1/user/4x2n89y3gujoy3vwmtmn2zjuxwwpmrqxbdoaappbnvtd/check
 </pre>
 </div>
 
@@ -480,24 +783,24 @@ authorize with access token
 testing out the master key
 </p>
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -H <span style="color: #A3BE8C;">"Authorization: bearer secret"</span>  https://ornot.vote/api/v1/user/4X2N89Y3guJoY3vwmTmn2zJuxwWPMRQXBdoAaPPbNVtD/check
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -h <span style="color: #A3BE8C;">"authorization: bearer secret"</span>  https://ornot.vote/api/v1/user/4x2n89y3gujoy3vwmtmn2zjuxwwpmrqxbdoaappbnvtd/check
 </pre>
 </div></li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-orgfb19c7e" class="outline-2">
-<h2 id="orgfb19c7e"><span class="section-number-2">14</span> <span class="done DONE">DONE</span> force add users</h2>
+<div id="outline-container-orgd9e7880" class="outline-2">
+<h2 id="orgd9e7880"><span class="section-number-2">14</span> done force add users</h2>
 <div class="outline-text-2" id="text-14">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 7: </span>sign-up</label><pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST -d <span style="color: #A3BE8C;">'{"nickname":"yasushi", "email":"yasushisakai@pm.me"}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> https://ornot.vote/api/v1/user/signup | jq
+<label class="org-src-name"><span class="listing-number">Listing 7: </span>sign-up</label><pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -x post -d <span style="color: #A3BE8C;">'{"nickname":"yasushi", "email":"yasushisakai@pm.me"}'</span> -h <span style="color: #A3BE8C;">"content-type:application/json"</span> https://ornot.vote/api/v1/user/signup | jq
 </pre>
 </div>
 
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 8: </span>force add</label><pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST -d <span style="color: #A3BE8C;">'{"nickname":"yasushi", "email":"yasushisakai@pm.me"}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> https://ornot.vote/api/v1/user/force_add | jq
+<label class="org-src-name"><span class="listing-number">Listing 8: </span>force add</label><pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -x post -d <span style="color: #A3BE8C;">'{"nickname":"yasushi", "email":"yasushisakai@pm.me"}'</span> -h <span style="color: #A3BE8C;">"content-type:application/json"</span> https://ornot.vote/api/v1/user/force_add | jq
 </pre>
 </div>
 </div>
@@ -699,7 +1002,7 @@ second time should not calculate
 <div id="postamble" class="status">
 <p class="date">Date: 2021-01-16 13:58</p>
 <p class="author">Author: Yasushi Sakai</p>
-<p class="date">Created: 2021-01-31 Sun 10:43</p>
+<p class="date">Created: 2021-02-02 Tue 04:42</p>
 </div>
 </body>
 </html>

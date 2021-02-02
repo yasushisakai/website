@@ -74,6 +74,8 @@ button:focus {
 
 table{
   margin:0 auto;
+  boarder: 1px solid;
+  font-size:smaller;
 }
 
 .title{
@@ -104,4 +106,8 @@ pre.src{
 	background-color: #3b4252;
 	color: #eceff4;
   font-family: Hack, monospace;
+}
+
+caption.t-above{
+  margin-bottom: 0.5 em;
 }
