@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-02-09 Tue 17:57 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Digital Democracy: thoughts on decidim and japan&rsquo;s idea box, etc</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Yasushi Sakai" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="http://yasushisakai.com">🏠</a>
+</div>
+<div id="content">
+<h1 class="title">Digital Democracy: thoughts on decidim and japan&rsquo;s idea box, etc</h1>
+
+<p>
+Decidim を使う機会に恵まれ、行政改革アイディアボックスやケンブリッジの住人参画型予算組を間近でみた感想のまとめ。
+</p>
+
+<div id="outline-container-org65dd611" class="outline-2">
+<h2 id="org65dd611"><span class="section-number-2">1</span> Decidim 雑感</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Decidim というバロセロナ発の市民参加まちづくりプラットフォームをプロジェクトで使ってみました。それを使っていく上で気になったことをまとめて行きます。
+</p>
+
+<p>
+それで、なんか仮サイトできました↓
+</p>
+
+<p>
+<a href="https://shibuyatest2.diycities.jp/">https://shibuyatest2.diycities.jp/</a>
+</p>
+
+<p>
+前提 1:<a href="https://www.code4japan.org/">Code for Japan の関さん</a>に特別に diycities.jp でホストされている decidim
+のインスタンスを実際に使わせていただいています。バロセロナで作られたものなので基本は英語で作られているのですが、それを日本語訳したりと実際に使えるようにした彼らの功績は認めるべきで、Civic テックに対する熱の入れ方をみなさん参考にしましょう。僕もなんらか貢献できるかと思い、ruby はやらないので、直接は無理ですが、翻訳は
+crowdin というものを使うそうで、それならできそう＋学生アカウントでお金がかからないので翻訳できるよと手をあげてみました。
+</p>
+
+<p>
+前提 2：MIT で、IoT ママチャリを使って研究をしています。そのまとめとして、渋谷区で自転車 x 子育てをテーマに三月にワークショップ(WS)を企画しています。この WS に
+decidim を使ってみようと思いました。何ができるのかをみるとともに、同時にこういった WS で何をすべきなのか？を Decidim 使用を通じて勉強したいと思います。
+</p>
+
+<p>
+さて前段はおいておいて、Decidim とは何かというと、 <b>一言で言うと参画型行政の WordPress</b>
+です。ブログってもう Facebook に食われてあんまりやる人いなくなりましたが、開発をせずに誰でもブログ開設を行えるようにしたのが wordpress でした。ですがブログ以上に市民参加プロジェクトを回すためには、色々機能が必要で、それをまとめてバロセロナが（税金かけて）やってくれた。そうゆう感じだと思います。
+</p>
+
+<p>
+だから、地方の行政官の人達がわざわざ参画プロジェクトをやるときにシステム屋さんを雇う必要なく、始められると言うものです。実際数時間で軌道に乗るし、使っていくうちにどんどんうまくなってくと思う。だから無理なく本当におすすめ。
+</p>
+
+<p>
+ブログ開設程度の知識と時間で始めることができるよと言うことで、これを何も使うことに対して、大体的にプレスを貼るようなものではないと言う印象があります。<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>だって、バロセロナが市予算をかけて開発していて、Code for Japan がうまく使えるようにみてくれてる中で、あとは使う側の問題で、ブログ同様それで何をやるか、コンテンツの問題だと言うことでしょう。あとは、この簡単にできてしまう点も注意が必要かもしれません。僕が仮にやってみた、上のサイトは渋谷区と直接は関係がありません。勝手に行政を名乗ってそれらしくできてしまうのもこうゆうプロジェクトをやろうとした場合に注意しないといけないと思いました。運用も色々あるでしょう。オードリー・タンのように強いリーダーがいて引っ張る市民参画プロジェクトもあれば、草の根でやる方法もあるでしょう。
+</p>
+
+<p>
+実際の WS で使ってみて、どうゆう使用感だったか、何がうまくいって何が失敗したかを追記していきます。
+</p>
+
+<p>
+オードリーの話が出たので、こうゆう市民参画型のシステムの各国の使い方に少し特徴があって、面白い。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org211cc82" class="outline-2">
+<h2 id="org211cc82"><span class="section-number-2">2</span> 各国のデジタル民主主義事情</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgd5d175e" class="outline-3">
+<h3 id="orgd5d175e"><span class="section-number-3">2.1</span> 台湾</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+彼女のツイートで草の根デジタル民主主義で何がうまくいった？と言う冊子が公開されていました。
+</p>
+
+<p>
+<a href="https://www.radicalxchange.org/kiosk/papers/Taiwan_Grassroots_Digital_Democracy_That_Works_V1_DIGITAL_.pdf">https://www.radicalxchange.org/kiosk/papers/Taiwan_Grassroots_Digital_Democracy_That_Works_V1_DIGITAL_.pdf</a>
+</p>
+
+<p>
+こうゆう、得られた知見をまとめると言うのも立派な貢献で、Decidim を使っても、その何が成功して何が失敗したかを公開しなければ意味がありません。だから、Decidim を回す専用コンサルが出てきても、積極的にその情報開示をしていなければ、デジタル民主主義の意図が伝わっていないと判断してもいいでしょう。台湾は vTaiwan と言う組織の中で提案をし、作っていく組織があるようで、世界中の Code For XXX と同じようなものがあるようなのですが、どっちか大きなお金をかけてやると言うよりも、出てきたいい考えを選抜して育てると言うアジャイルな印象があります。デジタル民主主義的な「小さな政府」と言う感じでしょう。あのマスクアロケーションのやつだって、オードリー率いる、政府側のフットワークの軽さがあったからと思います。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb943f87" class="outline-3">
+<h3 id="orgb943f87"><span class="section-number-3">2.2</span> ヨーロッパ・スペイン・バロセロナ</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+ヨーロッパは大学や（博士号をもった官僚がすげー多いらしい）エスタブリッシュされた組織がそれを牽引して、予算もかけて育てると言う「大きな政府」の傾向がある印象です。
+Decidim の開発者と話す機会も先日ありましたが予算の話が出たときに、日本の地方自治体がそんな金をかけてやるみたいなのは相当勇気が入りそう。一方そのおかげでこうして僕もみんなも使えるので、（念押ししますが Code For Japan のみなさんの力もあり）フリーライド最高なのですが、なんとか改善案を出したり、余力があれば直したり恩返ししましょう。あと、大きな予算をかけても、バロセロナ市として市内の熟議をするのに必要な予算だったと市民に納得さえしてもらえば、あとは「どうだこれが行政だ」と世界中に見せつけるソフトな外交とも言えますし、日本をはじめ世界中の行政が使えるのですから、予算に対する効用はすげーです。
+</p>
+
+<p>
+広くデジタル民主主義のリテラシーを伝播させ、良いものを早摘みする台湾と、エリートとその周りにデジタル民主主義に対する教育を行い、トップダウン的に実装して広める。この時点で、デジタル民主主義といっても色々方法があるようです。どっちもえらい。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org083d195" class="outline-3">
+<h3 id="org083d195"><span class="section-number-3">2.3</span> アメリカ・マサチューセッツ・ボストン</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+アメリカはどうでしょうか、全米に渡る傾向を語るのは例が多すぎるのでここではしませんが、地方の行政がコンサルに頼むと言うのが常套手段な気がします。僕の住んでいる隣のボストン市では全米でも珍しく New Urban Mechanics と言うスマートシティやデジタル民主主義をになう部署横断的な組織があるのですが、そこも全てのシステム開発をやっているわけではなく、民間委託をしています。
+</p>
+
+<p>
+例えば、ケンブリッジ市の参画型市民予算組プロジェクト(<a href="participatory_budgeting.html">Participatory Budgeting</a>)などのシステムは<a href="https://www.cstreet.ca/our_work">CStreet</a>なる組織が請け負っています。アメリカらしいというとそれはそれでいいのですが、営利企業がこれをやっても多くの場合知見を独占する（それでご飯食べていかないといけないしね）必要があるので、微妙だなと言うのが僕個人的な見立てです。台湾にせよ、バロセロナにせよ、市民参画型のプロセスを最終的にオープンにできるかどうかがとても重要です。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org60c99c5" class="outline-3">
+<h3 id="org60c99c5"><span class="section-number-3">2.4</span> 日本</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+最後に日本では行政アイディアボックスが数ヶ月前に話題になり、僕も登録して思うところを書き込んでみました。まあ、普通に使えるレベルなので、可もなく不可もなしと言うのが印象です。僕もみんなも日本の政策に対して政府主導で直接議論するのは初めてなのでこれもみんなで寛容にシステムが使われているのを見守るのが正しいと思っています。
+</p>
+
+<p>
+みてみると<a href="https://automation.jp/">自動処理.jp</a>と言う会社が開発・運用をしているようでアメリカ型といえばそうですが、&#x2026;ごめんなさい個人的な感想ですが、なんかダサい。始めたのはえらいし、まずは最初の 1 歩ですが、サイトの仕組みがオープンになっていないので、残念ながら裏で何をしているのかわかりません。信じるしかありません。僕も日本のみんな同様中央の言うことはとことん信じるので疑いませんが、例えば、並び順はどうゆう風に決まっているのか、言語規制はどのように行っているのか、個人情報はどうやって保存されているのか、そうゆうものをいちいち考え出したら、ソースをオープンにする事でいいこともあると思います。というか、code for japan に近いなら、なんでその精神を受け継がないんだろう&#x2026;？builtwith.com と言う何を使って開発されてるか探るサイトがあるのですが、みてみると、google analytics と facebook のトラッカーは使われているようで、それを持ってどう思うかは人それぞれでしょう。というか builtwith を使わなくても、公開してくれれば見えるし。github.com が恐ければ gitlab でもいいからホスティングすればいいのに、それくらいのお金と人材はいるはず。<a href="https://www.mozilla.org/en-US/firefox/facebookcontainer/">Facebook Container</a>みたいなものを使っていなければ、行政改革アイディアボックスを利用していることは少なくとも Facebook にしらせているんだと思います。ちゃんといおう、「どうかわからないが、確かめようがない」と言うことです。
+</p>
+
+<p>
+アメリカと日本のダサさ、文字通りデザインの古さは実は民間だからという一点で説明できて、民間企業として、一度採択されればそれ以降改善するインセンティブがお金が儲かるか儲からないかと言う理由なので、そこまでしなくても実績としてカウントされてしまうのでないかもしれません。対して、台湾やバロセロナは、「だってカッコ悪くない」みたいな見積もり書に出てこないような価値観も実装してしまうので出てくるのかもしれません。超主観です。見た目のダサさは究極いいですが、それ以外に、予算組や見積書に出てこない、仕様書レベルでやっと出てきそうな「質」は色々あると思います。先のトラッカーは「やっぱりよくないよな」とか、統計情報を使ってその仕組み自体をより良くしていこうということを利用者にコミュニケーションとったほうがいいよな。みたいな話が出てくると予想します。
+</p>
+
+<p>
+これから、（台湾やバロセロナのおかげで）こうしたことは増えると思いますが、個人データの扱いや、引っ越したときにどうするのよとか課題は尽きないわけで、自分の研究や<a href="https://makuhari.city/">青木さんらとやっていること</a>を通して僕も考えたいと思います。その話はまた今度。
+</p>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://www.isid.co.jp/news/release/2020/1225.html">https://www.isid.co.jp/news/release/2020/1225.html</a>
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-02-09 12:45</p>
+<p class="author">Author: Yasushi Sakai</p>
+<p class="date">Created: 2021-02-09 Tue 17:57</p>
+</div>
+</body>
+</html>
