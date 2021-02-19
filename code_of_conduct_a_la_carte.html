@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-02-18 Thu 21:20 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Code of Conduct a la carte</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Yasushi Sakai" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="http://yasushisakai.com">🏠</a>
+</div>
+<div id="content">
+<h1 class="title">Code of Conduct a la carte</h1>
+
+<p>
+幕張市のプロジェクトで、コンセプトに賛同してくれる人に対して分かりやすい価値表明をするための道具として、Code of Conduct を描(えが)いてみようという話になった。
+</p>
+
+<p>
+これだけで、Version Control の入る余地があったり、思想の編集・リミックスという意味で個人的な興味があるので、この機会を使って色々調べたいと思った。
+</p>
+
+<p>
+のメモ。
+</p>
+
+<p>
+さて、一般的に Code of Conduct というと、オープンソースのプロジェクトにおいて、貢献(コントリビュート)する人たちがどのような態度で議論や開発の手伝いをすべきかということを示しています。<a href="https://opensource.guide/code-of-conduct/">ここ</a>に書き方のガイドがあります。<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
+これ以外にも、企業のモットーを示すために使われていたり、カンファレンス・学会・ワークショップで健全な参加を保証するために提示されていたりします。
+</p>
+
+<p>
+本論に入る前に、まず何を持って貢献とするかのおさらいが必要です。オープンソースの場合は、ほぼほぼ github や gitlab で行われると想定して、プルリクエスト（プログラムの修正案）がまず上がるでしょう。この修正も、プログラムに新しい機能を追加するもの、既存のアルゴリズムをより効率化するもの、わかりにくいところをコメントしたり、データの流れをきれいにしてわかりやすくするもの、バグを直すものだったり色々あると思います。この修正案をチェックするバリデーターも立派な活動です。修正案に対して他に影響がないか、他の機能を使う時と齟齬がないか、修正案を書くよりも、大局的な視点が必要です。
+</p>
+
+<p>
+続いて、プログラムを直接触らないけど、利用における報告があります、バグを発見したり、使い方の質問をしたり。プログラムをいじるわけじゃないけど、使用感のフィードバックを行ったり立派な貢献です。このように、オープンソースのプログラムのメンテナンスと行っても、この段階で色々な貢献の形があり、技術的な多様性を持った人が参加するということになります。
+</p>
+
+<p>
+そこには、今述べた通りさまざまな関わり方があり、したがってさまざまな立場や思想がある中で、どのような態度や行為が推奨されていて、どのような態度が望ましくないかを形式知化すると同時に、違反行為があった場合にどのように対処するかという、基本的な合意が必要になります。Code of Conduct にはそれに加え、具体的な連絡先と処理のプロセスが描いてあります。
+</p>
+
+<div id="outline-container-orgbee9a3c" class="outline-2">
+<h2 id="orgbee9a3c"><span class="section-number-2">1</span> Rust Language</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+以上を念頭に、酒井がお世話になっているプログラミング言語 Rust の Code
+of Conduct を見てみましょう。
+</p>
+
+<p>
+<a href="https://www.rust-lang.org/policies/code-of-conduct">Rust Code of Conduct</a>
+</p>
+
+<p>
+8 箇条になっています。その下に Moderation という項目があり、その Conduct (品行)
+を実行するために具体的なプロセスが描いてあります。プロセスも大事ですが、今回はその八箇条に注目してみましょう。注意:意訳です！
+</p>
+
+<ul class="org-ul">
+<li><p>
+誰でも参加できる環境を目指しましょう。
+</p>
+
+<p>
+ジェンダー、年齢、障害の有無といった、一般的に大事なインクルーシブネスについての言及がありますが、この場合、Rust の事が描いてあるので、熟練度も分け隔てなく取り込みたいと描いてあります。
+</p></li>
+
+<li><p>
+変な呼び名や言い方に気をつけましょう。
+</p>
+
+<p>
+特に性的な呼び方についての言及だと思います。日本語だと「外人」も入るかもしれませんね。
+</p></li>
+
+<li>優しく礼儀正しくしましょう、失礼な言い方になる必要はどんな場合でもありません。</li>
+
+<li>人は違う意見を持っていることを尊重し、全てのデザインにはトレードオフがあることを理解しましょう。完全に正しい答えがあることはごくごく稀です。</li>
+
+<li><p>
+非建設的な批評は最小限にとどめましょう。もし代替案があるのであれは、フォークして示しましょう。
+</p>
+
+<p>
+ここで非建設的は印象論で話せず、再現性を持って評価しあいましょうということですね。
+</p></li>
+
+<li><p>
+悪口・侮辱・ハラスメントは絶対にやめましょう。ハラスメントについてはシチズン
+Code of Conduct の定義に従います。特に、弱い立場の人や少数グループに所属する人へのハラスメントは許容しません。
+</p>
+
+<p>
+このシチズン Code　of Conduct については、後述します。
+</p></li>
+
+<li>個人的な（密室での）ハラスメントには断固反対します。仮に個人的にこうした事象に遭遇した場合はすぐにモデレーションチームに連絡してください、特に新しくコミュニティに入ってきた経験が浅い人たちに対してオープンなコミュニティを目指しています。このようなことが起きた場合、私たちはサポートする準備ができています。</li>
+
+<li>そのほか、スパミングや○○警察、炎上目的や釣り行為など、かまってちゃん行為は歓迎しません。</li>
+</ul>
+
+<p>
+とこんな感じです。見過ごしがちですが、大事なことばかりですね。さて、ハラスメントの定義ですが、
+<a href="https://github.com/stumpsyn/policies/blob/master/citizen_code_of_conduct.md">Citizen Code of Conduct</a>の第４項 &ldquo;Unacceptable Behavior&rdquo; に描いてあります。注意:これも意訳です。
+</p>
+</div>
+
+<div id="outline-container-org3bf3487" class="outline-3">
+<h3 id="org3bf3487"><span class="section-number-3">1.1</span> Citizen　Code of Conduct</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>暴力や脅迫じみた発言</li>
+<li>性差別・人種差別・同性愛嫌悪、トランスジェンダー嫌悪、障害者差別、そのほか差別的な発言や冗談</li>
+<li>性的あるいは暴力的な表現</li>
+<li>晒し行為</li>
+<li>個人攻撃、特に上述の差別に対することや、特定の宗教・思想に関するもの</li>
+<li>不適切な録画や記録</li>
+<li>不必要な物理的接触</li>
+<li>求められているない性的アピール。冗談含む</li>
+<li>意識的妨害やストーキング、追跡(オンライン、オフラインともに)</li>
+<li>上の事項の扇動やそれらの行為に対する援助</li>
+<li>コミュニティイベント（プレゼンテーションや座談会）の妨害</li>
+</ul>
+
+<p>
+みたいです。これらの許容できな態度という、態度行為のブラックリストとは別に、この一項前に expected behavior として、望まれる態度としてホワイトリストがあります。このハラスメントへリンクを貼る行為は頭いい感じですね。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2fd22db" class="outline-2">
+<h2 id="org2fd22db"><span class="section-number-2">2</span> 日本の市民憲章</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+ソフトウェアにおける Code of Conduct を追い続けてもいいのですが、今回の幕張市 CoC
+制定に対して、他に参考になりそうなものもみていきましょう。ひとつは市民憲章ですね。日本では昭和 30 頃に制定ブームがあったようです。ちなみに、この<a href="http://jipwaseda.sakura.ne.jp/index.html">サイト</a>の充実度合い、網羅性やばい。
+</p>
+
+<p>
+住んだことがある藤沢市と幕張市に近い八千代市を参考にしました。
+</p>
+
+<p>
+藤沢市
+</p>
+<ol class="org-ol">
+<li>元気で働き、明るい家庭をつくりましょう。</li>
+<li>つねに健康な心とからだをきたえましょう。</li>
+<li>いつもだれにも親切にしましょう。</li>
+<li>きまりをまもり良い習慣をそだてましよう。</li>
+<li>教養を深め、文化の高いまちをきずきましょう。</li>
+</ol>
+
+<p>
+八千代市
+</p>
+<ol class="org-ol">
+<li>やさしい心と明るい声が響き合う、健やかなまちをつくります。</li>
+<li>小さな一歩を積み重ね、地球を考えるまちをつくります。</li>
+<li>よろこびと希望に満ちた、安心して住めるまちをつくります。</li>
+<li>自然を愛し、緑と花を育て、文化と潤いのあるまちをつくります。</li>
+<li>みんなで支え合い、共に生きるまちをつくります。</li>
+</ol>
+
+<p>
+吟味しだすととても興味深いのですが、八千代市は地球とか自然とか描いてあって、藤沢市に比べて規模がでかく人間だけのことにこだわらない多中心的です。
+</p>
+
+<p>
+まあ、このふたつに関わらず、聞いたことがある文言が続くのですが、これだってみんなで議論して決めた結晶なのです。Code of Conduct に比べて、模範的な態度を示す、ホワイトリスト的な書き方ですね。藤沢市は問いかけ的で、八千代市は宣誓的です。どれもとっても前向きでいい反面、具体的なアクションがないので、象徴性が高くなります。
+</p>
+
+<p>
+一方市民憲章の中で、逆なのが<a href="https://ja.wikipedia.org/wiki/%E6%88%90%E5%9F%8E%E6%86%B2%E7%AB%A0">成城憲章</a>でしょう。
+</p>
+
+<ul class="org-ul">
+<li>低層住宅地の保全</li>
+<li>敷地の細分化の制限</li>
+<li>生け垣や樹木などの敷地内の緑の保全</li>
+<li>建築物の隣地境界線からの後退</li>
+<li>周辺環境に影響の大きい集合住宅の制限</li>
+<li>大規模開発と街並みとの調和</li>
+<li>街並み景観や美観への配慮</li>
+<li>国分寺崖線地域での地下室利用の制限と水源への配慮</li>
+<li>駐車場の周辺整備への配慮</li>
+</ul>
+
+<p>
+具体的で、計画的ですし、上の市民憲章に比べて保守的（制限とか保全とか配慮）です。小田急電鉄の開発も垣間見え、地区開発から憲章まで一貫した仕組みがあるのも「セイジョウ」という地格が維持されている証左かもしれません。
+</p>
+
+<p>
+英語圏で市民憲章(Civic Charter)というと、憲法的です。例えば、これ
+</p>
+
+<p>
+<a href="https://icscentre.org/wp-content/uploads/2018/04/Civic_Charter.pdf">https://icscentre.org/wp-content/uploads/2018/04/Civic_Charter.pdf</a>
+</p>
+
+<p>
+人権を示して、それを実行するにはどうするべきかが描いてあります。アメリカや日本で、基本的人権という単語が義務教育の段階で示されますが、世界にはその前提がない国もあります。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1bdca79" class="outline-2">
+<h2 id="org1bdca79"><span class="section-number-2">3</span> 企業の Charter, CoC</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Charter (憲章)という意味で、イギリスの放送局 BBC も面白いです。一応エリザベス女王との契約？みたいですが、BBC の目的のところだけでも抜粋しましょう。
+</p>
+
+<ol class="org-ol">
+<li>人々が周りの環境を理解し対峙するために完全なニュースと情報を提供する</li>
+<li>全ての年齢の人達の学習をサポートする</li>
+<li>もっとも高いレベルの創造性とアウトプットを示す</li>
+<li>UK の多様性を尊重・反映して、クリエイティブな行為を助ける</li>
+<li>UK の文化や価値を世界に示す</li>
+</ol>
+
+<p>
+企業の流れで言えば、Google の &ldquo;Don&rsquo;t be Evil&rdquo; もコーポレートの CoC の範疇に入りますし、Facebook が初期に&ldquo;Move fast and Break Things&rdquo;だったのを&ldquo;The Future is
+Private&rdquo;<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup> にしたのも価値を示すという意味で使われています。
+</p>
+
+<p>
+まあ、企業になると、コミュニティのガイドラインというよりか、プロパガンダに近くになるのは、しょうがないのかもしれません。
+</p>
+
+<p>
+この流れで行けば、日本国憲法もひとつの憲章だし、 アメリカの合衆国憲法・そのほか 法律もこの部類になるのでしょうが、そこまで広げると手に負えないのでここらへんにしておきましょう。酒井の見方はレッシグの CODE <a class='org-ref-reference' href="#lessig2009code">lessig2009code</a>
+で法律と規範の真ん中というイメージです。
+</p>
+
+
+<p>
+<h1 class='org-ref-bib-h1'>Bibliography</h1>
+<ul class='org-ref-bib'><li><a id="lessig2009code">[lessig2009code]</a> <a name="lessig2009code"></a>Lessig, Code: And other laws of cyberspace, ReadHowYouWant. com (2009).</li>
+</ul>
+</p>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+三井さんに紹介いただきました。
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+どの口がいうか笑
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-02-16 13:35</p>
+<p class="author">Author: Yasushi Sakai</p>
+<p class="date">Created: 2021-02-18 Thu 21:20</p>
+</div>
+</body>
+</html>
