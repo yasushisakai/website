@@ -6,7 +6,7 @@
 <!-- 2021-02-21 Sun 22:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>cityio</title>
+<title>DAO</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Yasushi Sakai" />
 <style type="text/css">
@@ -223,86 +223,62 @@
 <a href="http://yasushisakai.com">🏠</a>
 </div>
 <div id="content">
-<h1 class="title">cityio</h1>
+<h1 class="title">DAO</h1>
 
-<div class="org-src-container">
-<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> https://cityio.media.mit.edu/api/tables/list | jq .
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST -d <span style="color: #A3BE8C;">'{"grid_2":[0,1,2], "test":"data"}'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> https://cityio.media.mit.edu/api/table/update/cityio_internal_test
-</pre>
-</div>
 
 <p>
-it&rsquo;s an assign type of behaviour
+search term: Decentralized Autonomous Organization
 </p>
 
-<div class="org-src-container">
-<pre class="src src-text">{"status":"ok"}
-</pre>
-</div>
+<p>
+<a class='org-ref-reference' href="#dupont2017experiments">dupont2017experiments</a>
+</p>
 
-<div class="org-src-container">
-<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> https://cityio.media.mit.edu/api/table/cityio_internal_test | jq .
-</pre>
-</div>
+<p>
+<a class='org-ref-reference' href="#diallo2018egov">diallo2018egov</a>
+</p>
 
-<div class="org-src-container">
-<pre class="src src-text">{
-  "grid": [
-    0,
-    1,
-    2
-  ],
-  "meta": {
-    "apiv": "2.1",
-    "hashes": {
-      "grid": "434026bd98ff2d8a2fb346c89ae9de006d1e2a6862832b6b3cd86e51de36d5c5",
-      "test": "519b3ed503c6a825347f28dfd269c0a422e3b923858410e3abbab2d2a99837f2"
-    },
-    "id": "420cfc5fbfae0f97d474c4d98ca92102f46f1a160ae2cead4b15ba05db3de85e",
-    "timestamp": 1613144803
-  },
-  "test": "data"
-}
-</pre>
-</div>
+<p>
+search term: Mutual Fund governance
+</p>
+
+<p>
+<a class='org-ref-reference' href="#ding2012mutual">ding2012mutual</a>
+</p>
+
+<p>
+search term: blockchain governance
+</p>
+
+<p>
+<a class='org-ref-reference' href="#atzori2015blockchain">atzori2015blockchain</a>
+</p>
+
+<p>
+<a class='org-ref-reference' href="#beck2018governance">beck2018governance</a>
+</p>
 
 
-<div class="org-src-container">
-<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> https://cityio.media.mit.edu/api/table/cityio_internal_test/test | jq .
-</pre>
-</div>
+<p>
+other: dApp audit
+</p>
 
-<div class="org-src-container">
-<pre class="src src-text">"data"
-</pre>
-</div>
+<p>
+<a href="https://dapp.org.uk/reports/radicle.html#org9e740e4">https://dapp.org.uk/reports/radicle.html#org9e740e4</a>
+</p>
 
-<div class="org-src-container">
-<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> https://cityio.media.mit.edu/api/table/cityio_internal_test/meta/hashes/grid | jq .
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-text">"434026bd98ff2d8a2fb346c89ae9de006d1e2a6862832b6b3cd86e51de36d5c5"
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST -d <span style="color: #A3BE8C;">'"hello world"'</span> -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> https://cityio.media.mit.edu/api/table/update/cityio_internal_test/test
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-text">{"status":"ok"}
-</pre>
-</div>
+<p>
+<h1 class='org-ref-bib-h1'>Bibliography</h1>
+<ul class='org-ref-bib'><li><a id="dupont2017experiments">[dupont2017experiments]</a> <a name="dupont2017experiments"></a>DuPont, Experiments in algorithmic governance: A history and ethnography of “The DAO,” a failed decentralized autonomous organization, <i>Bitcoin and beyond</i>,  157-177 (2017).</li>
+<li><a id="diallo2018egov">[diallo2018egov]</a> <a name="diallo2018egov"></a>Diallo, Shi, Xu, Gao, Chen, Lu, Shah, Carranco, Le, Surez & others, eGov-DAO: A better government using blockchain based decentralized autonomous organization, 166-171, in in: 2018 International Conference on eDemocracy & eGovernment (ICEDEG), edited by (2018)</li>
+<li><a id="ding2012mutual">[ding2012mutual]</a> <a name="ding2012mutual"></a>Ding & Wermers, Mutual fund performance and governance structure: The role of portfolio managers and boards of directors, <i>Available at SSRN 2207229</i>,  (2012).</li>
+<li><a id="atzori2015blockchain">[atzori2015blockchain]</a> <a name="atzori2015blockchain"></a>Atzori, Blockchain technology and decentralized governance: Is the state still necessary?, <i>Available at SSRN 2709713</i>,  (2015).</li>
+<li><a id="beck2018governance">[beck2018governance]</a> <a name="beck2018governance"></a>Beck, M\"uller-Bloch & King, Governance in the blockchain economy: A framework and research agenda, <i>Journal of the Association for Information Systems</i>, <b>19(10)</b>, 1 (2018).</li>
+</ul>
+</p>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2021-02-12 07:23</p>
+<p class="date">Date: 2021-02-19 10:54</p>
 <p class="author">Author: Yasushi Sakai</p>
 <p class="date">Created: 2021-02-21 Sun 22:44</p>
 </div>
