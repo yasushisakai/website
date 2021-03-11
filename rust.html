@@ -6,7 +6,7 @@
 <!-- 2021-03-11 Thu 07:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>How to start a journal</title>
+<title>rust</title>
 <meta name="author" content="Yasushi Sakai" />
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
@@ -223,37 +223,102 @@
 <a href="http://yasushisakai.com">🏠</a>
 </div>
 <div id="content">
-<h1 class="title">How to start a journal</h1>
+<h1 class="title">rust</h1>
+
+
+<div id="outline-container-orged88f5c" class="outline-2">
+<h2 id="orged88f5c"><span class="section-number-2">1</span> Rust 関係メモ</h2>
+</div>
+
+<div id="outline-container-orgb85f6c0" class="outline-2">
+<h2 id="orgb85f6c0"><span class="section-number-2">2</span> Value を持つ Tuple Struct を Serialize すると？</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-rust"><span style="color: #81A1C1;">use</span> <span style="color: #81A1C1;">serde</span>::{<span style="color: #8FBCBB;">Deserialize</span>, <span style="color: #8FBCBB;">Serialize</span>};
+<span style="color: #81A1C1;">use</span> <span style="color: #81A1C1;">serde_json</span>::{json, <span style="color: #8FBCBB;">Value</span>};
+
+<span style="color: #81A1C1; font-weight: bold;">#[derive(Serialize)]</span>
+<span style="color: #81A1C1;">struct</span> <span style="color: #8FBCBB;">Object</span>(<span style="color: #8FBCBB;">Value</span>);
+
+<span style="color: #81A1C1;">fn</span> <span style="color: #8FBCBB;">main</span>() {
+
+    <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">v</span>: <span style="color: #8FBCBB;">Value</span> = <span style="color: #81A1C1; font-weight: bold;">json!</span>({<span style="color: #A3BE8C;">"test"</span>:<span style="color: #A3BE8C;">"hello"</span>});
+
+    <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">o</span>: <span style="color: #8FBCBB;">Object</span> = <span style="color: #8FBCBB;">Object</span>(v);
+
+    <span style="color: #81A1C1;">println!</span>(<span style="color: #A3BE8C;">"</span><span style="color: #A3BE8C; font-style: italic;">{}</span><span style="color: #A3BE8C;">"</span>, <span style="color: #81A1C1;">serde_json</span>::to_string(&amp;o).unwrap());
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc6cebb3" class="outline-2">
+<h2 id="orgc6cebb3"><span class="section-number-2">3</span> serde<sub>json</sub> の Value の末端を swap する。</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-rust"><span style="color: #81A1C1;">use</span> <span style="color: #81A1C1;">serde_json</span>::{json, to_value, <span style="color: #8FBCBB;">Value</span>};
+<span style="color: #81A1C1;">use</span> <span style="color: #81A1C1;">std</span>::<span style="color: #81A1C1;">mem</span>::swap;
+
+<span style="color: #81A1C1;">fn</span> <span style="color: #8FBCBB;">main</span>() {
+    <span style="color: #81A1C1;">let</span> <span style="color: #81A1C1;">mut</span> <span style="color: #D8DEE9;">object</span>: <span style="color: #8FBCBB;">Value</span> = <span style="color: #81A1C1; font-weight: bold;">json!</span>({<span style="color: #A3BE8C;">"nested"</span>:{<span style="color: #A3BE8C;">"data"</span>:<span style="color: #A3BE8C;">"test"</span>, <span style="color: #A3BE8C;">"other_data"</span>:<span style="color: #A3BE8C;">"test"</span>}});
+
+    <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">path</span> = <span style="color: #A3BE8C;">"nested/data"</span>;
+    <span style="color: #81A1C1;">let</span> <span style="color: #81A1C1;">mut</span> <span style="color: #D8DEE9;">new_data</span> = to_value(<span style="color: #A3BE8C;">"updated"</span>).unwrap();
+
+    <span style="color: #81A1C1;">let</span> <span style="color: #81A1C1;">mut</span> <span style="color: #D8DEE9;">current_data</span> = &amp;<span style="color: #81A1C1;">mut</span> object;
+
+    <span style="color: #81A1C1;">for</span> p <span style="color: #81A1C1;">in</span> path.split(<span style="color: #A3BE8C;">"/"</span>) {
+        current_data = current_data.get_mut(p).unwrap();
+        <span style="color: #6f7787;">// </span><span style="color: #6f7787;">this unwrap is dangerous</span>
+    }
+
+    swap(current_data, &amp;<span style="color: #81A1C1;">mut</span> new_data);
+
+    <span style="color: #81A1C1;">println!</span>(<span style="color: #A3BE8C;">"</span><span style="color: #A3BE8C; font-style: italic;">{}</span><span style="color: #A3BE8C;">"</span>, object.to_string());
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-rust">{<span style="color: #A3BE8C;">"nested"</span>:{<span style="color: #A3BE8C;">"data"</span>:<span style="color: #A3BE8C;">"updated"</span>,<span style="color: #A3BE8C;">"other_data"</span>:<span style="color: #A3BE8C;">"test"</span>}}
+</pre>
+</div>
 
 <p>
-Not the one you keep everyday.
-</p>
-
-
-<p>
-arxiv is moving!
-</p>
-
-<div id="outline-container-org5e249d0" class="outline-2">
-<h2 id="org5e249d0"><span class="section-number-2">1</span> <a href="https://github.com/arXiv">https://github.com/arXiv</a></h2>
-<div class="outline-text-2" id="text-1">
-<p>
-indicates that this is an open source projects with lots of micro services, most
-of the things are written in python.
+swap なので、そのノードの情報は消えちゃう。json object どうしだったら
 </p>
 </div>
 </div>
 
-<div id="outline-container-org5e42bf8" class="outline-2">
-<h2 id="org5e42bf8"><span class="section-number-2">2</span> <a href="https://blog.arxiv.org/2019/10/31/arxiv-ng-project-explanation/">https://blog.arxiv.org/2019/10/31/arxiv-ng-project-explanation/</a></h2>
+<div id="outline-container-org08e0871" class="outline-2">
+<h2 id="org08e0871"><span class="section-number-2">4</span> iter を next  してから、collect すると、前 pop になる</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-rust"><span style="color: #81A1C1;">fn</span> <span style="color: #8FBCBB;">main</span>() {
+    <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">v</span> = <span style="color: #81A1C1; font-weight: bold;">vec!</span>[<span style="color: #A3BE8C;">"a"</span>, <span style="color: #A3BE8C;">"b"</span>, <span style="color: #A3BE8C;">"c"</span>];
+    <span style="color: #81A1C1;">let</span> <span style="color: #81A1C1;">mut</span> <span style="color: #D8DEE9;">it</span> = v.iter();
+    <span style="color: #81A1C1;">println!</span>(<span style="color: #A3BE8C;">"</span><span style="color: #A3BE8C; font-style: italic;">{:?}</span><span style="color: #A3BE8C;">"</span>, it.next());
+    <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">v</span>: <span style="color: #8FBCBB;">Vec</span>&lt;<span style="color: #8FBCBB;">String</span>&gt; = it.map(|i| i.to_string()).collect();
+    <span style="color: #81A1C1;">println!</span>(<span style="color: #A3BE8C;">"</span><span style="color: #A3BE8C; font-style: italic;">{:?}</span><span style="color: #A3BE8C;">"</span>, v);
+}
+</pre>
 </div>
 
-<div id="outline-container-orgd19abb9" class="outline-2">
-<h2 id="orgd19abb9"><span class="section-number-2">3</span> <a href="https://arxiv.github.io/arxiv-base/">https://arxiv.github.io/arxiv-base/</a></h2>
+<div class="org-src-container">
+<pre class="src src-rust"><span style="color: #8FBCBB;">Some</span>(<span style="color: #A3BE8C;">"a"</span>)
+[<span style="color: #A3BE8C;">"b"</span>, <span style="color: #A3BE8C;">"c"</span>] <span style="color: #6f7787;">// </span><span style="color: #6f7787;">&#28187;&#12387;&#12390;&#12427;!</span>
+</pre>
+</div>
+
+<p>
+この後 <code>for</code> とかしたいときとか？
+</p>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2021-02-18 06:42</p>
+<p class="date">Date: 2021-02-21 21:27</p>
 <p class="author">Author: Yasushi Sakai</p>
 <p class="date">Created: 2021-03-11 Thu 07:12</p>
 </div>

@@ -6,7 +6,7 @@
 <!-- 2021-03-11 Thu 07:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>How to start a journal</title>
+<title>Recieving Money</title>
 <meta name="author" content="Yasushi Sakai" />
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
@@ -223,37 +223,72 @@
 <a href="http://yasushisakai.com">🏠</a>
 </div>
 <div id="content">
-<h1 class="title">How to start a journal</h1>
+<h1 class="title">Recieving Money</h1>
 
 <p>
-Not the one you keep everyday.
+人からお金のもらい方。
 </p>
-
 
 <p>
-arxiv is moving!
+目的: 月額で人からお金を集め、透明な状態でそれを確認する方法を探る。
 </p>
 
-<div id="outline-container-org5e249d0" class="outline-2">
-<h2 id="org5e249d0"><span class="section-number-2">1</span> <a href="https://github.com/arXiv">https://github.com/arXiv</a></h2>
+<p>
+そこから引き出したり、出すのはまだ先。
+</p>
+
+<p>
+「透明な状態」とは、誰でも残高と入金が見える状態で、入金毎のレシートも確認できる。お金が動いている様はできるだけすでにあるサービスのせいにしたい。
+</p>
+
+<p>
+もちろん、仮想通貨にして、例えば DAI を使って、どうのこうのでもいいんだけど、一般の人に DAI を買ってこのアドレスに送金してくださいだと、ハードル高杉。本当だったら、ETH をベースレイヤーにして入金が検知されたらどこそこの Blockchain に描いておくんだろうけど&#x2026;
+</p>
+
+<div id="outline-container-org4ee0f25" class="outline-2">
+<h2 id="org4ee0f25"><span class="section-number-2">1</span> お金もらうプラットフォーム</h2>
 <div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org266a49b" class="outline-3">
+<h3 id="org266a49b"><span class="section-number-3">1.1</span> <a href="https://patreon.com/yasushisakai">patreon</a></h3>
+<div class="outline-text-3" id="text-1-1">
 <p>
-indicates that this is an open source projects with lots of micro services, most
-of the things are written in python.
+サブスクしようとすると、仲介料 8%コースにしないといけない。
 </p>
 </div>
 </div>
 
-<div id="outline-container-org5e42bf8" class="outline-2">
-<h2 id="org5e42bf8"><span class="section-number-2">2</span> <a href="https://blog.arxiv.org/2019/10/31/arxiv-ng-project-explanation/">https://blog.arxiv.org/2019/10/31/arxiv-ng-project-explanation/</a></h2>
+<div id="outline-container-org91a0b2d" class="outline-3">
+<h3 id="org91a0b2d"><span class="section-number-3">1.2</span> <a href="https://ko-fi.com/yasushisakai">Ko-fi</a></h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+基本仲介料無料、有料サービスがあってそれだと色々できるようになる。
+</p>
+</div>
+</div>
 </div>
 
-<div id="outline-container-orgd19abb9" class="outline-2">
-<h2 id="orgd19abb9"><span class="section-number-2">3</span> <a href="https://arxiv.github.io/arxiv-base/">https://arxiv.github.io/arxiv-base/</a></h2>
+<div id="outline-container-org4dcd7e2" class="outline-2">
+<h2 id="org4dcd7e2"><span class="section-number-2">2</span> 決済サービス</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+上のプラットフォームは決済を行うサービサーがいて、どちらも paypal か stripe が選べる。仲介料が無料の Ko-fi で stripe を設定した。みのりに $5 寄付してもらってよくみたら $4.55 手元に入るらしい。0.45 は stripe にとられるようです。競合の
+paypal も同じようなものだと思われる。
+</p>
+
+<p>
+当然、レシートが寄付した側・された側に来るので、それをみんなが見れる状態にすればいい事になる。でもちょっと思うのがだったら最初っから stripe 経由で
+subscription の仕組みを作って、stripe の口座を透明に管理できる仕組みを作ってしまった方が良さそう&#x2026;というもの。
+</p>
+
+<p>
+<a href="https://stripe.com/docs/payments/checkout">https://stripe.com/docs/payments/checkout</a>
+</p>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2021-02-18 06:42</p>
+<p class="date">Date: 2021-02-19 16:29</p>
 <p class="author">Author: Yasushi Sakai</p>
 <p class="date">Created: 2021-03-11 Thu 07:12</p>
 </div>

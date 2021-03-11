@@ -6,7 +6,7 @@
 <!-- 2021-03-11 Thu 07:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>How to start a journal</title>
+<title>Note taking</title>
 <meta name="author" content="Yasushi Sakai" />
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
@@ -223,37 +223,59 @@
 <a href="http://yasushisakai.com">🏠</a>
 </div>
 <div id="content">
-<h1 class="title">How to start a journal</h1>
+<h1 class="title">Note taking</h1>
 
 <p>
-Not the one you keep everyday.
+一応博士課程で、知的財産としてメモは貴重な財産である。メモについて考える。
 </p>
-
 
 <p>
-arxiv is moving!
+世間に出回っているメモアプリとしては、以前は evernote が流行ったり、Microsoft
+OneNote を使っている学生もみる。最近だと、scrapbox というサービスや、notion を使って共同編集をすることもあるだろう。Mac OS に入っている notes も十分に使えるし、
+Google Documents も使うだろう。note や medium もメモといえばメモだろう。
 </p>
 
-<div id="outline-container-org5e249d0" class="outline-2">
-<h2 id="org5e249d0"><span class="section-number-2">1</span> <a href="https://github.com/arXiv">https://github.com/arXiv</a></h2>
-<div class="outline-text-2" id="text-1">
 <p>
-indicates that this is an open source projects with lots of micro services, most
-of the things are written in python.
+ひと昔前だと、こうしたサービスをうまく活用して、自分のデータを保有するのではなく、サービスに管理させるという考え方が流行っていたと思う。メモ取りにおける最新の機能をデータの損失を最小限にできる上、多くの場合無料である。酒井はこの考えはひと昔まえだと思う。
 </p>
-</div>
-</div>
 
-<div id="outline-container-org5e42bf8" class="outline-2">
-<h2 id="org5e42bf8"><span class="section-number-2">2</span> <a href="https://blog.arxiv.org/2019/10/31/arxiv-ng-project-explanation/">https://blog.arxiv.org/2019/10/31/arxiv-ng-project-explanation/</a></h2>
-</div>
+<p>
+ただ、上でもわかる通り、メモとりは日々進化しており、サービス自体に移り変わりが激しいと言える、囲い込みを前提にしたサービス上だと、そのデータを分析に使われたりする懸念もあるし、あるサービスから他のサービスに移行したいと思った時に苦労する羽目になる。知財としてメモはもっとも重要だと思うし、その管理は自分でしたほうが良いという立場をとる。GDPR 以降自分のデータをダウンロードする権利が見直されたが、その形式が理解できなければ使い物にならない。古いように思えるが、一周回って次の
+web3.0 の考え方に則している。
+</p>
 
-<div id="outline-container-orgd19abb9" class="outline-2">
-<h2 id="orgd19abb9"><span class="section-number-2">3</span> <a href="https://arxiv.github.io/arxiv-base/">https://arxiv.github.io/arxiv-base/</a></h2>
-</div>
+<p>
+ここで対象としているメモは、最終的に様々なメディアになることが想定される。論文であったり、ブログであったり、発表資料であったりする。メモをとっている時間を最大限にするためには、これらの変換作業にかかる時間が少ないほど良い。上のサービスの記法は良くてマークダウン形式(.md)が使われる。.md は主にブラウザでの閲覧が主眼に置かれており、それだと少し物足りないのが現状だ。
+</p>
+
+<p>
+具体的に、論文となるケースを考える。僕は、基本的に latex で文字組みをするので、最終的に.tex ファイルにしやすい方が良い。先の.md だと片手落ちになるケースが多く、特に論文執筆に重要な文献管理の際不便である。
+</p>
+
+<p>
+ドキュメント同士の関係性の話で言えば、メモ同士の関係も記述できる仕組みがあると良い。上記のサービスだとタグによる管理ができたりする。Notion もメモの最小単位ブロックとしてそれらのリンクによって管理していく仕組みだ。タグによる集合を定義する方法とリンクによる管理の方法があるように見えるが、実際は、2つのメモをリンクさせることができれば集合も定義できる。メモ同士の連関関係に注目したサービスは<a href="https://roamresearch.com/">Roam
+Research</a>だろう。それらを定義するメタ情報もメモの記法プロトコルで策定されていることが望ましい。
+</p>
+
+<p>
+あるいは、メモの中に簡単な計算やプログラムを書く場合がある。データサイエンスの分野では jupyter や Google Colab が多用されている。.md 形式とコードでブロックレベルで分けることができるので、非常に使い勝手が良い。
+</p>
+
+<p>
+次に、発表資料、特にスライドとしてまとめることがある。世間には PowerPoint や
+Keynote があるが、すでに書いたそれらに変換する手間が惜しい。特に、上記はバージョン管理されていないので、発表の回数が多いと重複が多く、その管理も面倒である。
+</p>
+
+<p>
+以上を鑑みて、最終的におち着いたのが emacs 内で書くことができる org 形式である。.md よりも、メモのメタデータなどのアノテーションの幅がある（よって複雑だが）.html や.tex よりも抽象度が高い中間マークアップ言語である。
+</p>
+
+<p>
+メモはコンピュータの一般的なフォルダに入れれば良い、管理は自分でやる。org モードで書かれたものは.html や.tex や.md に変換が簡単であり、かつ org-roam を使えばメモ同士の関係も管理してくれる。org-babel を使えば、jupyter のようにコードを書きながら。
+</p>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2021-02-18 06:42</p>
+<p class="date">Date: 2021-03-09 10:47</p>
 <p class="author">Author: Yasushi Sakai</p>
 <p class="date">Created: 2021-03-11 Thu 07:12</p>
 </div>

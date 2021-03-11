@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-03-11 Thu 07:12 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>「高速道路計画におけるグラフィック・テクニックに関するスタディ」のレビュー</title>
+<meta name="author" content="Yasushi Sakai" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="http://yasushisakai.com">🏠</a>
+</div>
+<div id="content">
+<h1 class="title">「高速道路計画におけるグラフィック・テクニックに関するスタディ」のレビュー</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgf09c1b2">1. 1. 背景と概要</a></li>
+<li><a href="#orgbbe37af">2. 2. 要件の整理</a>
+<ul>
+<li><a href="#org4a96e2a">2.1. 個々の条件について</a></li>
+</ul>
+</li>
+<li><a href="#orgc0a97ba">3. 3. 統合の準備</a>
+<ul>
+<li><a href="#org28432d2">3.1. 高速道路性</a></li>
+<li><a href="#org6120829">3.2. 条件の比較可能性</a>
+<ul>
+<li><a href="#orgd4bf3c1">3.2.1. 1. 指標 A と指標 B の加算定義がないよ</a></li>
+<li><a href="#org4fa6342">3.2.2. 2. お金だって絶対価値ってないのでは？</a></li>
+<li><a href="#orgbaa42f7">3.2.3. 3. いや、倫理的にだめしょ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgfa0d0de">4. 4. グラフの導入</a></li>
+<li><a href="#org95a7e8c">5. 5. 結果</a></li>
+<li><a href="#orgc8b2127">6. 6 デジタル・デザイン前史</a></li>
+<li><a href="#org6168b95">7. 注釈</a></li>
+</ul>
+</div>
+</div>
+<p>
+日本とテレカンしてたときに、ふとレファレンスとして出したこの忘れられた伝説の報告書。
+</p>
+
+<p>
+磯崎新さんの『建築の解体』(1975)に載ってるのかと思ったけど、ちゃんと乗ってるのは『空間へ』(1971)の都市設計のプロセス？に乗ってるんだと復習。日本に置いてあって手軽に見れない。
+</p>
+
+<p>
+結論を申し上げると、昨今のマッピング系計画手法で、結局これを超えるものは出ていないんじゃないかって思いました。
+</p>
+
+<div id="outline-container-orgf09c1b2" class="outline-2">
+<h2 id="orgf09c1b2"><span class="section-number-2">1</span> 1. 背景と概要</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+僕の検索リテラシーがしょぼいのかこの「高速道路計画におけるグラフィック・テクニックに関するスタディ」（以下:スタディ）の資料が日英ともネットに載っていなくてびっくり。<a href="https://medium.com/kenchikutouron/%E5%B0%8F%E3%81%95%E3%81%AA%E7%9F%A2%E5%8D%B0%E3%81%AE%E7%BE%A4%E3%82%8C-%E3%81%8C%E3%81%A4%E3%81%8F%E3%82%8B%E8%A1%97%E8%B7%AF-cbc9caac5075">難波さんがちょろっと言及してるくらい。</a>それで MIT パワーを駆使して、取り寄せる。実はこれ、MIT 名義で出版されていて、マサチューセッツの公共事業の研究予算からの出資のようです。1962 年にクリストファー・アレグザンダーとマービン・マンヘイムの共著で、ウィリアム・リトルとブライアン・マーティンの授業レポート課題の延長の様です。（これは出版されていないようです。）
+</p>
+
+<p>
+マービン・マンハイムは MIT のシビル・エンジニアリングの先生で、その後アメリカの高速道路計画にも参加されたようで、そのほかにも（もちろん）ワークフローやプロセス論に関わる著作を残しています。マービン先生は 2000 年に亡くなっています。
+</p>
+
+<p>
+クリストファー・アレグザンダーに参考文献に自身の（また伝説の）博論である「形の合成に関するノート」がまだ未出版(unpublished)で書いてあります、これから２年かかるんですね。
+</p>
+
+
+<div id="orgac24985" class="figure">
+<p><img src="assets/images/highway_graphic_study/fig1_map.gif" alt="fig1_map.gif" />
+</p>
+<p><span class="figure-number">Figure 1: </span>対象敷地です。 <div id="map"></div></p>
+</div>
+
+<p>
+なーにがかっこいいって、アブストの最初の一語が「図 1 <a href="#map">map</a> は連邦政府地形調査図から撮られたマサチューセッツ州西部の写真である。」って、いきなり図版から始まるところですね。
+</p>
+
+<p>
+詳細は次回以降にするとして、概要を説明します。
+</p>
+
+<p>
+<b>課題: 高速道路をどこに通すか</b>
+</p>
+
+<p>
+<b>方法:</b>
+</p>
+
+<ol class="org-ol">
+<li>26 個の評価基準の設定 (例えば、用地買収コスト)</li>
+<li>それぞれについて、その評価を示す白黒の画像を用意する。(ex. 人が住んでいない州が所有しているところは安いので黒、人が住んでいて、地価が高いところは高くつくので白)</li>
+<li>26 の評価基準画像を木構造に分類して、各レイヤー化をスーパーインポーズし情報を抽出する。当時はフォトショがないので、写真を重ね焼きしているようです。
+<ol class="org-ol">
+<li>重ね合わせた結果を元にどのルートがいいか決める。</li>
+</ol></li>
+</ol>
+
+<p>
+次章以降もっと噛み砕いていきます。特にプロセスの 3.は謎が多い。
+</p>
+
+<p>
+今の時代なら、google earth もあるし、フォトショもあるし、いろんなデータアナライゼーションツールで web にも表示できて、データサイエンスの助けもあって色々できるんだけど、この手法そのものの n 番煎じでちょっとアカデミア大丈夫かなって背筋が伸びますよ本当に。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbbe37af" class="outline-2">
+<h2 id="orgbbe37af"><span class="section-number-2">2</span> 2. 要件の整理</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+まず、26 個の白黒画像です。
+</p>
+
+
+<div id="orga2567f1" class="figure">
+<p><img src="assets/images/highway_graphic_study/fig2_all.gif" alt="fig2_all.gif" />
+</p>
+</div>
+
+<p>
+一つ一つの画像がコストやら景観やら何かを評価しています。（黒が望ましい、白がその評価にとって避けるべき場所）
+</p>
+
+<p>
+そもそもなぜこの 26 個になったのかという問題があります。これは彼らが４、５回考えていくつかバージョンがあったと書いてあります。その時のメタ条件(必要条件の条件)は三つあって、
+</p>
+
+<ol class="org-ol">
+<li>（包括性）網羅的である事</li>
+<li>（独立性）重複していないか</li>
+<li>（場性）物理的な場所に影響があるか</li>
+</ol>
+
+<p>
+のようです。
+</p>
+
+<p>
+図版の通り、この研究は面にそれぞれの条件を落とし込む手法をとっていますが、適当に線を引いて、その線を２６個の条件に応じて評価する方法<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup><sup>, </sup><sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>もあるでしょう。その適当な線をひたすら繰り返して、最適な線をを見つければいいと。が、作者はそれだととりえる線が多すぎて、それを評価するのは時間的制約があると述べています。この手法は今だったらライノでやればできますね。この研究の面で評価する方法の限界として、逐次評価ができないという点があります。例えば、山の中腹に平たい土地があれば、平たい土地なので、コストは低いが、そこまで高速を通すのはコストが高いというような場合です。この A 地点から相対的に B 地点を評価するのは難しいよと言っています。
+</p>
+</div>
+
+<div id="outline-container-org4a96e2a" class="outline-3">
+<h3 id="org4a96e2a"><span class="section-number-3">2.1</span> 個々の条件について</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+それぞれに個別の紹介は省きますが、気づいた事を。
+</p>
+
+<ol class="org-ol">
+<li><p>
+白から黒のグラデーションは正規化されていません。
+</p>
+
+<p>
+言い換えれば、真っ白から真っ黒で評価されている図(ex, 1)もあれば微妙なグレー二色で表されているものもあります(ex, 図 <a href="#req3">req3</a> )。
+</p>
+
+
+<div id="orgab5eca0" class="figure">
+<p><img src="assets/images/highway_graphic_study/highway_req1.jpg" alt="highway_req1.jpg" />
+</p>
+<p><span class="figure-number">Figure 3: </span>(1)</p>
+</div></li>
+</ol>
+
+
+
+<div id="org17d10a0" class="figure">
+<p><img src="assets/images/highway_graphic_study/highway_req3.jpg" alt="highway_req3.jpg" />
+</p>
+<p><span class="figure-number">Figure 4: </span>(3) <div id="req3"></div></p>
+</div>
+
+<ol class="org-ol">
+<li><p>
+角度を頑張って示そうとしてる
+</p>
+
+<p>
+前の章でも行ってますが、川の直上をなぞるような橋はコストがべらぼうにかかるので、なるだけ直行して橋の長さを最小限にしたい場合どのように評価するのかという問題があります。
+</p></li>
+
+<li><p>
+素直にわかんないって言ってる
+</p>
+
+<p>
+14 番の景観に関しては、素直に、わかんねと行っていて、絶対ダメなところと絶対に良さそうなところ以外は中グレーになっています。16 番、空気汚染公害とかもワカンネ、むずかしいって書いてある。地味に重要で、26 個の必要条件として入っているので、重要な指標だが、わからないと述べているわけです。この一枚一枚図にする方法をとったからむずかしいのか、そもそもそれを観測する手立てが不足しているのかを議論すべきですよね。
+</p>
+
+
+<div id="orgfd04c53" class="figure">
+<p><img src="assets/images/highway_graphic_study/highway_req16.jpg" alt="highway_req16.jpg" />
+</p>
+<p><span class="figure-number">Figure 5: </span>(16)</p>
+</div></li>
+</ol>
+
+<p>
+22 番の地域コミュニティの保全が一番絵柄として好きかな。
+</p>
+
+
+<div id="orgbe1088a" class="figure">
+<p><img src="assets/images/highway_graphic_study/highway_req22.jpg" alt="highway_req22.jpg" />
+</p>
+<p><span class="figure-number">Figure 6: </span>(22)</p>
+</div>
+
+<p>
+次はいよいよ方法の３.の統合論です。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc0a97ba" class="outline-2">
+<h2 id="orgc0a97ba"><span class="section-number-2">3</span> 3. 統合の準備</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+なんで単純に重ねちゃダメなのという問いに対するアレグザンダーの回答です。
+</p>
+
+<p>
+この課題が満たすと望ましい必要条件の集合が前章までの取組で得られました。この画像の集合を最終的な道路のパスに変換しなければなりません。統合論です。
+</p>
+
+<p>
+このあと謎のツリー構造にを作り、何やら怪しい操作をしているように見えます。単純にそれぞれスーパーインポーズ（重ね焼き）して黒いところえいやって引けばいいんじゃない？と思うのが普通で、それは<a href="http://www.asprs.org/wp-content/uploads/pers/1957journal/jun/1957_jun_563-569.pdf">この論文</a><a class='org-ref-reference' href="#roberts1957using">roberts1957using</a><sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>でポール・ロバーツが紹介しています。これに対し、アレグザンダーは高速道路計画は organized entity
+（直訳すると組織的な実体)だから重ね焼きしてはい、終わりじゃあダメよと言っているのです。噛み砕いて、２つの論点でロバーツを乗り越えようとしています。
+</p>
+</div>
+
+<div id="outline-container-org28432d2" class="outline-3">
+<h3 id="org28432d2"><span class="section-number-3">3.1</span> 高速道路性</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+高速道路特有の属性があります。例えば、パスであること、基本的に一本であり、順逆の二方向であること、むやみやたらにジグザグしないこと、そしてそうあったとしても鋭角すぎないことなどです。この基本的な属性が満たされないと、高速道路とは言えないし、
+26 個の案件はその高速道路が望ましい条件になります。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6120829" class="outline-3">
+<h3 id="org6120829"><span class="section-number-3">3.2</span> 条件の比較可能性</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+もう一個の批評は、それぞれの条件は果たして同じ物差しで比較可能かということです。アレグザンダーはこっちの方が力を入れて批評しています。ロバーツはこの最終的な評価をドルという一つの指標に統合しています。アレグザンダーはシビルエンジニアリングは時として人の命さえも（交通事故の経済的コスト）を一つの定規の上でエンジニアリングしていることに 3 つの疑問を投げかけています。
+</p>
+</div>
+
+<div id="outline-container-orgd4bf3c1" class="outline-4">
+<h4 id="orgd4bf3c1"><span class="section-number-4">3.2.1</span> 1. 指標 A と指標 B の加算定義がないよ</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+まず定義不在の指摘です。例えば、A案が B 案に比べて 100 万円かかるが、二件の交通事故を減らせるとして、エンジニアはその判断を比較することによって決めることができるのならば、厳密に、一件の交通事故という単位とお金という単位に加法と減法の定義が可能でなければならないと述べています。１件の交通事故+10 万円は 1.5 件-50 万円はなんなのだということだと思います。一件の価値は必ず線形に（等差級数的）に上がるのか、お金はどうなのか。
+</p>
+
+<p>
+なんだか少し理解しにくいので、僕の中でどう曲解して消化したかというと。プログラミングで型が違うのでそれの同士の加・減算の定義をしないとプログラムとして動かないよと言ってるのかなと思いました。プログラミングしない人に噛み砕くと、プログラミングの中の数字（数学同様）は色々あって、例えば整数（小数点ないやつ）と実数（小数点あるやつ、限界あるから有理数のなのかな）の足し算と引き算は厳密にどうゆう挙動になるか定義しないとできません。<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4fa6342" class="outline-4">
+<h4 id="org4fa6342"><span class="section-number-4">3.2.2</span> 2. お金だって絶対価値ってないのでは？</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<p>
+次に、価値相対性の指摘です。1ドルの価値は人・時間・状況によって変わるだろう、どこにその平均を設けるのだという指摘です。年俸２億円の富豪が子供が生まれそうな緊急事態の時の時価をとるのか、一文無しの学生の野外音楽フェスの時とはずいぶん一ドルの価値が変わりそうです。人・時間に対して決まったなユニットで交換可能でなければならないと行ってます。未来に生きる僕らは普通にそうだよねーお金の価値は相対的だよねというのが常識ですが、ドルの価値が市場の需要と供給に応じて変わる変動相場制はまだもうちょっと先を考えても面白いですよね。<sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbaa42f7" class="outline-4">
+<h4 id="orgbaa42f7"><span class="section-number-4">3.2.3</span> 3. いや、倫理的にだめしょ</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<p>
+最後に、倫理的な問題です。お金と人の命の方程式が一意に決まってしまったら、その瞬間それは自由に売り買い取引できるようになってしまうと指摘しています。僕の娘を 100
+円で売って、そのお金で別の吟遊おじさんを買っても同じということになってしまいます。
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgfa0d0de" class="outline-2">
+<h2 id="orgfa0d0de"><span class="section-number-2">4</span> 4. グラフの導入</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+複雑な問題を要素に分解することで解きやすくなるということで、物事を要素に分けて考えましょうということです。複雑系科学<sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup>はまだ出てこないので、ずいぶん素直に要素分解していこうと言い切っています。
+</p>
+
+<p>
+あるいは分解する理由として、このデザイン問題を解ける形に変形するとも行っています。例えば、最終的に得られたものが全部グレー一色だったら、なんでも言いわけで、そこから唯一一本通す理由になりません。なんでもいいんじゃんっていうのも一つの答えだけど、それだとプロセスというデザインの道具としては何をやってるのかわからなくなります。こうゆう何をやってるのか分からなくなって胸が痛くなるパターンというのはグレー一色だけではなく、確かに存在していて、例えば、東から西に線を弾きたいのに、縦の縞模様も困っちゃいます、これを避けられるようなプロセスがいいと。
+</p>
+
+<p>
+あとは、全章の全てを一つの物差しに回収するのを避けるために、それぞれの段階での判断を使うしかないと行っています。とはいえ、判断するのに、一気に全ての要素は考えられないので、少しずつやっていくのが望ましいと、転じて自然にツリー構造になるのではと行っています。ただ、闇雲に小さく分割してやればいいかというとそうでもなく、できるだけ、干渉(conflict)が少ないようにやるべきだと述べています。いうまでもなく、プロセスの後半になるとそれはどんどん難しくなっていきます。ルービックキューブ解こうとするとわかるけど、最初の一面はそれ以外の依存関係がないから簡単だけど、後になっていくに従って、気にしないといけないから難しくなっていくし、一個合わせるための工数も増えますよね。藤村さんの超線形設計プロセスも実は同じで、線形にして簡単に見えますが、同じように後半戦はやっぱり難しいでしょうし、設計を繰り返していくうちに何を先に考えるべきかという経験は必要ですよね。<sup><a id="fnr.7" class="footref" href="#fn.7">7</a></sup>それが極力簡単にできる組み合わせをアレグザンダーは求めようとしています。
+</p>
+
+<p>
+そのために、まず、２６個の要素が、どのようにお互い干渉しあっているかを調べます。俗にいう隣接グラフなのですが、レポートでは超見辛い形で示されています。
+</p>
+
+
+<div id="orgb698a08" class="figure">
+<p><img src="assets/images/highway_graphic_study/adjacency_matrix.gif" alt="adjacency_matrix.gif" />
+</p>
+</div>
+
+<p>
+そこからレンジでチンのごときツリー構造のダイアグラムがいきなりてくるわけです。
+</p>
+
+
+<div id="org4ffd9d8" class="figure">
+<p><img src="assets/images/highway_graphic_study/fig3_tree.gif" alt="fig3_tree.gif" />
+</p>
+</div>
+
+<p>
+詳細は HIDECS2 <a class='org-ref-reference' href="#alexander1962hidecs">alexander1962hidecs</a> <sup><a id="fnr.8" class="footref" href="#fn.8">8</a></sup>というプログラムをみよとのことで、レポートを別に書いています。それも MIT に貯蔵されていたので、借りてみると、当時のプログラムなので、アセンブリ言語で書かれており、さすがに組み直すのは手に負えません。
+</p>
+
+
+<div id="orgce6c921" class="figure">
+<p><img src="assets/images/highway_graphic_study/HIDECS2.gif" alt="HIDECS2.gif" />
+</p>
+</div>
+
+<p>
+で、アセンブリコードを再実装しても良かったんですが、ネットワーク科学の研究グループにいたクリスチャン<sup><a id="fnr.9" class="footref" href="#fn.9">9</a></sup>に話を聞いて、今だとこうゆうことするのに何を見たらいいだろうという相談をしました。ウェイトがかかっていない、無方向グラフなら<a href="https://ja.wikipedia.org/wiki/%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%A9%E3%83%AA%E3%83%86%E3%82%A3">モジュラリティ係数</a>が一番近いかなとアドバイスを受けました。ありがとうクリスチャン。モジュラリティ係数というのは結局ネットワーク内のコミュニティを計算するために使われるそうで、この場合、諸要求項同士の関係性を計算したいので、合致すると。その中で
+<a href="https://en.wikipedia.org/wiki/Louvain_modularity">Louvian modularity</a>とか<a href="https://www.mapequation.org/publications.html#Rosvall-Axelsson-Bergstrom-2009-Map-equation">Infomap</a>が早いよとも教えてくれた。ありがとうクリスチャン。
+</p>
+
+<p>
+で、アレグザンダーに戻ると、高速道路のスタディでやっていることを一般化すると、
+</p>
+
+<p>
+条件がノード、それら条件の関連をエッジとしてネットワークがあったときに、それをどのようにクラスタリング（グループ分け）するのが一番自然か計算する。
+</p>
+
+<p>
+ということです。ここで、自然とあえて、定義しづらい言葉を使ったのはやっぱりクリスチャンに聞いた話で、何を持って自然とするかによって、使うアルゴリズムが違うからのようです。
+</p>
+
+<p>
+だから、アレグザンダーはこのスタディの要点はただただ条件要素を集めて適応地形を作ろうぜと言っただけではなく、考えやすいようにグルーピングしようぜと言っていたわけですね。グルーピングして、小分けにすれば、検証する順番ができるので、どの問題から考えるかプロセスを示すという、プロセスの中でのサブプロセスがあるよと言っているように僕には解釈できました。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org95a7e8c" class="outline-2">
+<h2 id="org95a7e8c"><span class="section-number-2">5</span> 5. 結果</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+アセンブリ言語で作られたプログラムから出力されたツリーダイアグラムが出来ました。それは大変よろしいのですが、どうやって使うんでしょうか。
+</p>
+
+<p>
+そもそもその目的は問題を小さくグルーピングするためでした。小分けにした各ダイアグラムを統合する際に、アレグザンダーは以下に注意したと述べています。
+</p>
+
+<ol class="org-ol">
+<li>高速道路を作るためにやってることを忘れないこと。それぞれの段階で、高速道路を成り立たせるためにどの側面に注目しているかを意識すること。</li>
+
+<li>それぞれのダイアグラムの重みづけは違うことを意識すること。</li>
+</ol>
+
+
+<div id="org3a5c371" class="figure">
+<p><img src="assets/images/highway_graphic_study/fit3_tree_partial.gif" alt="fit3_tree_partial.gif" />
+</p>
+</div>
+
+<p>
+1.はなんかしっくり来ないなー。アレグザンダー結構ぼわぼわなんですよね。ここをもっと噛み砕くと、数枚のダイアグラムを重ね焼きするわけですが、その後、その絵に人間の解釈挟む必要があります。何故なら、実際にそうでもしないと、すぐ真っ黒になっちゃいます。黒くつぶれた値はルール上高速道路として望ましいエリアになるので、その値を補正しないといけないわけです。それを人間の目でやっています。今だったらフォトショでしょう。
+</p>
+
+<p>
+2.は比較の難しさについての言及だと思います。合成する際に、片方のダイアグラムを
+100 倍重みづけしたら、もう片方の影響は相対的にすごく低いでしょう。100:1 を与える理論もなければ、逆に 1:1 と等価に扱う理由にもなりません。重みづけのさじ加減として処理出来ちゃったら、それは今までのロバーツの方法と一緒って事ですね。それを乗り越えるために、<a href="https://ja.wikipedia.org/wiki/%E3%82%B2%E3%82%B7%E3%83%A5%E3%82%BF%E3%83%AB%E3%83%88%E5%BF%83%E7%90%86%E5%AD%A6">ゲシュタルト心理学</a><sup><a id="fnr.10" class="footref" href="#fn.10">10</a></sup>を持ち出してます。２つまるが近くにあれば、ひとまとめに見えるし、長方形が重なっていれば、はしごに見えるよねと言っています。再現性と言われると謎ですが、地味に聞いてくるんです。アレグザンダー本人はその後のまとめで別々の要素を比較検討する場合、1から 10 まで全ての過程をコンピュータに置き換える事は当時の演算能力では不可能だと言っています。そこで、何も隠さずピュアに人間の目と脳みそを使いましょうと言っています。もちろん、それ以前に脳みそと目は使ってきましたが、彼が言いたいのは、我々の視力は、パターンをあぶり出すのに長けているため、その機能が最大限発揮できる箇所に使ったと結論づけています。
+</p>
+
+<p>
+んで、本当に紆余曲折へて出来たのがこれ。
+</p>
+
+
+<div id="org1998243" class="figure">
+<p><img src="assets/images/highway_graphic_study/fig5_result.gif" alt="fig5_result.gif" />
+</p>
+</div>
+
+<p>
+最終形の講評は無し(笑
+</p>
+
+<p>
+この論文を通して、アレグザンダーそのものは結構血の通った人間で、俗にアレグザンダー後期と称されるぼわぼわスピリチャル期は最初から持ち合わせていた性格だったのかなと考えます。ノートだって実は「粘り気」みたいな結構抽象的で解釈の幅がある語彙を使っているのですが、そのレポートではそれが結構強調されています。彼がいうコンピュータの演算量の向上によってパターン認識能力が上がったのか、昨今のディープラーニング及び諸テクニックがそれに相当するかは検証が必要でしょう。ですが、この時代ですでに人間とコンピュータの適材適所説を 26 才で堂々と論じてるのはやっぱりすごいですよね。
+</p>
+
+<p>
+レビュー自体はこれで終わりですが、この後、『ノート』の後にライオネルマーチの批評を少し紹介して、実はデジタルデザイン前史の紹介にちょうどいいのでもうちょっと続けます。
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgc8b2127" class="outline-2">
+<h2 id="orgc8b2127"><span class="section-number-2">6</span> 6 デジタル・デザイン前史</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+レビューそのものは終わりましたが、これにちょっと書き足せば、デジタルデザイン前史になるじゃないと思い、継ぎ足します。日本やその他の国でのアレグザンダーの影響がアメリカに比べてずっと息が長いと思っているのですが、その理由はアメリカでは早々にライオネル・マーチなる学者がアレグザンダーを批評したことにあると僕は考えます。
+</p>
+
+
+<p>
+マーチ・アレグザンダ対決がアメリカ及び英国で最初のデジタル・デザイン論争の始まりだといえます。マーチはマーチでかのアラン・チューリングに数学の能力を認められて特待生になるような魔神ですが、アレグザンダーよりも理論派厳密数学派だと言えるでしょう。
+</p>
+
+<p>
+マーチはアレグザンダーに対する批評をあれこれ展開します。というか、本のイントロダクションを丸ごとアレグザンダー批判に費やしてて、イントロの結論でも、「わざと物議を醸すようにしています」みたいな喧嘩の売り方をしています。
+</p>
+
+<p>
+マーチの批判は以下:
+</p>
+
+<ol class="org-ol">
+<li>形の合成に関するノートってなんか形自動的に出るみたいだけどアレグザンダーは形の統合論というよりそのちょっと前段階だよね。なんか自動的に形できちゃうって弟子含め誤解してる人多くない？</li>
+
+<li>アレグザンダーの哲学的基礎となる<a href="https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%BC%E3%83%AB%E3%83%BB%E3%83%9D%E3%83%91%E3%83%BC">カール・ポッパー</a>と<a href="https://ja.wikipedia.org/wiki/%E3%83%AB%E3%83%BC%E3%83%88%E3%83%B4%E3%82%A3%E3%83%92%E3%83%BB%E3%82%A6%E3%82%A3%E3%83%88%E3%82%B2%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3">ウィトゲンシュタイン</a>の組み合わせって相性悪いと思うんです。犬猿の仲だし<sup><a id="fnr.11" class="footref" href="#fn.11">11</a></sup>。哲学を追っていくとこの投稿の範疇を超えるし僕もそこまで自信が無いので、控えます。<sup><a id="fnr.12" class="footref" href="#fn.12">12</a></sup></li>
+</ol>
+
+<p>
+続けて、マーチも松川さん<a class='org-ref-reference' href="#Yusuke2011">Yusuke2011</a> (p.220-222)が持ち出しているパースの科学的論理的思考方法を使ってデザインのための理論として説明しています。詳細は設計の設計を読んで見てください。
+</p>
+
+<p>
+僕はマーチを学者だって言い切っちゃってますが、建築という分野では実作はほとんどなく、レズリー・マーチンと英国の white hall のプロジェクトで、compter aided
+architecture 試してみましたーみたいな方です。<sup><a id="fnr.13" class="footref" href="#fn.13">13</a></sup>
+</p>
+
+<p>
+数学依りのマーチがその後のデジタルデザインに直接的な影響を与えていますが、実プロジェクトとしてアーキテクトなのは（そんなに多作じゃないけど）アレグザンダーで、アレグザンダーはアレグザンダーでその後オブジェクト志向プログラミングに結構影響を与えていたりします。<a class='org-ref-reference' href="#lea1994christopher">lea1994christopher</a> マーチの批評を今読んで見るとなんか、「ちいせぇなこいつ」のが率直な僕の感想で、アレグザンダーもナイーブですが、マーチはさらに二回り痛々しい。文章も理論も難しいし、文体口調も友達少なそうだし、そりゃ海を渡って言説が届かないのもちょっと納得。
+</p>
+
+<p>
+ただしそのマーチが、MIT のコンピュテーショナル・デザインの古典的コアの Shape Grammers
+につながっているし、都市分析の手法だと、Space Syntax も辿ればマーチ先生ですと発明者の
+Hillier もクレジットしています。<sup><a id="fnr.14" class="footref" href="#fn.14">14</a></sup>
+</p>
+
+<p>
+このねちねち攻撃で数学的に叩かれたアレグザンダーですが、その後 1982 年にアイゼンマンとのディベートを皮切りに本当にフェードアウトしていきます。<sup><a id="fnr.15" class="footref" href="#fn.15">15</a></sup>
+</p>
+
+<p>
+それにしても出てくる人がみんな歴史的哲人で、なんか現代と歴史のちょうど間みたいな感じで興味深いですよね。数学の集合論が人文系でも注目され始めて、構造主義を始めたレヴィ＝ストロースが出てきたり、ちょうどこの頃、sketchpad の博論が同 MIT から出たりで、日本も含めて面白い時代ですよね。
+</p>
+
+<p>
+そんなわけで、デジタルデザイン近代史みたいなのを書いてみました。博士っぽい。
+</p>
+
+<p>
+これ以降の話は、まだまだその時代を知っている・生きていた諸先輩方がまだご存命なので、お近くのデジタルデザイン専門の人にお問い合わせください。
+</p>
+
+<p>
+<h1 class='org-ref-bib-h1'>Bibliography</h1>
+<ul class='org-ref-bib'><li><a id="roberts1957using">[roberts1957using]</a> <a name="roberts1957using"></a>Roberts, Using New Methods zn Highway Location, <i></i>,  (1957).</li>
+<li><a id="alexander1962hidecs">[alexander1962hidecs]</a> <a name="alexander1962hidecs"></a>Alexander & Manheim, HIDECS 2: A Computer Program for the Hierarchial  Decomposition of a Set Which Has an Associated Linear Graph, <i></i>,  (1962).</li>
+<li><a id="Yusuke2011">[Yusuke2011]</a> <a name="Yusuke2011"></a>Yusuke, Hiroya, Ryuji, , Chen & Shohei, Sekkei no Sekkei, INAXo (2011).</li>
+<li><a id="lea1994christopher">[lea1994christopher]</a> <a name="lea1994christopher"></a>Lea, Christopher Alexander: An introduction for object-oriented  designers, <i>ACM SIGSOFT Software Engineering Notes</i>, <b>19(1)</b>, 39-46 (1994).</li>
+<li><a id="graeber2012debt">[graeber2012debt]</a> <a name="graeber2012debt"></a>Graeber, Debt: The first 5000 years, Penguin UK (2012).</li>
+<li><a id="churchman1967guest">[churchman1967guest]</a> <a name="churchman1967guest"></a>@Miscchurchman1967guest,
+  author          = Churchman, C West,
+  title           = Guest editorial: Wicked problems,
+  year            = 1967,
+  publisher       = JSTOR,
+</li>
+</ul>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6168b95" class="outline-2">
+<h2 id="org6168b95"><span class="section-number-2">7</span> 注釈</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+方法に関しては考え始めたら色々あって（これも含めてプロセス論だと思うのですが）、例えば、ちょっとづつ伸ばして行って評価する方法もありそうですね。これを逐次添加法とすると、最短経路問題にイメージは近くになります。それだと一番有名なのはダイクストラ法で、その論文は 1959 年に発表されているので、まだ浸透していないのかしらと夢想します。
+</p>
+
+<p class="footpara">
+もっと直接的に&ldquo;物理的な距離を&rdquo;ヒューリスティクスとして使ったのが A*アルゴリズムでスタンフォードでロボットの最短経路を求めるアルゴリズムとして 1968 年でに発表されています。
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+あるいは、ある任意の点から、全ての近傍の点の評価を合計してその点を評価する方法がありそうです、これはどっちかというとモンテカルロ法とかレイトレ（Ray
+tracing）に近いのかしらと思います、モンテカルロ法自体は 1940 年代よりも前にあったようですが、演算能力に依存していたようです。
+1950 年にモンテカルロ法をベースにアランチューリングが学習アルゴリズムについての論文を書いてたりします。レイトレは考え方としては大昔からあるようですが、1982 年の
+ScottRoth まで待たないと 3D での計算としては出てきません。(ray casting として説明されています。)
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">
+ポール・ロバーツ(Paul O. Roberts)も MIT のシビルエンジニアリングの人みたいです。今回紹介しているグラフィック・テクニックにすごい近い題材で<a href="https://mitpress.mit.edu/books/highway-location-analysis">本</a>を 1968 年に書いていて。この時代から、航空写真と現像技術とコンピュータを使って検討していて、これも一つのデザインとすれば、もうデジタルデザインも６０年くらいは歴史があるって事ですよね。
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"><p class="footpara">
+整数と有理数を足算しちゃダメって意味ではありません。した時にどうなるのか定義しなさいということです。一見簡単ですが、挙動はいくつか考えられます。1.そもそも足しちゃダメですと TypeMismatchException みたいなエラーを吐き出してもいいし、2.
+null みたいな未定義という値を出してもいいでしょう。最近のプログラミング言語だと御法度で、例えば rust だと代わりにに<a href="https://doc.rust-lang.org/std/option/">Option&lt;u8&gt;</a>みたいな型を宣言します。3.整数か有理数どっちかに統一して計算してもいいですし、軟派スクリプティング動的型言語では何かしら決まってるのでしょう。
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara"><p class="footpara">
+アメリカが変動相場制に切り替わったのは 1973 年のニクソンの時代でした。変動相場に早い国の方がそのあと経済がうまくいったみたいな結果があるくらいで[要出典]、なぜなら固定相場の元となっている金の採掘量がどんどん少なくていき、いずれ枯渇するからです。って事は金がどんどん相対的に少なくなるから、デフレになるんですよね。これ面白いのが、ビットコインも実は一緒で、ブロックの通し番号であるハッシュ値の発行量がいずれ限りなく 0 に近くなるので、そしたら金同様のことが起きるのではという指摘があります。
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://en.wikipedia.org/wiki/Complex_system">英語の wiki</a>によると、複雑系科学が、盛んになったのは、大体 1970 年代で明示的に研究され始めたのは 1984 年みたいです。ちなみに、「世の中そんなに単純で甘くないぜ」とこれの社会計画論で示唆したのが<a href="https://en.wikipedia.org/wiki/Wicked_problem">wicked problem </a><a class='org-ref-reference' href="#churchman1967guest">churchman1967guest</a>
+は 1973 年にジョージ・チャーチマンから。この手の研究がいまだに、1962 年の取組を超えられないのは、主に、こういった、もう世の中複雑すぎてもう全然手に追えないよ、もう詰んだ見たいな言われ方をされちゃったからとも思ったりします。とはいえ、今日のディープラーニングだって、超複雑に見えて、我々手に追えないけど、最終的にはハイパーパラメータに回収させてるわけだし、結局何よと言われれば、重みづけのベクターでしかないのですから、これを要素分解でないかと言われたちょっと考えさせられますよね。
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7">7</a></sup> <div class="footpara"><p class="footpara">
+例えば、（建物の大きさをざっくり知る過程である）ボリュームスタディをした後に部屋数や面積表が変わったりすると困るわけで、それらは順序もあるし、できれば近いスケールの話なので一緒に考えたいわけです。逆に、家具やドアのぶ見たいのは関係が遠いので、一緒に考えてもいいし、順序もあまり気にしなくていいかもしれません。あるいは、ディテール集や特記はプロジェクトではなく、事務所ごとに決まっているかもしれませんし。
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.8" class="footnum" href="#fnr.8">8</a></sup> <div class="footpara"><p class="footpara">
+この HIDECS2 ですが、アレグザンダーの博論『形の合成に関するノート』になると、
+HIDECS3 になっていて、2で計算できなかったエッジケースを 4 つのプログラムを通して解決しようとしています。僭越ながらいうと、バグってて安定してなかったんですね。
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.9" class="footnum" href="#fnr.9">9</a></sup> <div class="footpara"><p class="footpara">
+スモールワールドネットワークのバルバシの弟子(<a href="https://en.wikipedia.org/wiki/C%C3%A9sar_Hidalgo">Cesar Hidalgo</a>)のお弟子さんで、僕のこうゆうネットワーク系で聞きたい時のホットラインです。クレジットしておきたく。
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.10" class="footnum" href="#fnr.10">10</a></sup> <div class="footpara"><p class="footpara">
+心理学の専門でもなんでもないので、完全な門外漢ですが、どうやらこの学問はこの学問で、コンピュータのユーザーインターフェース論の祖先らしいですね。
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.11" class="footnum" href="#fnr.11">11</a></sup> <div class="footpara"><p class="footpara">
+ポッパーとウィトゲンシュタインの<a href="https://www.theguardian.com/books/2001/mar/31/artsandhumanities.highereducation">喧嘩</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.12" class="footnum" href="#fnr.12">12</a></sup> <div class="footpara"><p class="footpara">
+ウィトゲンシュタインは哲学を科学みたいに分割不可能な理論の最小単位を定義したいというモチベーションでしたが、それをアレグザンダーも要素に分割するという意味で実践しています。ポッパーは純粋科学と経験科学との違いは反証可能かどうかで仕分けしようとしました。反証できれば、それは純粋科学で、反証できなければ経験科学（よって純粋じゃ無いと）。どうしたってデザイン行為の肝はパースの推論になるので、純粋科学ではありません。よって、一方で科学的に扱いたいウィトゲンシュタインに即したアレグザンダーは結局科学的には行えないと。自信が無いのは、アレグザンダーがどうやってポッパーを意識していたかという点なんですが、なんかヒュームやら、リチャードコックスやら、その後ベイズ理論やら、ブーリアンやら、なんかパースがそもそもシャノンのエントロピー理解してたやら、マーチの博識なのりについてゆけずまだ咀嚼できていません。
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.13" class="footnum" href="#fnr.13">13</a></sup> <div class="footpara"><p class="footpara">
+僕の書き方、ちょっとアレグザンダーによってますが、結構人間関係的なやつです。なんかマーチ学派ってすごいねちっこいんですよね。すごい熱を持って話してくれるんですけど、鼻息荒すぎてちょっとこわい。すごい人なんですけど、なんかみんなもっとマーチが認められるべきだって憤慨してる感じで暑苦しいんですよね。僕が出会った人は。
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.14" class="footnum" href="#fnr.14">14</a></sup> <div class="footpara"><p class="footpara">
+思想的な枠組みは March が作って、実際の都市の解析手法として使える形にしたと行っています。
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.15" class="footnum" href="#fnr.15">15</a></sup> <div class="footpara"><p class="footpara">
+このディベートが直接原因かわかりませんが。頭でっかち東海岸代表アレグザンダーと、チルアウトだらだら西海岸の戦いとも取れるようです。アイゼンマンはアレグザンダーのノートを読んで激怒して、なんなら俺もと Phd をとって直接ノートの批判をしています。彼らのバトルは<a href="http://www.katarxis3.com/Alexander_Eisenman_Debate.htm">こちら</a>から。1982 年の 11 月 17 日のハーバード GSD でやりやってます。パソコンが強くなって CAD が使えるようになって、逆に西海岸の建築クラスターを助けたのは皮肉ですが、当時のデコンみたいな流れはそれはそれで流行ったけど、そんなに長続きしないっちゅうか、その後は表現というより難しい形態をどうやって CAD(今だったらグラスホッパーでしょうか)で作るかみたいなマゾな趣味になりました。BIM がオブジェクト志向 CAD なのであれば、今度はアレグザンダー的ですよね。どっちもどっち。
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="date">Date: 2020-01-28 11:03</p>
+<p class="author">Author: Yasushi Sakai</p>
+<p class="date">Created: 2021-03-11 Thu 07:12</p>
+</div>
+</body>
+</html>

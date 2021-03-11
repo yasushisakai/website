@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-03-11 Thu 07:12 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>デジタルデザイン 10 年 (Ten years in Digital Design)</title>
+<meta name="author" content="Yasushi Sakai" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="http://yasushisakai.com">🏠</a>
+</div>
+<div id="content">
+<h1 class="title">デジタルデザイン 10 年 (Ten years in Digital Design)</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgdc928c0">1. グラスホッパー以前 -2008</a></li>
+<li><a href="#orgcdb8e6e">2. Grasshopper によるコンピュテーショナル・デザインの民主化 2008 - 2012</a></li>
+<li><a href="#orgc10043b">3. 環境の時代 2012 - 2015</a></li>
+<li><a href="#orgbb0f96d">4. ソーシャル・ジャスティス・ウォリアー 2015-</a></li>
+</ul>
+</div>
+</div>
+<p>
+日本で大学の学士を卒業して 10 年過ぎ、それ以降身をおいてる建築・都市計画 x デジタルデザインを自分をセンター・オブ・ユニバースに置き、振り返りたい。
+</p>
+
+<div id="outline-container-orgdc928c0" class="outline-2">
+<h2 id="orgdc928c0"><span class="section-number-2">1</span> グラスホッパー以前 -2008</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+基本的に Processing を使ってた。max msp も知ってた。2006 年にコスタス・テルジィディスの Algorithmic Architecture <a class='org-ref-reference' href="#terzidis2006algorithmic">terzidis2006algorithmic</a>  (田中浩也さん監訳)って本が出る、巻末のプログラムは Maya の MEL
+だった記憶がある。松川昌平さんがそこの翻訳担当してた。
+</p>
+
+<p>
+Kostas が SFC にきて４日間のワークショップを Processing でやる。(<a href="first_processing_sketch.html">first
+processing sketch</a>)
+</p>
+
+<p>
+坂茂研では、坂さんの教育方針的にほとんどパソコン使わなかった。「コンピュータ使うのなんてアイデアなくなったおじいさんのすることだよ」って言われて驚愕した記憶がまだある。それはともかく、その教育方針に間違いはなかったと思う、教え方も多分アメリカのサイアーク譲り<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>だったのが良かったと思う。紙のシェルター、当時の総合政策の学部長の阿川弘之さんに壊されちゃったけど、阿川さんのおかげで初めて空間そのものに対する愛着の概念を教えてもらった。いや、法的に問題があったし、坂さんも意固地だったと思うけど、やり方が大学教育としてしょぼかった。説明を果たし、審議をもとに合意を形成し、コミュニティを考える格好のチャンスだったのに。レッシグ気取りでいうとアーキテクチャと（坂研という）規範が阿川弘之という法によって破壊されたのを感じた。
+</p>
+
+<p>
+そんな坂研(半裸でとんかちトントン)とバランスをとるように池田靖史先生(論の構築)のところにいた。そうゆう人多かったけど、僕は特にプログラミングしてもいいんだって感じだった。
+</p>
+
+<p>
+VectorWorks では VectorScript と行って Pascal ベースのスクリプト環境があって、個人的にどうも好きになれず。というか、建築デザインでプログラミングするやつなんて（今も）少なくて、道具や言語選びに将来的なインセンティブを見据えた考えを求めちゃいけなかった。はい、これ VectorScript だからやれみたいな。今の Graphisoft もそれを感じる。
+</p>
+
+<p>
+VectorWorks そのものとしてはアトリエ系事務所で使われているからインターン行きたいしかっこいいからと覚える動機があったけど、操れるプログラミング言語はなんだろうが、（開発・販売元以外）誰も気にしなかった。今なら、多少なりともプログラミングを勉強するとしたら python でしょう。だってそれで就職/スタートアップできるもの。
+</p>
+
+<p>
+ただし、AutoCAD が Lisp という言語がベースなのは今でもかっこいいと思う。eLisp とか<a href="https://github.com/yasushisakai/.doom.m">たまに書く</a>けど、変態だし、就職はできないと思う。
+</p>
+
+<p>
+学部卒業間際に田中浩也先生がこれからどうするのって聞いてくれて、松川さんの授業取らなきゃモグリでしょと指摘され、松川さんの授業を履修、これも Processing。最近考えれば考えるほど SyncTokyo の Meme が与えた影響の事の大きさを感じるんですけど、それはまた別の投稿。そのまま翌年 TA になる。
+</p>
+
+<p>
+卒業設計(2008)は Rhinoceros と vray でやったけど、多分 SFC、少なくとも建築クラスターの中では初めてだった。だからなにってことではないけど、歴史として記述しておきます。設計と構想とチーム統率に気を取られてスクリプトに手を出さなかった。ひと段落した後に作ってみたけど、当時は.NET で C#か VBScript のもどきの RhinoScript だった。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcdb8e6e" class="outline-2">
+<h2 id="orgcdb8e6e"><span class="section-number-2">2</span> Grasshopper によるコンピュテーショナル・デザインの民主化 2008 - 2012</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+グラフィカル・プログラミング・ツールとしてグラスホッパーが出てきたのが 2007 年。そこからそれがメインストリームになったのはみなさん知っての通り。
+</p>
+
+<p>
+他にいろいろベントレー社から同じコンセプトの仕組みが出てきたが、グラスホッパーのポータルを中心にしたコミュニティづくりに力を入れるという戦略によって淘汰される。
+</p>
+
+<p>
+Rhinoceros Grasshopper が成功した最大の理由はこれだと思う。極論するとこれ一つだと思う。この前にもグラフィカル・プログラミング・ツールはあった。だけど、開発者を中心とした grasshopper3d.com の熱気はすごかった。
+</p>
+
+<p>
+あのコミュニティがあったこそ、ディビット・ルッテンという開発者が神格化されたし、
+Processing においても、Ben Fry がいるし（と John Maeda か）。よくコミュニティづくりってど根性ボトムアップ草の根かつみんなのためジャアスティス!!!なイメージだけど、むしろ中央（でも優しい）独裁者、というか帝国制を産む傾向があるよね。Linux の
+Linus 然り、python しかり。気持ち悪いオタクがそれぞれみんな見せ合って、褒め称え、時にはけなして、侃侃諤諤し、文化を築く。
+</p>
+
+<p>
+僕も、たくさんスクリプトを書いたり、コンポーネントを書いたけど、コミュニティに対しての最大の貢献は&#x2026;外聞を気にせず書こう。&#x2026;伝説の質問をしたからだ。
+</p>
+
+<p>
+当時 IronPython のコンポーネントが出たばかりでみんな試行錯誤していた。グラスホッパー内のデータ構造をその Python コンポーネント内でどのよう使うかを質問した。なぜ伝説となったかというと、その後 Python のコンポーネントのヘルプにこの質問にリンクが貼られたことになり、ごくごくたまにこっちでも、お前はあの質問の奴かと（特に優秀な学生に）聞かれることがあるからだ。
+</p>
+
+<p>
+僕は物理エンジンのカンガルーや WebAPI とつなげてデータスクレイピングを可能にするプラグインを開発したわけでもない<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>けど質問一つが立派なコミュニティ還元の方法であると初めて感じた。日建設計にいたから、もちろん気軽に自分たちの仕事の内容を外に出せるわけでもなく。それでも、仲間に入れてくれるんだ的な。
+</p>
+
+<p>
+これが民主化を肌に感じた瞬間だと思う。
+</p>
+
+<p>
+ソフトでは sketch up がすごく盛り上がった、無料なのにすごいみたいな。松川さんと
+sketchup についてた ruby のインタプリタ使って動画作りのおてつだいした。実際は夏コスタスのところでインターンという名の下のただボストン松川家居候してただけ。ある一定以上モデルが複雑になると途端に辛くなるよね Sketch Up。田中先生も MediaLab にサバティカルしてた。めっちゃくちゃ励ましてくれた。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc10043b" class="outline-2">
+<h2 id="orgc10043b"><span class="section-number-2">3</span> 環境の時代 2012 - 2015</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+GH の民主化の影響によって色んなものがつながる。とりわけ、環境シミュレーションがでかかかった。それまでの不思議 Blob 形態をつくるのに責任を取れるのは Harvard GSD
+の心臓に毛が生えたひとにぎりのゲーリーもどきだったので、それ以外の私たち凡人は流線型の形の正当化と社会的説明責任のために環境を使った。海外（日本含め）この受けがよく、環境シミュレーション祭りになる。
+</p>
+
+<p>
+「自然怖い」と「環境に優しい」はビジネス的にもアカデミアでもサスティナブルな話題だったのでお金・人件費を投入する動機にもなったのでしょう。反応拡散方程式で不思議な柄作りましょうよりはね。
+</p>
+
+<p>
+建築の社会的影響はそれだけではなくてプロパガンダや技術と文化の交差を示したるものとしての効果もあるんですとあれだけブロッブアーキテクチャでそれを掲げてたのに、みんないきなり環境環境の大合唱でよくも恥を知らずに掌返すのかなんだこれって思ってた。
+</p>
+
+<p>
+僕は日建に就職して、お世話になっていた山梨さんチーム、羽鳥さん角田さんがそのバランスがすごくて勉強になった。あとその視点から川合健二神。
+</p>
+
+<p>
+構造設計やそのシミュレーションはその限りではなくて、本当に命かかってますから、ちゃんとやってほしいし、その蓄積があるからこそ守りと攻めのバランスがエンジニアングとして完成していた。
+</p>
+
+<p>
+日建入ってすぐに構造の出力結果を Revit モデルに変換するプラグインを出水文二さんと作ってわかった。人って人件費という入力があってエネルギーを生み出す関数なんだと体感した。なんでこんなやばい言い方するかって、当時 BIM 到来によって 3D モデリングという工程が出てきて、え、なに、いきなり、それどこから捻出するのよっていう BIM
+慎重派からの反応だった。
+</p>
+
+<p>
+じゃあ、それ機械にやらせればいいんじゃないって、思って作ったんだけど、これは想定される人件費を削減するんだと。僕らのプログラムが文句ひとつ言わずに頑張って働くと周りの社員にお金が行くんだと。人件費を払って人から得られるエネルギーを３d モデルにする代わりに、Revit のホヤホヤ API 叩いて直接モデルを作ってるんだと思ったら最後、人とマシン混同してた。
+</p>
+
+<p>
+それもあったり、デジタルデザインをやって適当にファサード散らせばいいみたいな雑な要求もなかったわけではなくで、デジタルデザインがいろんな建築家に使われて市民権を得た反面、悶々とする感じもありました。
+</p>
+
+<p>
+人件費という数字に還元できちゃって人とプログラムの境がわからなくなって錯迷しつつ、ツールメーカーという称号をコスタスから受勲した以上環境シミュレーションを*ただ使う側*になりきることにプライドが許さず、（かと行ってナビエストークス方程式を勉強する時間も実務上ない）ghpython にも飽きたし。全く明後日の方向のウェブ界によく顔を出す。言語は Javascript, Python, PHP だった。そこで<a href="nigechizu.html">nigechizu</a>(阿部さんと一緒に)
+とか、<a href="lmn_architecture.html">lmn architecture</a>(角田さんと一緒に)とかを作る。
+</p>
+
+<p>
+ここから徐々に集合知に意識が向いて行き、いよいよ差がわからなくなる。あと、ウェブやってると社会を考えることが多くなった。それで建築よりもひとつ大きくして都市に行ったのかな。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbb0f96d" class="outline-2">
+<h2 id="orgbb0f96d"><span class="section-number-2">4</span> ソーシャル・ジャスティス・ウォリアー 2015-</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+超お世話になった日建設計を退職して MIT へ。
+</p>
+
+<p>
+デジタルデザインという分野がライフゲーム不思議柄遊びから少し大人になって環境という社会問題に近い事に触れたからか、日本の場合は 3.11 の影響からか、アメリカの場合は社会とテクノロジーの差があまりにも顕著になったという事が規範化したからか、「世のためになるってどうゆう事だっけ」関連の問いが強くなった。最初の方はそれこそ社会善を追求するためにはという横断幕を貼っていた訳ですが、2017 年当たりから、いや、もしかして社会問題って全部テクノロジーのせいなんじゃない？というテクノロジーそのものに対する嫌疑が目立つようになりました。<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>
+</p>
+
+<p>
+こういった技術やテクノロジー不信に対しての応戦としては、監視社会に対応するような技術をピックアップする人が多くなってきたと思います。でもそれを中心に回す暗号技術が一般の人たちに受け入れてもらえるのがすっごい難しい。
+</p>
+
+<p>
+「頑張ってテクノロジーが助けるんです、世の中のためになるような大事なことなんです！、ププぷ、プライバシー大事です。」
+</p>
+
+<p>
+といって出てくるのが、得体の知れない黒い物体<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>で、反応は
+</p>
+
+<p>
+「いや良くわかりません、この黒い箱はなんですか。説明してください」
+</p>
+
+<p>
+ってなって、それから、世の中誰も信じられない、桃源郷となるはずだったインターネットも変わってしまった、信じられるのはハッシュ関数で、ブロックチェーンとは何か、コンセンサス・アルゴリズムとはと高尚な説法の果て、怪しい黒い壺を売り、新しい社会への私たちと一緒に踏み出しましょう。と 6 時間ぶっ通しで謎の言語に対する講義を展開する。
+</p>
+
+<p>
+といいながら、お金だまくらかす見たいな。こうゆうこともあって、またさらに、テクノロジー不信が募るという。いったんこうなると、標的認定されて、社会から信用されなくなっちゃう。
+</p>
+
+<p>
+実際最近のアメリカの建築学科のマスター論文ってすごい miscelleneous「その他」っぽいとよく思う。工学部の中で建築+シビルという一番応用で社会的に直接的な影響があると思ってた自分たち<sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup>の立場が「face swap でポルノ動画の顔をフェミニストの顔に差し替えてやるぞ騒動」とか、「画像処理の顔認識処理において黒人女性検知の確度がひどいから自動運転になったら私たち引かれちゃう？」とか「ブロックチェーン」とかやられると社会の重心がどんどんバーチャルになっていくので、環境までは教えられたけど、正直どうすればいいのかわからない、みたいな感じ。
+</p>
+
+<p>
+<h1 class='org-ref-bib-h1'>Bibliography</h1>
+<ul class='org-ref-bib'><li><a id="terzidis2006algorithmic">[terzidis2006algorithmic]</a> <a name="terzidis2006algorithmic"></a>Terzidis, Algorithmic architecture, Routledge (2006).</li>
+</ul>
+</p>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+職業訓練校というと語弊があるけど、実務的って事。
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+同じ研究グループの Carson が作ってメンテナンスしています。
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">
+社会問題ってそんなに単純じゃなくて、仮にテクノロジーを全て拒否しても、それはそれで問題は残るでしょう。世の中の全ての問題はテクノロジーなんだというのはそれはそれで頭がおかしい人。
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"><p class="footpara">
+ブラックボックス
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara"><p class="footpara">
+教える側
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="date">Date: 2019-08-16</p>
+<p class="author">Author: Yasushi Sakai</p>
+<p class="date">Created: 2021-03-11 Thu 07:12</p>
+</div>
+</body>
+</html>

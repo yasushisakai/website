@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-25 Mon 09:24 -->
+<!-- 2021-03-11 Thu 07:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Command line video</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Yasushi Sakai" />
+<meta name="generator" content="Org Mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -228,11 +228,11 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf2666a7">1. 動画をくっそ軽くする</a></li>
-<li><a href="#org6d1499a">2. 画像のシークエンスから軽めの gif を作る</a></li>
-<li><a href="#orgde9a44a">3. 動画から gif を作る</a></li>
-<li><a href="#org3affe1a">4. mp4 から mov</a></li>
-<li><a href="#org5d6acad">5. 連番画像から mp4</a></li>
+<li><a href="#orga1bc9bc">1. 動画をくっそ軽くする</a></li>
+<li><a href="#org8b5e09e">2. 画像のシークエンスから軽めの gif を作る</a></li>
+<li><a href="#org6c2380c">3. 動画から gif を作る</a></li>
+<li><a href="#org7795a5e">4. mp4 から mov</a></li>
+<li><a href="#org106308a">5. 連番画像から mp4</a></li>
 </ul>
 </div>
 </div>
@@ -241,8 +241,8 @@
 動画作りに重宝する tips 集
 </p>
 
-<div id="outline-container-orgf2666a7" class="outline-2">
-<h2 id="orgf2666a7"><span class="section-number-2">1</span> 動画をくっそ軽くする</h2>
+<div id="outline-container-orga1bc9bc" class="outline-2">
+<h2 id="orga1bc9bc"><span class="section-number-2">1</span> 動画をくっそ軽くする</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-bash">ffmpeg -i source.mov -vcodec libx265 -crf <span style="color: #B48EAD; font-weight: bold;">28</span> output.mp4
@@ -261,8 +261,8 @@ vlc では余裕。それがなぜか嫌ならば、-vcodec libx264 -crf 24 に�
 </div>
 
 
-<div id="outline-container-org6d1499a" class="outline-2">
-<h2 id="org6d1499a"><span class="section-number-2">2</span> 画像のシークエンスから軽めの gif を作る</h2>
+<div id="outline-container-org8b5e09e" class="outline-2">
+<h2 id="org8b5e09e"><span class="section-number-2">2</span> 画像のシークエンスから軽めの gif を作る</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 プレゼン用にあらーい gif を使うことがある。
@@ -287,8 +287,8 @@ vlc では余裕。それがなぜか嫌ならば、-vcodec libx264 -crf 24 に�
 </div>
 </div>
 
-<div id="outline-container-orgde9a44a" class="outline-2">
-<h2 id="orgde9a44a"><span class="section-number-2">3</span> 動画から gif を作る</h2>
+<div id="outline-container-org6c2380c" class="outline-2">
+<h2 id="org6c2380c"><span class="section-number-2">3</span> 動画から gif を作る</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-bash">ffmpeg -ss 00:02:14.000 -i outcome.mov -pix_fmt rgb24 -r <span style="color: #B48EAD; font-weight: bold;">10</span> -s 640x480 -t 00:00:10.000 output_outcome.gif
@@ -310,8 +310,8 @@ vlc では余裕。それがなぜか嫌ならば、-vcodec libx264 -crf 24 に�
 </div>
 </div>
 
-<div id="outline-container-org3affe1a" class="outline-2">
-<h2 id="org3affe1a"><span class="section-number-2">4</span> mp4 から mov</h2>
+<div id="outline-container-org7795a5e" class="outline-2">
+<h2 id="org7795a5e"><span class="section-number-2">4</span> mp4 から mov</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 twitch とか youtube の自分の動画を再編集するときに、Final Cut では何故だか開けない mp4 を落としたときに、mp4　-&gt; mov にしたい。何も考えずにネットで検索すると、怪しい変換サイトやソフトを売り付けてくるサイトが検索の上位に引っかかる。
@@ -328,8 +328,8 @@ twitch とか youtube の自分の動画を再編集するときに、Final Cut 
 </div>
 </div>
 
-<div id="outline-container-org5d6acad" class="outline-2">
-<h2 id="org5d6acad"><span class="section-number-2">5</span> 連番画像から mp4</h2>
+<div id="outline-container-org106308a" class="outline-2">
+<h2 id="org106308a"><span class="section-number-2">5</span> 連番画像から mp4</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 h.264 コーデック、yuv420p はよくわかりません。出力は 29.94/fps（だっけ？）要するに ntsc 形式。-r ntsc を -framerate 30 とかにすればそれ相応の対応をしてくださる。
@@ -349,7 +349,7 @@ h.264 コーデック、yuv420p はよくわかりません。出力は 29.94/fp
 <div id="postamble" class="status">
 <p class="date">Date: 2020-06-29 08:57</p>
 <p class="author">Author: Yasushi Sakai</p>
-<p class="date">Created: 2021-01-25 Mon 09:24</p>
+<p class="date">Created: 2021-03-11 Thu 07:12</p>
 </div>
 </body>
 </html>

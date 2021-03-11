@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-28 Thu 06:52 -->
+<!-- 2021-03-11 Thu 07:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>email</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Yasushi Sakai" />
+<meta name="generator" content="Org Mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -233,8 +233,8 @@
 変態なので、terminal で全部やりましょう。
 </p>
 
-<div id="outline-container-org7d8a601" class="outline-2">
-<h2 id="org7d8a601"><span class="section-number-2">1</span> offlineimap で同期</h2>
+<div id="outline-container-org1d558e8" class="outline-2">
+<h2 id="org1d558e8"><span class="section-number-2">1</span> offlineimap で同期</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <code>offlineimap</code> を使う。 <code>python2</code> を使うあたり、アップデートされなさがやばいが、しょうがないです。
@@ -304,8 +304,8 @@ sslcacertfile=/usr/local/etc/openssl@1.1/cert.pem
 </div>
 </div>
 
-<div id="outline-container-org93caf49" class="outline-2">
-<h2 id="org93caf49"><span class="section-number-2">2</span> 履歴バックアップをとる</h2>
+<div id="outline-container-orga2c1470" class="outline-2">
+<h2 id="orga2c1470"><span class="section-number-2">2</span> 履歴バックアップをとる</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 この <code>offlineimap</code> なるものはリモート側とローカルの sync をしているだけなので、本当の backup は
@@ -327,8 +327,8 @@ mac の場合はその上で、 <code>timemachine</code> とかでバックア�
 </div>
 </div>
 
-<div id="outline-container-orgd81bf63" class="outline-2">
-<h2 id="orgd81bf63"><span class="section-number-2">3</span> Interval で繰り返しやる</h2>
+<div id="outline-container-org8b799a5" class="outline-2">
+<h2 id="org8b799a5"><span class="section-number-2">3</span> Interval で繰り返しやる</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 このままだと、同期はコマンド一度っきりなので、 <code>offlineimap</code> をなんらか回し続けないといけません。 <code>deamon</code> 化するのは失敗するというのを見たことがあるので、
@@ -429,8 +429,8 @@ set editor = "vim"
 </p>
 </div>
 
-<div id="outline-container-org9b5b8a4" class="outline-3">
-<h3 id="org9b5b8a4"><span class="section-number-3">3.1</span> <span class="done DONE">DONE</span> <code>Inbox</code> から <code>All Mail</code> にアーカイブするのは一発でやりたい例えば。</h3>
+<div id="outline-container-orgaa393ff" class="outline-3">
+<h3 id="orgaa393ff"><span class="section-number-3">3.1</span> <span class="done DONE">DONE</span> <code>Inbox</code> から <code>All Mail</code> にアーカイブするのは一発でやりたい例えば。</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 <a href="https://gitlab.com/muttmua/mutt/-/wikis/UseCases/Gmail">https://gitlab.com/muttmua/mutt/-/wikis/UseCases/Gmail</a>
@@ -442,8 +442,8 @@ set editor = "vim"
 </div>
 </div>
 
-<div id="outline-container-org6a2e05e" class="outline-3">
-<h3 id="org6a2e05e"><span class="section-number-3">3.2</span> <span class="todo TODO">TODO</span> 複数アカウントとそれぞれの smtp の設定したい。</h3>
+<div id="outline-container-org2db167b" class="outline-3">
+<h3 id="org2db167b"><span class="section-number-3">3.2</span> <span class="todo TODO">TODO</span> 複数アカウントとそれぞれの smtp の設定したい。</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 学校のメールは gmail で個人は徐々に protonmail に移行したいので、
@@ -455,7 +455,7 @@ set editor = "vim"
 <div id="postamble" class="status">
 <p class="date">Date: 2021-01-27 11:55</p>
 <p class="author">Author: Yasushi Sakai</p>
-<p class="date">Created: 2021-01-28 Thu 06:52</p>
+<p class="date">Created: 2021-03-11 Thu 07:12</p>
 </div>
 </body>
 </html>

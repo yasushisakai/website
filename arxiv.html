@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-03-11 Thu 07:12 -->
+<!-- 2021-03-11 Thu 14:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>How to start a journal</title>
+<title>arXiv</title>
 <meta name="author" content="Yasushi Sakai" />
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
@@ -223,39 +223,107 @@
 <a href="http://yasushisakai.com">🏠</a>
 </div>
 <div id="content">
-<h1 class="title">How to start a journal</h1>
+<h1 class="title">arXiv</h1>
 
-<p>
-Not the one you keep everyday.
-</p>
-
-
-<p>
-arxiv is moving!
-</p>
-
-<div id="outline-container-org5e249d0" class="outline-2">
-<h2 id="org5e249d0"><span class="section-number-2">1</span> <a href="https://github.com/arXiv">https://github.com/arXiv</a></h2>
+<div id="outline-container-org3abcb6e" class="outline-2">
+<h2 id="org3abcb6e"><span class="section-number-2">1</span> Open Access</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-indicates that this is an open source projects with lots of micro services, most
-of the things are written in python.
+<a href="https://en.wikipedia.org/wiki/ArXiv">https://en.wikipedia.org/wiki/ArXiv</a>
+</p>
+
+<p>
+2019 年あたりから php で書かれたものを python に書き直している最中。
+</p>
+
+
+<div id="org1445387" class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/en/e/e2/ArXiv_1994.png" alt="ArXiv_1994.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>公開最初期</p>
+</div>
+
+
+<p>
+<a href="https://github.com/arXiv">https://github.com/arXiv</a>
+</p>
+
+<p>
+コアと思しき repo.
+<a href="https://github.com/arXiv/arxiv-browse">https://github.com/arXiv/arxiv-browse</a>
+</p>
+
+<p>
+本家は他の●●iv との差異化を図るために、ブランド戦略に力を入れている模様。<a href="https://blog.arxiv.org/2021/02/26/why-arxiv-needs-a-brand/">https://blog.arxiv.org/2021/02/26/why-arxiv-needs-a-brand/</a>
+</p>
+
+
+<p>
+海外建築系(ACADIA, ASCAAD, CAADRIA, eCAADe)
+で使われているシステム。
+<a href="http://papers.cumincad.org/about.html">http://papers.cumincad.org/about.html</a>
+</p>
+
+<p>
+open access 自体は、<a href="https://en.wikipedia.org/wiki/Budapest_Open_Access_Initiative">https://en.wikipedia.org/wiki/Budapest_Open_Access_Initiative</a>
+にて定義されている模様。
 </p>
 </div>
 </div>
 
-<div id="outline-container-org5e42bf8" class="outline-2">
-<h2 id="org5e42bf8"><span class="section-number-2">2</span> <a href="https://blog.arxiv.org/2019/10/31/arxiv-ng-project-explanation/">https://blog.arxiv.org/2019/10/31/arxiv-ng-project-explanation/</a></h2>
-</div>
+<div id="outline-container-orgcf5ab5f" class="outline-2">
+<h2 id="orgcf5ab5f"><span class="section-number-2">2</span> どうする</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li><p>
+自分達で、paperdump を開発する。
+</p>
 
-<div id="outline-container-orgd19abb9" class="outline-2">
-<h2 id="orgd19abb9"><span class="section-number-2">3</span> <a href="https://arxiv.github.io/arxiv-base/">https://arxiv.github.io/arxiv-base/</a></h2>
+<p>
+実はサイトの機能そのものは、結構単純。
+</p>
+
+<p>
+「pdf をバージョン管理された状態で保存して、アクセスできるように url を割り当てる。」
+</p>
+
+<p>
+その上で発行された URL open review で紐付け。
+</p></li>
+
+<li>arxiv レポジトリを fork して自分達で serve する。</li>
+
+<li><p>
+arxiv に投稿しちゃう。
+</p>
+
+<p>
+彼らの定義上外れる。
+</p>
+
+<p>
+physics, mathematics, computer science, quantitative biology, quantitative finance, statistics, electrical engineering and systems science, and economics.
+</p>
+
+<p>
+一応、arxiv 記載は審査あり、OK なものがあったり、日本語意味わからずリジェクトされる可能性がある。
+</p></li>
+</ol>
+
+<p>
+いずれも、メンテするチームが学術委員会内で必要&#x2026;。
+</p>
+
+<p>
+スケジュール感、開発 1mo、テスト・準備 2mo って感じ
+</p>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2021-02-18 06:42</p>
+<p class="date">Date: 2021-03-09 09:00</p>
 <p class="author">Author: Yasushi Sakai</p>
-<p class="date">Created: 2021-03-11 Thu 07:12</p>
+<p class="date">Created: 2021-03-11 Thu 14:15</p>
 </div>
 </body>
 </html>

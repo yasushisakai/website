@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-22 Fri 13:13 -->
+<!-- 2021-03-11 Thu 07:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Consensus Algorithms</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Yasushi Sakai" />
+<meta name="generator" content="Org Mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -234,8 +234,8 @@
 fault tolerance (堅牢性)
 </p>
 
-<div id="outline-container-org7406b87" class="outline-2">
-<h2 id="org7406b87"><span class="section-number-2">1</span> Paxos <a class='org-ref-reference' href="#lamport2019part">lamport2019part</a></h2>
+<div id="outline-container-org905753e" class="outline-2">
+<h2 id="org905753e"><span class="section-number-2">1</span> Paxos <a class='org-ref-reference' href="#lamport2019part">lamport2019part</a></h2>
 <div class="outline-text-2" id="text-1">
 <p>
 単一の値に対して合意する。古代ギリシアのパクソス等の官僚は皆パートタイムで事件簿やそのほか台帳を分散的に管理していた。その考古学的な方法を元にランポートが説明している。
@@ -243,8 +243,8 @@ fault tolerance (堅牢性)
 </div>
 </div>
 
-<div id="outline-container-org4f55398" class="outline-2">
-<h2 id="org4f55398"><span class="section-number-2">2</span> Raft <a class='org-ref-reference' href="#ongaro2014search">ongaro2014search</a></h2>
+<div id="outline-container-orgc0ac455" class="outline-2">
+<h2 id="orgc0ac455"><span class="section-number-2">2</span> Raft <a class='org-ref-reference' href="#ongaro2014search">ongaro2014search</a></h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Paxos 難しすぎて実装・メンテがキツすぎるという批評からもっと簡単な合意アルゴリズムを開発。どれだけ学生が理解したかを指標にしているところが面白い。Raft はイカダ。ログの寄せ集めだから。数珠繋ぎになっているログに対する合意形成。リーダーと過半数を使っている。
@@ -280,8 +280,8 @@ comission
 </div>
 </div>
 
-<div id="outline-container-org76e224e" class="outline-2">
-<h2 id="org76e224e"><span class="section-number-2">3</span> Proof of Work</h2>
+<div id="outline-container-org240fdc8" class="outline-2">
+<h2 id="org240fdc8"><span class="section-number-2">3</span> Proof of Work</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #81A1C1;">import</span> hashlib
@@ -338,8 +338,8 @@ The node that chooses the right data - nonce pair gets to append to the next cha
 </div>
 
 
-<div id="outline-container-org9d4af1d" class="outline-2">
-<h2 id="org9d4af1d"><span class="section-number-2">4</span> Proof of Stake</h2>
+<div id="outline-container-org064e5b8" class="outline-2">
+<h2 id="org064e5b8"><span class="section-number-2">4</span> Proof of Stake</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #81A1C1;">import</span> random
@@ -392,8 +392,8 @@ The node that chooses the right data - nonce pair gets to append to the next cha
 </div>
 </div>
 
-<div id="outline-container-org9237991" class="outline-2">
-<h2 id="org9237991"><span class="section-number-2">5</span> 分散プロトコル</h2>
+<div id="outline-container-org5468d24" class="outline-2">
+<h2 id="org5468d24"><span class="section-number-2">5</span> 分散プロトコル</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>internet</li>
@@ -428,7 +428,7 @@ The node that chooses the right data - nonce pair gets to append to the next cha
 <div id="postamble" class="status">
 <p class="date">Date: 2021-01-16 19:39</p>
 <p class="author">Author: Yasushi Sakai</p>
-<p class="date">Created: 2021-01-22 Fri 13:13</p>
+<p class="date">Created: 2021-03-11 Thu 07:12</p>
 </div>
 </body>
 </html>

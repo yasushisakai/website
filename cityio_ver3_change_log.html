@@ -6,7 +6,7 @@
 <!-- 2021-03-11 Thu 07:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>How to start a journal</title>
+<title>cityio ver3 Change Log</title>
 <meta name="author" content="Yasushi Sakai" />
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
@@ -223,37 +223,158 @@
 <a href="http://yasushisakai.com">🏠</a>
 </div>
 <div id="content">
-<h1 class="title">How to start a journal</h1>
+<h1 class="title">cityio ver3 Change Log</h1>
 
 <p>
-Not the one you keep everyday.
+version 3 has less lines of code and has more features stepping towards a more
+version controlled archive than a simple json dump.
 </p>
 
-
-<p>
-arxiv is moving!
-</p>
-
-<div id="outline-container-org5e249d0" class="outline-2">
-<h2 id="org5e249d0"><span class="section-number-2">1</span> <a href="https://github.com/arXiv">https://github.com/arXiv</a></h2>
+<div id="outline-container-org227d338" class="outline-2">
+<h2 id="org227d338"><span class="section-number-2">1</span> Breaking Changes</h2>
 <div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org503385a" class="outline-3">
+<h3 id="org503385a"><span class="section-number-3">1.1</span> Stricter Protocol</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org762d1e3" class="outline-4">
+<h4 id="org762d1e3"><span class="section-number-4">1.1.1</span> No trailing slashes</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> http://locahost:8080/api/tables/list/
+</pre>
+</div>
+
 <p>
-indicates that this is an open source projects with lots of micro services, most
-of the things are written in python.
+won&rsquo;t work. traling slashes are not allowed. Very rare, but we had one time
+with multiple slashes that made cityio wonder the meaning of life.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">api/table/update/new_table////what-is-this////waht//doge-coin//
+</pre>
+</div>
+
+<p>
+this was undefined. I suggest to ban this all together
 </p>
 </div>
 </div>
 
-<div id="outline-container-org5e42bf8" class="outline-2">
-<h2 id="org5e42bf8"><span class="section-number-2">2</span> <a href="https://blog.arxiv.org/2019/10/31/arxiv-ng-project-explanation/">https://blog.arxiv.org/2019/10/31/arxiv-ng-project-explanation/</a></h2>
+<div id="outline-container-orgaa045d2" class="outline-4">
+<h4 id="orgaa045d2"><span class="section-number-4">1.1.2</span> Header will require &rsquo;Content-Type:application/json&rsquo;</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+This caused different hashes due to encoding of raw bytes on body, I think the
+increase of overhead is acceptable if it&rsquo;s used to properly indicate that this
+is json data.
+</p>
+
+<p>
+Plus, I propose a method to compress bytes for heavy tables to save bandwith.
+brix might decode this.
+</p>
+</div>
+</div>
 </div>
 
-<div id="outline-container-orgd19abb9" class="outline-2">
-<h2 id="orgd19abb9"><span class="section-number-2">3</span> <a href="https://arxiv.github.io/arxiv-base/">https://arxiv.github.io/arxiv-base/</a></h2>
+<div id="outline-container-orge45c372" class="outline-3">
+<h3 id="orge45c372"><span class="section-number-3">1.2</span> Update endpoint</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+The method POST implies you are updating a table, from now we can use a shorter
+endpoint.
+</p>
+
+<pre class="example">
+curl -X POST -H "Content-Type:application/json" -d '{"new":"data"}' localhost:8080/api/table/new_table
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgf048d4d" class="outline-3">
+<h3 id="orgf048d4d"><span class="section-number-3">1.3</span> Tables List endpoint</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+we had the full url output using the tables list update,
+<a href="https://cityio.media.mit.edu/api/table">https://cityio.media.mit.edu/api/table</a> was hardcoded, this is wrong.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbea6dd9" class="outline-3">
+<h3 id="orgbea6dd9"><span class="section-number-3">1.4</span> base58 encoding of Hashes</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+we had the full url output using the tables list update,
+<a href="https://cityio.media.mit.edu/api/table">https://cityio.media.mit.edu/api/table</a> was hardcoded, this is wrong.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org389d910" class="outline-2">
+<h2 id="org389d910"><span class="section-number-2">2</span> New things</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgb08e7c9" class="outline-3">
+<h3 id="orgb08e7c9"><span class="section-number-3">2.1</span> rollback</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+tables saved in a linked list (forward) chain manner, you can roll back to
+previous versions of that table under the same name.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org65df20e" class="outline-3">
+<h3 id="org65df20e"><span class="section-number-3">2.2</span> Deep Post</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+cityio does not limit you by module level posting, but till the end, if that object exists. Think of mkdir command but without the -p (&#x2013;parent) option. This will update the module and table hash accordingly.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcf3a19b" class="outline-3">
+<h3 id="orgcf3a19b"><span class="section-number-3">2.3</span> module level backup</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Modules can be individually posted, you can ask cityio if this was previously calculated, and avoid doing it again + reduce the payload.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga94de98" class="outline-2">
+<h2 id="orga94de98"><span class="section-number-2">3</span> Upcomming</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org8df87f7" class="outline-3">
+<h3 id="org8df87f7"><span class="section-number-3">3.1</span> websocket server</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+enables miro like cursor movement for tables, we can think of collectively
+editing. What do you think Ariel?
+</p>
+</div>
+</div>
+
+<div id="outline-container-org35195e8" class="outline-3">
+<h3 id="org35195e8"><span class="section-number-3">3.2</span> Better yet simpler auth, cityio sends you e-mails!</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+user auth with no passwords limiting personal information, emails will not be
+saved in plain text, the server, yasushi will not be able to retrieve your
+address.
+</p>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2021-02-18 06:42</p>
+<p class="date">Date: 2021-02-23 10:20</p>
 <p class="author">Author: Yasushi Sakai</p>
 <p class="date">Created: 2021-03-11 Thu 07:12</p>
 </div>
