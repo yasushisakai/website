@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-03-18 Thu 21:51 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Meta City Proposal(仮)</title>
+<meta name="author" content="Yasushi Sakai" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="http://yasushisakai.com">🏠</a>
+</div>
+<div id="content">
+<h1 class="title">Meta City Proposal(仮)</h1>
+
+<div id="outline-container-orgcb1c2fc" class="outline-2">
+<h2 id="orgcb1c2fc"><span class="section-number-2">1</span> 概要</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+自動運転、ドローン、 5G 等のスマートシティ関連の個別要素技術を導入しても、市民の合意による介入がなければうまく活用されず、人口減少の煽りを受け、維持費ばかりかかってしまう。さらに、SidewalkLabs によるトロント市開発の失敗の一端はデータ利活用に際する、住人からの理解と納得が足りなかったと言われている。このような合意なき新技術導入にスマートシティを推し進めていた都市は疑いを持ち始めている。
+</p>
+
+<p>
+こうした背景の元、我々 CityScience グループではスマートシティに最も足りない領域がガバナンスモデルの再構築であると考える。Liquid Democracy 等新しい民主主義モデルが提唱されて久しいが、その試行はまだまだ足りない。あるいはブロックチェーンの意思決定システムへの転用が 2016 年以降 DAO(decentralized autonomous
+organization: 分散自律組織)試行され今なお注目を集めつつあるが、都市における合意形成に係るプロジェクトは依然少ない。これを安全でかつ（先の SidewalkLabs の失敗をふまえた）データの所有権を加味した例はさらに少ない。
+</p>
+
+
+<div id="orgb871be2" class="figure">
+<p><img src="images/dao_city.jpg" alt="dao_city.jpg" width="100%" />
+</p>
+<p><span class="figure-number">Figure 1: </span>都市 DAO の概念図。アート作品や展示のキュレーションといった文化的側面もありながら、不動産の集団運用やインフラの集団所有の可能性もある。プロジェクトでは段階的な意思決定プロセスを試行する予定だ。</p>
+</div>
+
+<p>
+このプロジェクトでは、実験的な都市 DAO を構築し、集団的意思決定 = 新しい民主主義の形を模索する。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9a9f70e" class="outline-2">
+<h2 id="org9a9f70e"><span class="section-number-2">2</span> プロジェクトの目標</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+本プロジェクトは以下を行う:
+</p>
+
+<ol class="org-ol">
+<li>ガバナンスに特化した実験的都市 DAO の基盤開発</li>
+
+<li>実験参加者のリクルート(目標住人数 1000 人)</li>
+
+<li>都市に関わる集団的に合意形成を試行する</li>
+</ol>
+
+<p>
+3 で扱うトピックに対しては、基盤の動作確認のために第一歩としてアート作品のキュレーションを行い、順次不動産の用地取得や緑地管理など都市とその計画に関わるトピックを扱う。
+</p>
+
+<p>
+上記目標に関わる開発費支援(1)および参加(2)合意するトピック（不動産や資産管理）に対する知見の提供(3)をお願いしたい。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org616993e" class="outline-2">
+<h2 id="org616993e"><span class="section-number-2">3</span> 留意点</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+プロジェクトでは暗号技術の積極的な応用が予想される。堅牢なシステム構築に際して、コードの安全性を担保するためにオープンソースによる検閲体制をもった開発が有効である。また、DAO 構築の際の資産管理の透明性という意味で団体そのものへの信頼のためにも機構を開示しておく必要がある。さらに、プロジェクト後の応用として既存行政区での市民参画型プロジェクトへの転用が考えられ、公共性が高いプロジェクトとしてやはりプログラムの開示が望ましい。加えて副次的効果として外部からのコードコミットも積極的に受け入れ、開発コストの削減が期待できる。
+</p>
+
+<p>
+以上の理由から、このプロジェクトの元で開発されたプログラムに関しては所定のライセンスの元、オープンソース化される想定を留意していただきたい。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0063335" class="outline-2">
+<h2 id="org0063335"><span class="section-number-2">4</span> 参考プロジェクト</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+<a href="https://makuhari.city/">「多層都市　幕張市」</a>
+</p>
+
+<p>
+同じコンセプトで有志で走り出したプロジェクト。酒井も参加しており、コアディベロッパーとして、liquid democracy の計算モジュールを開発・提供している。すでに分散 ID
+発行を担うスタートアップメンバーも参加している。
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-03-12 10:09</p>
+<p class="author">Author: Yasushi Sakai</p>
+<p class="date">Created: 2021-03-18 Thu 21:51</p>
+</div>
+</body>
+</html>

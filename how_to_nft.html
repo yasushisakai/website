@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-03-18 Thu 21:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>how to NFT</title>
+<meta name="author" content="Yasushi Sakai" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="http://yasushisakai.com">🏠</a>
+</div>
+<div id="content">
+<h1 class="title">how to NFT</h1>
+
+
+<p>
+僕もちゃんとこの単語を知ったのはつい最近の NFT ですが、クリエィティブ・アート界隈で物議を醸しているデジタルアートを売り買いする仕組みです。
+</p>
+
+<p>
+ちょっと前までは、この仕組みで売り買いするにはマイニングの過程でものすごい量の
+%CO<sub>2</sub>% を使うという話だったので、最近子供が産まれてただでさえカーボンフットプリント気にしないといけない立場なので、よしておこうかなと思っていました。
+</p>
+
+<p>
+でも、すぐにその懸念を乗り越えたものが出てきて、また話題になっていた。アートの取引のあり方や、結局これって壮大な罠なのではといろいろ言われていますが、試してみないと失敗してみないと、賛成も批判もできないので、やってみた。
+</p>
+
+<p>
+<a href="https://www.hicetnunc.xyz/">https://www.hicetnunc.xyz/</a>
+</p>
+
+<p>
+tezos という通貨を使うようで、詳しいことを調べるとこれも面白そうなのですが、割愛して How To に徹しようと思います。
+</p>
+
+<p>
+一応出品した結果は、こちら。みんな買ってね!!!
+</p>
+
+<p>
+<a href="https://www.hicetnunc.xyz/objkt/8119">https://www.hicetnunc.xyz/objkt/8119</a>
+</p>
+
+<p>
+近所の子供用ゲーセン(chuck&rsquo;e&rsquo;cheese)で撮った写真を photoshop の neuralnetfilter
+怒った顔度 1%増やして、その後-1%する処理を 20 回くらいやりました。
+</p>
+
+
+<p>
+<b>一応言っておきますが、このガイドを通していかなる損失や責任は追いません。試しにやってみるのに使ったお金と提出したアート作品はドブに捨てる勢いでやりましょう。</b>
+</p>
+
+<ol class="org-ol">
+<li><p>
+まず、作品を売りに出す段階で手数料がかかるので、先に tezos を獲得しましょう。
+</p>
+
+<p>
+以前も似たように遊びで bitcoin を買った coinbase.com のアカウントでちょっとだけ tezos を買いました。
+</p>
+
+
+<div id="org65757e2" class="figure">
+<p><img src="images/coinbase_buy_tezos.png" alt="coinbase_buy_tezos.png" width="50%" />
+</p>
+<p><span class="figure-number">Figure 1: </span>tezos 買う</p>
+</div>
+
+<p>
+ちょっと待って無事送金されるのを確認しましょう。
+</p></li>
+
+<li><p>
+Temple wallet エクステンションに送金する
+</p>
+
+<p>
+もしかしたら coinbase のウォレットも対応しているのかもしれませんが、酒井はブラウザ・エクステンションのウォレットに移しました。
+</p>
+
+<p>
+Chome お使いの方は:
+<a href="https://chrome.google.com/webstore/detail/temple-tezos-wallet-ex-th/ookjlbkiijinhpmnjffcofjonbfbgaoc">https://chrome.google.com/webstore/detail/temple-tezos-wallet-ex-th/ookjlbkiijinhpmnjffcofjonbfbgaoc</a>
+</p>
+
+<p>
+Firefox は:
+<a href="https://addons.mozilla.org/firefox/addon/temple-wallet">https://addons.mozilla.org/firefox/addon/temple-wallet</a>
+</p>
+
+<p>
+でウォレット作りますかーと言われるので、作りましょう。パスワードだったりフレーズだったりを書き残しておきましょう。
+</p>
+
+<p>
+で先ほど、取引所で買った tezos を temple ウォレットに送金します。Send みたいなボタンがあるはずなので、temple のアドレスに送ります。temple エクステンションを開くとコピペできます。
+</p>
+
+
+<div id="org80c32ba" class="figure">
+<p><img src="images/temple_address.png" alt="temple_address.png" width="50%" />
+</p>
+<p><span class="figure-number">Figure 2: </span>赤枠の箇所がアドレスです、クリックしてコピーする</p>
+</div></li>
+
+<li><p>
+作品登録をする
+</p>
+
+<p>
+いよいよ、取引所である　<a href="https://www.hicetnunc.xyz">https://www.hicetnunc.xyz</a> です。まずは作品を登録して、そのために少し手数料を取られます。上の≡ボタンを押して、objkts (mint)　を押して、作品登録します。
+</p>
+
+
+<div id="org5da6761" class="figure">
+<p><img src="images/objkts.jpg" alt="objkts.jpg" width="50%" />
+</p>
+<p><span class="figure-number">Figure 3: </span>作品登録します。</p>
+</div>
+
+<p>
+作品の情報を記入します。最後の項目の amount はこの作品を何個売るか。複製の数を指定するんですね。この時点で、作品の値段は設定しません。途中承認してくれとエクステンションから迫られたりするのでここは OK してあげます。
+</p>
+
+
+<div id="orgbcae98c" class="figure">
+<p><img src="images/hic_form_jp.png" alt="hic_form_jp.png" width="100%" />
+</p>
+<p><span class="figure-number">Figure 4: </span>必要な情報を記入、エディション数は販売数ですね。よくシリアル番号とかありますよねそれです。</p>
+</div></li>
+
+<li><p>
+価格の設定
+</p>
+
+<p>
+作品登録が終わったら、また上の≡マークを押して、manage assets、この時点では
+Not for Sale となっているはずです。swap で売りたいエディションの数と単価を買いて販売開始! 取り下げと削除の違いは、価格の変更とかする場合は一度取り下げしてから、再度出品するらしく、削除は文字通り DB から消えるそうです。この時点で酒井がやってみたところ、cancel と delete に関しては、反映に少し時間がかかるようです。
+</p>
+
+
+<div id="org67f5d84" class="figure">
+<p><img src="images/hic_sell.png" alt="hic_sell.png" width="100%" />
+</p>
+<p><span class="figure-number">Figure 5: </span>swap で出品数と価格を tezos で記入する。</p>
+</div></li>
+</ol>
+
+
+<p>
+以上ざっとこんな感じです。これを買いている時点ではまだ売れていないので、売れるとどうなるかは謎です。売れたら一部をアジア系アメリカ人に寄付しようと思います。〇〇したいから金くれという方法もありかなと思ったりしました。（機材とかもいいのでは？）
+</p>
+
+<p>
+質問があったら彼らの discord に日本語チャンネルも用意されているので聞いてみれば解決しそうです。
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-03-18 17:20</p>
+<p class="author">Author: Yasushi Sakai</p>
+<p class="date">Created: 2021-03-18 Thu 21:50</p>
+</div>
+</body>
+</html>
