@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-03-11 Thu 07:12 -->
+<!-- 2021-05-11 Tue 08:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Liquid Democracy</title>
@@ -264,7 +264,7 @@ of the members are informed and can estimate the impact of each policy.
 </p>
 
 
-<div id="org3ce6646" class="figure">
+<div id="orge3290b1" class="figure">
 <p><img src="./images/approval_voting.jpg" alt="approval_voting.jpg" width="100%" />
 </p>
 </div>
@@ -284,7 +284,7 @@ informed concent, but trades off control.
 </p>
 
 
-<div id="org98a110c" class="figure">
+<div id="org7fa670d" class="figure">
 <p><img src="./images/democracy_06.jpg" alt="democracy_06.jpg" width="100%" />
 </p>
 </div>
@@ -296,7 +296,7 @@ informed concent, but trades off control.
 <h3 id="org0860d3e"><span class="section-number-3">1.2</span> different democracies and their flaws</h3>
 <div class="outline-text-3" id="text-1-2">
 
-<div id="org7f9fd14" class="figure">
+<div id="orgdcb94bf" class="figure">
 <p><img src="./images/no_silver_bullet.png" alt="no_silver_bullet.png" width="100%" />
 </p>
 </div>
@@ -305,7 +305,7 @@ informed concent, but trades off control.
 From the eyes of Aristotle, every form of democracies has their own short
 commings. To him, it&rsquo;s rather unsmart to <b>pick</b> and impose which one is the
 best, but to analyze and what are the possible alternatives that best suits for
-the community is far more important. <a class='org-ref-reference' href="#yamcha2010saikyo">yamcha2010saikyo</a>
+the community is far more important.
 </p>
 
 <p>
@@ -326,7 +326,7 @@ Democracy that you can vote for both policies and people <a class='org-ref-refer
 </p>
 
 
-<div id="org81211a8" class="figure">
+<div id="orgdeb9ce0" class="figure">
 <p><img src="./images/liquid_democracy.jpg" alt="liquid_democracy.jpg" width="100%" />
 </p>
 </div>
@@ -583,18 +583,42 @@ A_{ii}(t)} \; \textrm{for all} \; 1 \leq i \leq H
 </div>
 </div>
 
-<div id="outline-container-org8d86825" class="outline-2">
-<h2 id="org8d86825"><span class="section-number-2">2</span> code</h2>
+<div id="outline-container-org0e2580a" class="outline-2">
+<h2 id="org0e2580a"><span class="section-number-2">2</span> try the api!</h2>
 <div class="outline-text-2" id="text-2">
+<p>
+we have a simple json rpc format
+</p>
+
 <div class="org-src-container">
-<pre class="src src-rust"><span style="color: #81A1C1;">use</span> <span style="color: #81A1C1;">std</span>::<span style="color: #81A1C1;">collections</span>::<span style="color: #8FBCBB;">BTreeMap</span>;
-
-<span style="color: #81A1C1;">fn</span> <span style="color: #8FBCBB;">main</span>(){
-
-    <span style="color: #81A1C1;">let</span>
-
+<pre class="src src-json">{
+	"jsonrpc": "2.0",
+	"id": 0,
+	"method": "liquid",
+	"params": {
+		"minori": {
+			"yasushi": 0.1,
+			"ray": 0.1,
+			"rice": 0.1,
+			"bread": 0.7
+		},
+		"yasushi": {
+			"minori": 0.2,
+			"ray": 0.3,
+			"rice": 0.5
+		},
+		"ray": {
+			"minori": 0.4,
+			"yasushi": 0.4,
+			"bread":0.2
+		}
+	}
 }
+</pre>
+</div>
 
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -d @breakfast.json -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> https://ornot.vote/rpc/ | jq .
 </pre>
 </div>
 </div>
@@ -609,8 +633,7 @@ A_{ii}(t)} \; \textrm{for all} \; 1 \leq i \leq H
 
 <p>
 <h1 class='org-ref-bib-h1'>Bibliography</h1>
-<ul class='org-ref-bib'><li><a id="yamcha2010saikyo">[yamcha2010saikyo]</a> <a name="yamcha2010saikyo"></a>"飲茶 & 板垣, 史上最強の哲学入門, マガジン・マガジン (2010).</li>
-<li><a id="malone2018superminds">[malone2018superminds]</a> <a name="malone2018superminds"></a>Malone, Superminds: The surprising power of people and computers  thinking together, Little, Brown Spark (2018).</li>
+<ul class='org-ref-bib'><li><a id="malone2018superminds">[malone2018superminds]</a> <a name="malone2018superminds"></a>Malone, Superminds: The surprising power of people and computers  thinking together, Little, Brown Spark (2018).</li>
 <li><a id="suzuki2013nameteki">[suzuki2013nameteki]</a> <a name="suzuki2013nameteki"></a>Suzuki, なめらかな社会とその敵: PICSY\textperiodcentered 分人民主  主義\textperiodcentered 構成的社会契約論, 勁草書房 (2013).</li>
 </ul>
 </p>
@@ -620,7 +643,7 @@ A_{ii}(t)} \; \textrm{for all} \; 1 \leq i \leq H
 <div id="postamble" class="status">
 <p class="date">Date: 2019-07-17</p>
 <p class="author">Author: Yasushi Sakai</p>
-<p class="date">Created: 2021-03-11 Thu 07:12</p>
+<p class="date">Created: 2021-05-11 Tue 08:31</p>
 </div>
 </body>
 </html>

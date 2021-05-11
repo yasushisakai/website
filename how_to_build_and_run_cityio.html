@@ -6,7 +6,7 @@
 <!-- 2021-05-11 Tue 08:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>matrix home server</title>
+<title>How to build and run CityIO</title>
 <meta name="author" content="Yasushi Sakai" />
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
@@ -223,25 +223,78 @@
 <a href="http://yasushisakai.com">🏠</a>
 </div>
 <div id="content">
-<h1 class="title">matrix home server</h1>
-
+<h1 class="title">How to build and run CityIO</h1>
 
 
 <p>
-メールサービスに問い合わせたら、STARTTLS をサポートするポートは下記のようでした。
-gmail もそうだし、通例のようですが、ここはメールサービスへ問い合わせる必要があるかもしれません。
+From version 3, the Dockerfile inside the repository can be used for easy
+deployment through docker.
 </p>
 
 <p>
-Here are the ports which work with STARTTLS:
+It is a two step process, <code>building</code> and <code>running</code>.
 </p>
-<ul class="org-ul">
-<li>Incoming server (IMAP): 143</li>
-<li>Outgoing server (SMTP): 587</li>
-</ul>
+
+<div id="outline-container-orgb6c5679" class="outline-2">
+<h2 id="orgb6c5679"><span class="section-number-2">1</span> Building</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+(make sure you have docker in your system)
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">git</span> clone https://github.com/CityScope/CS_CityIO cityio
+<span style="color: #8FBCBB;">cd</span> cityio
+docker build -t cityio .
+</pre>
+</div>
+
+<p>
+This will build the container image to the latest version. <code>git pull</code> to
+update the code.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org10d52be" class="outline-2">
+<h2 id="org10d52be"><span class="section-number-2">2</span> Running</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The cityio container assumes that a redis instance is running in
+<code>127.0.0.1:6379</code> (the default), this can be a docker container itself, if redis
+is running inside a different address or/and port, you can change the what is
+written in the DockerFile.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">ENV REDIS_ADDR=127.0.0.1
+ENV REDIS_PORT=6379
+</pre>
+</div>
+
+<p>
+With that, the container can run by the following command.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">docker run -p 8080:8080 --net=host cityio
+</pre>
+</div>
+
+<p>
+the <code>--net=host</code> option is for the container to access the host side localhosts&rsquo; ports,
+to have the container access redis.
+</p>
+
+<p>
+This will output the logs in that session, where we usually run cityio in a tmux
+session for realtime observation. The <code>-d</code> option can be added to run in deamon mode.
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2021-03-13 17:19</p>
+<p class="date">Date: 2021-03-27 16:51</p>
 <p class="author">Author: Yasushi Sakai</p>
 <p class="date">Created: 2021-05-11 Tue 08:26</p>
 </div>
