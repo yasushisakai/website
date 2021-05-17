@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-05-16 Sun 22:18 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>General Exam</title>
+<meta name="author" content="Yasushi Sakai" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="http://yasushisakai.com">🏠</a>
+</div>
+<div id="content">
+<h1 class="title">General Exam</h1>
+
+<div id="outline-container-org3b0f257" class="outline-2">
+<h2 id="org3b0f257"><span class="section-number-2">1</span> The City DAO</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Urban planning has traditionally been a top-down process controlled by experts
+who operate behind closed doors, with only sporadic opportunities for the
+community to comment through public hearings. Over the past decade, many online
+platforms have emerged that promise to boost civic involvement by streamlining
+communication between citizens and government officials, but it is unclear that
+they actually facilitate meaningful engagement and collective decision-making.
+Sidewalk Lab’s Quayside Development in Toronto proposed innovative systems for
+the city, but the project was canceled in large part due to difficulty in
+creatively engaging with the public, and failure to build the level of trust
+necessary for community acceptance and approval <a class='org-ref-reference' href="#green2019smart">green2019smart</a> . More
+effective platforms for collective design and community participation are
+arguably even more important than any technology embedded in such development
+projects.
+</p>
+
+<p>
+Urban design is a complex and iterative process. Too often, important
+information is lost as the project evolves, both by designers and in the public
+presentation of the results. The community sees a coarse snapshot at discrete
+points in the process, and how one got there is lost when consensus is crutial
+in any techonological intervention.
+</p>
+
+<p>
+Github, a social coding platform based on the content tracker tool Git, is often
+a place where people discuss and build consensus on software development
+direction. Here the code base is a public good.
+</p>
+
+<p>
+We see discussions about the similarities between the way Git manages data and
+the blockchain&rsquo;s data structure, but there is anticipation that blockchain
+technology is applicable within the process of governance.
+</p>
+
+<p>
+Related to this, we see attempts to collectively decide on topics related to
+software development through delegated voting using &ldquo;Governance tokens&rdquo; operated
+on the blockchain.
+</p>
+
+<p>
+I want to consider whether these attempts are helpful in the consensus-building
+process in the context of city planning. We believe that this tool for
+collaboration allows (1) consensus building where one authority is not required,
+(2) a transparent process with accumulated history (3) deliberation without
+division.
+</p>
+
+<p>
+My research is aimed at developing this model as a real tool for urban design.
+In my prior work, I have shown how simple version control concepts a la Github
+can be applied to create families of related designs
+<a class='org-ref-reference' href="#sakai2015implementation">sakai2015implementation</a> where the evolution can be traced, validated, and
+discussed. Additionally I have been developing a computation module for
+calculating votes based on Liquid Democracy. This module was tested in 2019
+using the form of surveys in a workshop held for the cabinet office of Japan
+simulating the decision making process with younger career goverment
+administrators. The senario was a hypothetical emergency case in 2030 with a bio
+military intervention from a foriegn country.
+</p>
+
+<p>
+Now we can start to use automated consensus mechanisms and machine-based
+versioning to elevate the planning methodology to include the public in a
+constructive way.
+</p>
+
+<p>
+The basis for this research is mastery of three areas: [1] public consensus and
+participation in planning and design, [2] technical support for machine-
+mediated consensus, discussion and governance, and [3] how we learn, build, and
+incorporate innovation, using techniques that align with governance using
+blockchain such as voting and remixing. In subsequent doctoral studies, I will
+build on this premise and consider ways to enable collaborative versioning with
+citizens about their city.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org20b35a8" class="outline-2">
+<h2 id="org20b35a8"><span class="section-number-2">2</span> Primary</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Researchers in the City Science Group have been thinking about collective
+consensus building in cities mainly through a project called CityScope.
+Within this system, I have been developing and maintaining CityIO, a software
+layer that acts as an intermediary between simulations, physical tables, and the
+front end visualization.
+</p>
+
+<p>
+An extension of this system could allow citizens to edit their design proposals.
+This method and the tool supporting it is a kind of collaborative editing that
+involves citizen participation.
+</p>
+
+<p>
+I will pursue methods to organize these examples while addressing concerns about
+the existing democratic process.
+</p>
+
+<p>
+Ultimately, I contend that tools that help the city adopt and revise a master
+plan over time better reflects the needs of an agile, changing world. With
+sufficient community input, these plans will also come to better support the
+values of the residents as the community grows together.
+</p>
+</div>
+
+<div id="outline-container-org150422e" class="outline-3">
+<h3 id="org150422e"><span class="section-number-3">2.1</span> Questions</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>Who is saying urban planning process are slow? Why?</li>
+<li>What is the right size of a community?</li>
+<li>Does the current method have enough deliberation?</li>
+<li>What are the recent examples of community engagement in cites?</li>
+<li>What worked? How are we evaluating?</li>
+</ul>
+
+<p>
+<a class='org-ref-reference' href="#alexander1962use">alexander1962use</a>
+<a class='org-ref-reference' href="#green2019smart">green2019smart</a>
+<a class='org-ref-reference' href="#alexander1964city">alexander1964city</a>
+<a class='org-ref-reference' href="#sadik2017streetfight">sadik2017streetfight</a>
+<a class='org-ref-reference' href="#curry2019good">curry2019good</a>
+<a class='org-ref-reference' href="#tomasello2009we">tomasello2009we</a>
+<a class='org-ref-reference' href="#forrester1970urban">forrester1970urban</a>
+<a class='org-ref-reference' href="#panagiotopoulos2012online">panagiotopoulos2012online</a>
+<a class='org-ref-reference' href="#janssen2018innovating">janssen2018innovating</a>
+<a class='org-ref-reference' href="#rubin2019politics">rubin2019politics</a>
+<a class='org-ref-reference' href="#kiewiet1991logic">kiewiet1991logic</a>
+<a class='org-ref-reference' href="#pollitt2004agencies">pollitt2004agencies</a>
+<a class='org-ref-reference' href="#roberts2015age">roberts2015age</a>
+<a class='org-ref-reference' href="#roberts2004public">roberts2004public</a>
+<a class='org-ref-reference' href="#ferrate2010google">ferrate2010google</a>
+<a class='org-ref-reference' href="#samuel2020representation">samuel2020representation</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1431211" class="outline-3">
+<h3 id="org1431211"><span class="section-number-3">2.2</span> Reader: Kent Larson</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgec02f8d" class="outline-2">
+<h2 id="orgec02f8d"><span class="section-number-2">3</span> Technical</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+There are two perspectives from which I will explore the technical aspects of
+this idea. The first perspective lies in the scope of Distributed Consensus.
+There are a variety of consensus mechanisms that are being used in a variety of
+circumstances from auctions (which agree on value) to automated means that
+support a currency. These are formalizations of voting systems that are
+especially given that machine-based mediation can channel the noise of
+low-friction participation in potentially useful ways. The second perspective is
+knowledge of the technologies that support collaboration in the software
+industry, which is one of the most successful industry for collaboration
+currently taking place. These emerged as a combination of version control for
+software development and community participation in the evolution of a system.
+</p>
+
+<p>
+<a class='org-ref-reference' href="#aragon2017deliberative">aragon2017deliberative</a>
+<a class='org-ref-reference' href="#ongaro2014search">ongaro2014search</a>
+<a class='org-ref-reference' href="#sakai2015implementation">sakai2015implementation</a>
+<a class='org-ref-reference' href="#howard2020paxos">howard2020paxos</a>
+<a class='org-ref-reference' href="#lynch1989hundred">lynch1989hundred</a>
+<a class='org-ref-reference' href="#cao2016json">cao2016json</a>
+<a class='org-ref-reference' href="#Coglan2019">Coglan2019</a>
+<a class='org-ref-reference' href="#schimpf2010fossil">schimpf2010fossil</a>
+<a class='org-ref-reference' href="#chacon2014pro">chacon2014pro</a>
+<a class='org-ref-reference' href="#lamport2019part">lamport2019part</a>
+<a class='org-ref-reference' href="#nakamoto2019bitcoin">nakamoto2019bitcoin</a>
+<a class='org-ref-reference' href="#lamport2019byzantine">lamport2019byzantine</a>
+<a class='org-ref-reference' href="#ali2016blockstack">ali2016blockstack</a>
+<a class='org-ref-reference' href="#archer2018keys">archer2018keys</a>
+<a class='org-ref-reference' href="#bunz2018bulletproofs">bunz2018bulletproofs</a>
+<a class='org-ref-reference' href="#kissner2009general">kissner2009general</a>
+<a class='org-ref-reference' href="#merkle1987digital">merkle1987digital</a>
+<a class='org-ref-reference' href="#laurie2014certificate">laurie2014certificate</a>
+<a class='org-ref-reference' href="#blum1983coin">blum1983coin</a>
+<a class='org-ref-reference' href="#blum2016liquid">blum2016liquid</a>
+<a class='org-ref-reference' href="#kahng2021liquid">kahng2021liquid</a>
+<a class='org-ref-reference' href="#denardis2014global">denardis2014global</a>
+<a class='org-ref-reference' href="#bradner1996internet">bradner1996internet</a>
+<a class='org-ref-reference' href="#bradner1998ietf">bradner1998ietf</a>
+<a class='org-ref-reference' href="#lumineau2020blockchain">lumineau2020blockchain</a>
+<a class='org-ref-reference' href="#adams2021uniswap">adams2021uniswap</a>
+<a class='org-ref-reference' href="#liu2020technology">liu2020technology</a>
+<a class='org-ref-reference' href="#jentzsch2016decentralized">jentzsch2016decentralized</a>
+</p>
+</div>
+
+<div id="outline-container-orgd1538ca" class="outline-3">
+<h3 id="orgd1538ca"><span class="section-number-3">3.1</span> Reader: Andrew Lippman</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+</div>
+</div>
+
+<div id="outline-container-org62c2933" class="outline-2">
+<h2 id="org62c2933"><span class="section-number-2">4</span> Contextual</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+The act of creating something new by quoting and combining what others have done
+is not only essential to scientific pursuits, but is also found in a variety of
+cultural and creative activities. There are two reasons to explore this.
+</p>
+
+<p>
+The first is to look for concepts that underpin collaboration in the other media
+mentioned above, and explore how they might apply to collaborative work in city
+and town planning.
+</p>
+
+<p>
+The second reason is to confirm how these creative activities, which are
+premised on others&rsquo; intervention, can be established as a community and, by
+extension, a regional identity, and how this can affect each other in planning
+and thinking about the neighborhood.
+</p>
+</div>
+
+<div id="outline-container-org8e5b20c" class="outline-3">
+<h3 id="org8e5b20c"><span class="section-number-3">4.1</span> Questions</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li>Define &ldquo;collaboration&rdquo;, effort has been put to define cooperation. How do
+other words or techniques share this characteristics. e.g &ldquo;remix&rdquo;, &ldquo;curation&rdquo;</li>
+<li>How can we categorise different ways to &ldquo;remix&rdquo;?
+<ul class="org-ul">
+<li>syncronized? async?</li>
+<li>vertical? horizontal?</li>
+</ul></li>
+<li>How do current planning methods use collaboration among stakeholders?</li>
+<li>There is another similar word &ldquo;bricolage&rdquo; from Levi Strauss, what other
+aspects that this word enrich?</li>
+</ul>
+
+<p>
+<a class='org-ref-reference' href="#hardt2015google">hardt2015google</a>
+<a class='org-ref-reference' href="#lvi1966savage">lvi1966savage</a>
+<a class='org-ref-reference' href="#malone2018superminds">malone2018superminds</a>
+<a class='org-ref-reference' href="#manovich2005remixing">manovich2005remixing</a>
+<a class='org-ref-reference' href="#manovich2007comes">manovich2007comes</a>
+<a class='org-ref-reference' href="#o2007curatorial">o2007curatorial</a>
+<a class='org-ref-reference' href="#lessig2008remix">lessig2008remix</a>
+<a class='org-ref-reference' href="#lessig2009code">lessig2009code</a>
+<a class='org-ref-reference' href="#winner1980artifacts">winner1980artifacts</a>
+<a class='org-ref-reference' href="#de2011course">de2011course</a>
+<a class='org-ref-reference' href="#churchman1967guest">churchman1967guest</a>
+<a class='org-ref-reference' href="#bateson1979mind">bateson1979mind</a>
+<a class='org-ref-reference' href="#tidball2013positive">tidball2013positive</a>
+<a class='org-ref-reference' href="#arnstein1969ladder">arnstein1969ladder</a>
+<a class='org-ref-reference' href="#irvin2004citizen">irvin2004citizen</a>
+<a class='org-ref-reference' href="#sennett2012together">sennett2012together</a>
+<a class='org-ref-reference' href="#dupont2017experiments">dupont2017experiments</a>
+<a class='org-ref-reference' href="#antipov2017organizational">antipov2017organizational</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge8325cb" class="outline-3">
+<h3 id="orge8325cb"><span class="section-number-3">4.2</span> Area Reader: Gesa Ziemer</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Gesa Ziemer (Prof. Dr. phil.) is Professor for Cultural Theory and Cultural
+Praxis and Vice President Research at the HafenCity University Hamburg. She is
+currently a fellow of the Humboldt Foundation (Feodor-Lynen Program) at the
+Harvard Kennedy School, Cambridge, MA, USA. Her research foci are: the digital
+city, new forms of cooperation, urban public life, and artistic research. She
+holds a Guest Lectureship at the Lucerne School of Art and Design in
+Switzerland. She is a member of the Accreditation Committee of the Scientific
+Council of Germany. Moreover, she is a member of the Supervisory Committee of
+Hamburg Innovation, a community for the transfer of knowledge in Hamburg, and a
+member of the Advisory Boards of Lucerne School of Art and Design and the
+Choreography Centre PACT Zollverein Essen. She regularly serves as an
+evaluator, i.a. for the Deutsche Forschungsgemeinschaft, the Swiss National
+Science Fund, German federal ministries, and private foundations (e.g.
+Volkswagen, Robert Bosch).
+</p>
+
+<p>
+<h1 class='org-ref-bib-h1'>Bibliography</h1>
+<ul class='org-ref-bib'><li><a id="green2019smart">[green2019smart]</a> <a name="green2019smart"></a>Green, The smart enough city: putting technology in its place to  reclaim our urban future, MIT Press (2019).</li>
+<li><a id="sakai2015implementation">[sakai2015implementation]</a> <a name="sakai2015implementation"></a>@InCollectionsakai2015implementation,
+  author          = Sakai, Yasushi and Tsunoda, Daisuke,
+  booktitle       = Modelling Behaviour,
+  publisher       = Springer,
+  title           = Implementation of Decentralized Version Control in
+                  Collective Design Modelling,
+  year            = 2015,
+  isbn            = 978-3-319-24206-4,
+  pages           = 383-395,
+  doi             = https://doi.org/10.1007/978-3-319-24208-8,
+  file            =
+                  :/Users/yasushi/Dropbox/papers/Implementation_of_Decentralized_Version.pdf:PDF,
+  keywords        = read,
+  readstatus      = read,
+</li>
+<li><a id="alexander1962use">[alexander1962use]</a> <a name="alexander1962use"></a>Alexander & Manheim, The use of diagrams in highway route location: an  experiment, <i></i>,  (1962).</li>
+<li><a id="alexander1964city">[alexander1964city]</a> <a name="alexander1964city"></a>Alexander, A city is not a tree, <i>1965</i>, <b>124</b>, (1964).</li>
+<li><a id="sadik2017streetfight">[sadik2017streetfight]</a> <a name="sadik2017streetfight"></a>Sadik-Khan & Solomonow, Streetfight: Handbook for an urban revolution, Penguin (2017).</li>
+<li><a id="curry2019good">[curry2019good]</a> <a name="curry2019good"></a>Curry, Mullins, & Whitehouse, Is it good to cooperate, <i>Current Anthropology</i>, <b>60(1)</b>, 47-69 (2019).</li>
+<li><a id="tomasello2009we">[tomasello2009we]</a> <a name="tomasello2009we"></a>Tomasello, Why we cooperate, MIT press (2009).</li>
+<li><a id="forrester1970urban">[forrester1970urban]</a> <a name="forrester1970urban"></a>Forrester, Urban dynamics, <i>IMR; Industrial Management Review (Pre-1986)</i>, <b>11(3)</b>, 67 (1970).</li>
+<li><a id="panagiotopoulos2012online">[panagiotopoulos2012online]</a> <a name="panagiotopoulos2012online"></a>@InCollectionpanagiotopoulos2012online,
+  author          = Panagiotopoulos, Panagiotis and Elliman, Tony,
+  booktitle       = Empowering Open and Collaborative Governance,
+  publisher       = Springer,
+  title           = Online engagement from the grassroots: Reflecting on over a
+                  decade of ePetitioning experience in Europe and the UK,
+  year            = 2012,
+  pages           = 79-94,
+</li>
+<li><a id="janssen2018innovating">[janssen2018innovating]</a> <a name="janssen2018innovating"></a>Janssen & Helbig, Innovating and changing the policy-cycle: Policy-makers be  prepared!, <i>Government Information Quarterly</i>, <b>35(4)</b>, S99-S105 (2018).</li>
+<li><a id="rubin2019politics">[rubin2019politics]</a> <a name="rubin2019politics"></a>Rubin, The politics of public budgeting: Getting and spending,  borrowing and balancing, CQ Press (2019).</li>
+<li><a id="kiewiet1991logic">[kiewiet1991logic]</a> <a name="kiewiet1991logic"></a>Kiewiet & McCubbins, The logic of delegation, University of Chicago Press (1991).</li>
+<li><a id="pollitt2004agencies">[pollitt2004agencies]</a> <a name="pollitt2004agencies"></a>Pollitt, Talbot, Caulfield, Janice & Smullen, Agencies: How governments do things through semi-autonomous  organizations, Springer (2004).</li>
+<li><a id="roberts2015age">[roberts2015age]</a> <a name="roberts2015age"></a>Roberts, The age of direct citizen participation, Routledge (2015).</li>
+<li><a id="roberts2004public">[roberts2004public]</a> <a name="roberts2004public"></a>Roberts, Public deliberation in an age of direct citizen  participation, <i>The American review of public administration</i>, <b>34(4)</b>, 315-353 (2004).</li>
+<li><a id="ferrate2010google">[ferrate2010google]</a> <a name="ferrate2010google"></a>Ferrate, Google wave: up and running,  O'Reilly Media, Inc. (2010).</li>
+<li><a id="samuel2020representation">[samuel2020representation]</a> <a name="samuel2020representation"></a>Samuel, Servigne, Gesqui\`ere & Gilles, Representation of concurrent points of view of urban  changes for city models, <i>Journal of Geographical Systems</i>,  1-25 (2020). <a href="https://link.springer.com/article/10.1007/s10109-020-00319-1">link</a>.</li>
+<li><a id="aragon2017deliberative">[aragon2017deliberative]</a> <a name="aragon2017deliberative"></a>Arag\'on, Kaltenbrunner, , Calleja-L\'opez, Pereira, , Monterde, Barandiaran, G\'omez & Vicen\cc, Deliberative Platform Design: The case study of the online  discussions in Decidim Barcelona, 277-287, in in: International Conference on Social Informatics, edited by (2017)</li>
+<li><a id="ongaro2014search">[ongaro2014search]</a> <a name="ongaro2014search"></a>Ongaro & Ousterhout, In search of an understandable consensus algorithm, 305-319, in in: 2014 $\$USENIX$\$ Annual Technical Conference
+                  ($\$USENIX$\$$\$ATC$\$ 14), edited by (2014)</li>
+<li><a id="howard2020paxos">[howard2020paxos]</a> <a name="howard2020paxos"></a>Howard & Mortier, Paxos vs Raft: Have we reached consensus on distributed  consensus?, <i>arXiv preprint arXiv:2004.05074</i>,  (2020).</li>
+<li><a id="lynch1989hundred">[lynch1989hundred]</a> <a name="lynch1989hundred"></a>Lynch, A hundred impossibility proofs for distributed computing, 1-28, in in: Proceedings of the eighth annual ACM Symposium on
+                  Principles of distributed computing, edited by (1989)</li>
+<li><a id="cao2016json">[cao2016json]</a> <a name="cao2016json"></a>Cao, Falleri, Blanc, & Zhang, JSON Patch for Turning a Pull REST API into a Push, 435-449, in in: International Conference on Service-Oriented Computing, edited by (2016)</li>
+<li><a id="Coglan2019">[Coglan2019]</a> <a name="Coglan2019"></a>James Coglan, Building Git, James Coglan (2019).</li>
+<li><a id="schimpf2010fossil">[schimpf2010fossil]</a> <a name="schimpf2010fossil"></a>Schimpf, Fossil Version Control A Users Guide, <i></i>,  (2010).</li>
+<li><a id="chacon2014pro">[chacon2014pro]</a> <a name="chacon2014pro"></a>Chacon & Straub, Pro git, Apress (2014).</li>
+<li><a id="lamport2019part">[lamport2019part]</a> <a name="lamport2019part"></a>@incollectionlamport2019part,
+  title           = The part-time parliament,
+  author          = Lamport, Leslie,
+  booktitle       = Concurrency: the Works of Leslie Lamport,
+  pages           = 277-317,
+  year            = 2019
+</li>
+<li><a id="nakamoto2019bitcoin">[nakamoto2019bitcoin]</a> <a name="nakamoto2019bitcoin"></a>Nakamoto, Bitcoin: A peer-to-peer electronic cash system, Manubot, (2019).</li>
+<li><a id="lamport2019byzantine">[lamport2019byzantine]</a> <a name="lamport2019byzantine"></a>@incollectionlamport2019byzantine,
+  title=The Byzantine generals problem,
+  author=Lamport, Leslie and Shostak, Robert and Pease, Marshall,
+  booktitle=Concurrency: the Works of Leslie Lamport,
+  pages=203-226,
+  year=2019
+</li>
+<li><a id="ali2016blockstack">[ali2016blockstack]</a> <a name="ali2016blockstack"></a>Ali, Nelson, Shea, Freedman & Michael J, Blockstack: A global naming and storage system secured by  blockchains, 181-194, in in: 2016 $\$USENIX$\$ Annual Technical Conference
+                  ($\$USENIX$\$$\$ATC$\$ 16), edited by (2016)</li>
+<li><a id="archer2018keys">[archer2018keys]</a> <a name="archer2018keys"></a>Archer, Bogdanov, Lindell, Kamm, Nielsen, Pagter, Smart & Wright, From keys to databases—real-world applications of secure multi-party computation, <i>The Computer Journal</i>, <b>61(12)</b>, 1749-1771 (2018).</li>
+<li><a id="bunz2018bulletproofs">[bunz2018bulletproofs]</a> <a name="bunz2018bulletproofs"></a>B\"unz, Bootle, Boneh, , Poelstra, Wuille & Maxwell, Bulletproofs: Short proofs for confidential transactions  and more, 315-334, in in: 2018 IEEE Symposium on Security and Privacy (SP), edited by (2018)</li>
+<li><a id="kissner2009general">[kissner2009general]</a> <a name="kissner2009general"></a>Kissner & Laurie, General verifiable federation, <i>Google white paper</i>,  (2009).</li>
+<li><a id="merkle1987digital">[merkle1987digital]</a> <a name="merkle1987digital"></a>Merkle, A digital signature based on a conventional encryption function, 369-378, in in: Conference on the theory and application of cryptographic techniques, edited by (1987)</li>
+<li><a id="laurie2014certificate">[laurie2014certificate]</a> <a name="laurie2014certificate"></a>Laurie, Certificate transparency, <i>Communications of the ACM</i>, <b>57(10)</b>, 40-46 (2014).</li>
+<li><a id="blum1983coin">[blum1983coin]</a> <a name="blum1983coin"></a>Blum, Coin flipping by telephone a protocol for solving impossible problems, <i>ACM SIGACT News</i>, <b>15(1)</b>, 23-27 (1983).</li>
+<li><a id="blum2016liquid">[blum2016liquid]</a> <a name="blum2016liquid"></a>Blum & Zuber, Liquid democracy: Potentials, problems, and perspectives, <i>Journal of Political Philosophy</i>, <b>24(2)</b>, 162-182 (2016).</li>
+<li><a id="kahng2021liquid">[kahng2021liquid]</a> <a name="kahng2021liquid"></a>Kahng, Mackenzie & Procaccia, Liquid democracy: An algorithmic perspective, <i>Journal of Artificial Intelligence Research</i>, <b>70</b>, 1223-1252 (2021).</li>
+<li><a id="denardis2014global">[denardis2014global]</a> <a name="denardis2014global"></a>DeNardis, The global war for internet governance, Yale University Press (2014).</li>
+<li><a id="bradner1996internet">[bradner1996internet]</a> <a name="bradner1996internet"></a>Bradner, The Internet Standards Process-Revision 3, in in: BCP 9, RFC, edited by (1996)</li>
+<li><a id="bradner1998ietf">[bradner1998ietf]</a> <a name="bradner1998ietf"></a>Bradner, IETF working group guidelines and procedures, <i></i>,  (1998).</li>
+<li><a id="lumineau2020blockchain">[lumineau2020blockchain]</a> <a name="lumineau2020blockchain"></a>Lumineau, Wang & Schilke, Blockchain Governance—A New Way of Organizing Collaborations?, <i>Organization Science</i>,  (2020).</li>
+<li><a id="adams2021uniswap">[adams2021uniswap]</a> <a name="adams2021uniswap"></a>Adams, Zinsmeister, Salem, Keefer & Robinson, Uniswap v3 Core, <i></i>,  (2021).</li>
+<li><a id="liu2020technology">[liu2020technology]</a> <a name="liu2020technology"></a>Liu, Zhou, Huang & Zheng, From Technology to Society: An Overview of Blockchain-based DAO, <i>arXiv preprint arXiv:2011.14940</i>,  (2020).</li>
+<li><a id="jentzsch2016decentralized">[jentzsch2016decentralized]</a> <a name="jentzsch2016decentralized"></a>Jentzsch, Decentralized autonomous organization to automate governance, <i>White paper, November</i>,  (2016).</li>
+<li><a id="hardt2015google">[hardt2015google]</a> <a name="hardt2015google"></a>Hardt & Lopes, Google votes: A liquid democracy experiment on a corporate  social network, <i></i>,  (2015). <a href="https://www.tdcommons.org/cgi/viewcontent.cgi?article=1092&context=dpubs_series">link</a>.</li>
+<li><a id="lvi1966savage">[lvi1966savage]</a> <a name="lvi1966savage"></a>Lvi-Strauss, The savage mind, <i></i>,  (1966).</li>
+<li><a id="malone2018superminds">[malone2018superminds]</a> <a name="malone2018superminds"></a>Malone, Superminds: The surprising power of people and computers  thinking together, Little, Brown Spark (2018).</li>
+<li><a id="manovich2005remixing">[manovich2005remixing]</a> <a name="manovich2005remixing"></a>Manovich, Remixing and remixability, <i>Retrieved on Jan</i>, <b>10</b>, 2008 (2005).</li>
+<li><a id="manovich2007comes">[manovich2007comes]</a> <a name="manovich2007comes"></a>Manovich, What comes after remix, <i>Remix Theory</i>, <b>10</b>, 2013 (2007).</li>
+<li><a id="o2007curatorial">[o2007curatorial]</a> <a name="o2007curatorial"></a>O’Neill, The curatorial turn: from practice to discourse, <i>Issues in curating contemporary art and performance</i>,  13-28 (2007).</li>
+<li><a id="lessig2008remix">[lessig2008remix]</a> <a name="lessig2008remix"></a>Lessig & others, Remix: Making art and commerce thrive in the hybrid  economy, Penguin (2008).</li>
+<li><a id="lessig2009code">[lessig2009code]</a> <a name="lessig2009code"></a>Lessig, Code: And other laws of cyberspace, ReadHowYouWant. com (2009).</li>
+<li><a id="winner1980artifacts">[winner1980artifacts]</a> <a name="winner1980artifacts"></a>Winner, Do artifacts have politics?, <i>Daedalus</i>,  121-136 (1980).</li>
+<li><a id="de2011course">[de2011course]</a> <a name="de2011course"></a>De Saussure, Course in general linguistics, Columbia University Press (2011).</li>
+<li><a id="churchman1967guest">[churchman1967guest]</a> <a name="churchman1967guest"></a>@Miscchurchman1967guest,
+  author          = Churchman, C West,
+  title           = Guest editorial: Wicked problems,
+  year            = 1967,
+  publisher       = JSTOR,
+</li>
+<li><a id="bateson1979mind">[bateson1979mind]</a> <a name="bateson1979mind"></a>Bateson, Mind and nature: A necessary unity, Bantam Books New York (1979).</li>
+<li><a id="tidball2013positive">[tidball2013positive]</a> <a name="tidball2013positive"></a>Tidball & Stedman, Positive dependency and virtuous cycles: from resource  dependence to resilience in urban social-ecological systems, <i>Ecological Economics</i>, <b>86</b>, 292-299 (2013).</li>
+<li><a id="arnstein1969ladder">[arnstein1969ladder]</a> <a name="arnstein1969ladder"></a>Arnstein, A ladder of citizen participation, <i>Journal of the American Institute of planners</i>, <b>35(4)</b>, 216-224 (1969).</li>
+<li><a id="irvin2004citizen">[irvin2004citizen]</a> <a name="irvin2004citizen"></a>Irvin & Stansbury, Citizen participation in decision making: is it worth the effort?, <i>Public administration review</i>, <b>64(1)</b>, 55-65 (2004).</li>
+<li><a id="sennett2012together">[sennett2012together]</a> <a name="sennett2012together"></a>Sennett, Together: The rituals, pleasures and politics of cooperation, Yale University Press (2012).</li>
+<li><a id="dupont2017experiments">[dupont2017experiments]</a> <a name="dupont2017experiments"></a>DuPont, Experiments in algorithmic governance: A history and ethnography of “The DAO,” a failed decentralized autonomous organization, <i>Bitcoin and beyond</i>,  157-177 (2017).</li>
+<li><a id="antipov2017organizational">[antipov2017organizational]</a> <a name="antipov2017organizational"></a>Antipov, Akhmetzhanova, Antipova, Gazizulina & Sharov, Organizational models of teal organizations, 222-230, in in: 2017 6th International Conference on Reliability, Infocom Technologies and Optimization (Trends and Future Directions)(ICRITO), edited by (2017)</li>
+</ul>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2020-08-19 0:00</p>
+<p class="author">Author: Yasushi Sakai</p>
+<p class="date">Created: 2021-05-16 Sun 22:18</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-05-16 Sun 22:18 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ais meetup</title>
+<meta name="author" content="Yasushi Sakai" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="http://yasushisakai.com">🏠</a>
+</div>
+<div id="content">
+<h1 class="title">ais meetup</h1>
+
+<div id="outline-container-org7c552bf" class="outline-2">
+<h2 id="org7c552bf"><span class="section-number-2">1</span> Hyped!? Fraud!? A Intro to NFTs and first impressions and discussion to architectural and city related data</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+\vspace{12pt}
+</p>
+
+<ol class="org-ol">
+<li><p>
+How it works
+</p>
+
+<p>
+\vspace{18pt}
+</p></li>
+
+<li><p>
+Balanced (yet opinionated) Pros and Cons
+</p>
+
+<p>
+\vspace{18pt}
+</p></li>
+
+<li><p>
+<b>Demo</b>
+</p>
+
+<p>
+\vspace{18pt}
+</p></li>
+
+<li>Ideas for applying to Architectural and City Data</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org0824c30" class="outline-2">
+<h2 id="org0824c30"><span class="section-number-2">2</span> What are NFTs?</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org8fff25b" class="outline-3">
+<h3 id="org8fff25b"><span class="section-number-3">2.1</span> Tweet sold for $2.9 million <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></h3>
+</div>
+
+<div id="outline-container-org0161206" class="outline-3">
+<h3 id="org0161206"><span class="section-number-3">2.2</span> Beeple sold and NFT for $69 million <sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup></h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3360639" class="outline-2">
+<h2 id="org3360639"><span class="section-number-2">3</span> Non Fungible Token</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+A dime can be exchanged to a dime. Doesn&rsquo;t matter which dime you hold
+</p>
+
+<p>
+=&gt; Fungible
+</p>
+
+<p>
+\vspace{9pt}
+</p>
+
+<p>
+I can&rsquo;t exchange my daughter with with another girl.<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>
+</p>
+
+<p>
+=&gt; Non fungible
+</p>
+
+<p>
+\vspace{9pt}
+</p>
+
+<ul class="org-ul">
+<li>Is it because they have different genes?</li>
+<li>Is it because is it rare (there is only one)?</li>
+<li>Is it because we spent time together?</li>
+</ul>
+
+<p>
+\vspace{9pt}
+</p>
+
+<p>
+A Token that can not be exchanged.
+You (an address) can claim ownership of that asset.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1c2a200" class="outline-2">
+<h2 id="org1c2a200"><span class="section-number-2">4</span> How does it work?</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org92ad890" class="outline-3">
+<h3 id="org92ad890"><span class="section-number-3">4.1</span> How does it work?</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Using Blockchain.
+</p>
+
+<p>
+\vspace{18pt}
+</p>
+
+<p>
+A very hard-to-tamper public database.
+</p>
+
+<p>
+\vspace{18pt}
+</p>
+
+<p>
+The platform writes (declares) that an digital asset is owned by some address.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7c54b66" class="outline-3">
+<h3 id="org7c54b66"><span class="section-number-3">4.2</span> picture</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+<img src="images/goukaku.jpg" alt="goukaku.jpg" />　
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6deab95" class="outline-2">
+<h2 id="org6deab95"><span class="section-number-2">5</span> How does it work? 2</h2>
+<div class="outline-text-2" id="text-5">
+<ol class="org-ol">
+<li><p>
+You list your asset (image, sound, tweet&#x2026;) into the blockchain, with the
+edition number and price.
+</p>
+
+<p>
+\vspace{18pt}
+</p></li>
+
+<li><p>
+People collects the asset by paying that amount of crypto currency to the
+issuer&rsquo;s address. The issuer writes down to the blockchain that that this
+asset belongs to the purchaser&rsquo;s address.
+</p>
+
+<p>
+\vspace{18pt}
+</p></li>
+
+<li>People can swap ownership of that asset in a different amount as the
+reputation of that asset changes. Usually with some kick back to the original
+issuer.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgbe0acb8" class="outline-2">
+<h2 id="orgbe0acb8"><span class="section-number-2">6</span> Wait, but it&rsquo;s digital&#x2026;</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+\vspace{24pt}
+</p>
+
+<p>
+Nothing stops you from copying that image into my hard drive. It only let&rsquo;s you
+<b>claim</b> that you own it, because of that database that is publicly verifiable.
+</p>
+
+<p>
+\vspace{24pt}
+</p>
+
+<p>
+&#x2026;so ?
+</p>
+
+<p>
+\vspace{18pt}
+</p>
+
+<p>
+Uniqueness and digital. Perhaps the first time the general public is
+encountering &ldquo;duplicated yet unique&rdquo;
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7ab4b3a" class="outline-2">
+<h2 id="org7ab4b3a"><span class="section-number-2">7</span> Critics in the Creative Coding field</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org13557e1" class="outline-3">
+<h3 id="org13557e1"><span class="section-number-3">7.1</span> Arturo!!</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+<a href="https://twitter.com/artur0castro">https://twitter.com/artur0castro</a>
+</p>
+
+<p>
+\vspace{9pt}
+</p>
+
+<p>
+Arturo is the <a href="https://github.com/openframeworks/openFrameworks/graphs/contributors">top contributor</a> of openframeworks so we do want to listen.
+</p>
+
+<p>
+\vspace{9pt}
+</p>
+
+<ul class="org-ul">
+<li>Generally against the whole blockchain idea</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5d19224" class="outline-3">
+<h3 id="org5d19224"><span class="section-number-3">7.2</span> Arturo!!</h3>
+<div class="outline-text-3" id="text-7-2">
+
+<div id="orgb7de814" class="figure">
+<p><img src="images/arturo_hates_blockchain.png" alt="arturo_hates_blockchain.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0ac6bd0" class="outline-2">
+<h2 id="org0ac6bd0"><span class="section-number-2">8</span> Others</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li><a href="https://twitter.com/zachlieberma">Zach Lieberman</a> <sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup> -&gt; Took his class. One of openframeworks founders.</li>
+</ul>
+
+<p>
+\vspace{24pt}
+</p>
+
+<ul class="org-ul">
+<li><a href="https://twitter.com/mrdoob">Mr. doob</a> <sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup> -&gt; Inventor of threejs</li>
+</ul>
+
+<p>
+\vspace{24pt}
+</p>
+
+<ul class="org-ul">
+<li><a href="https://twitter.com/MacTuitui">Alexis Andre</a> <sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup> -&gt; Nannou (Creative Coding framework for Rust), Sony CSL,
+ex Media Lab student</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org2b72e18" class="outline-2">
+<h2 id="org2b72e18"><span class="section-number-2">9</span> Ecological Impact</h2>
+<div class="outline-text-2" id="text-9">
+</div>
+<div id="outline-container-org91f9790" class="outline-3">
+<h3 id="org91f9790"><span class="section-number-3">9.1</span> Very Costly!</h3>
+<div class="outline-text-3" id="text-9-1">
+<p>
+PoW based NFT markets are super environmentally inefficient.
+</p>
+
+<p>
+Equivalent to Round trip Tokyo-Osaka by car.
+</p>
+
+<p>
+\vspace{18pt}
+</p>
+
+<p>
+<b>Use PoS based ones are layer 2 solutions.</b>
+</p>
+
+<p>
+\vspace{7pt}
+</p>
+
+\begin{tiny}
+https://qz.com/1987590/the-carbon-footprint-of-creating-and-selling-an-nft-artwork/
+\end{tiny}
+</div>
+</div>
+
+<div id="outline-container-orgddfb328" class="outline-3">
+<h3 id="orgddfb328"><span class="section-number-3">9.2</span> info graphic</h3>
+<div class="outline-text-3" id="text-9-2">
+
+<div id="org5da731e" class="figure">
+<p><img src="images/bad_nfts.png" alt="bad_nfts.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8589d0d" class="outline-2">
+<h2 id="org8589d0d"><span class="section-number-2">10</span> NFT Platforms</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+<a href="https://docs.google.com/spreadsheets/d/1A-7Ama31sYWhXDl6NoJaXnbAV9pFbjxLIgl7jb3CHOs/htmlview?fbclid=IwAR04CuAMALKCeEBvbq7cYHnqUH0qD7ew1MeSU-8FXbPGFdRQxZTxkFsR8Kw">https://docs.google.com/spreadsheets/d/1A-7Ama31sYWhXDl6NoJaXnbAV9pFbjxLIgl7jb3CHOs/htmlview?fbclid=IwAR04CuAMALKCeEBvbq7cYHnqUH0qD7ew1MeSU-8FXbPGFdRQxZTxkFsR8Kw</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga401434" class="outline-2">
+<h2 id="orga401434"><span class="section-number-2">11</span> Demo!</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+<a href="https://www.hicetnunc.xyz/">https://www.hicetnunc.xyz/</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org09604ca" class="outline-2">
+<h2 id="org09604ca"><span class="section-number-2">12</span> Usage examples</h2>
+<div class="outline-text-2" id="text-12">
+</div>
+<div id="outline-container-org7d5be91" class="outline-3">
+<h3 id="org7d5be91"><span class="section-number-3">12.1</span> Art work trading</h3>
+</div>
+
+<div id="outline-container-org0dc44c8" class="outline-3">
+<h3 id="org0dc44c8"><span class="section-number-3">12.2</span> Trading cards</h3>
+<div class="outline-text-3" id="text-12-2">
+<p>
+Again using the blockchain as a public database that is hard to tamper. Claim
+ownership of that asset.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3da1064" class="outline-3">
+<h3 id="org3da1064"><span class="section-number-3">12.3</span> Membership</h3>
+<div class="outline-text-3" id="text-12-3">
+<p>
+A &rsquo;gradable&rsquo; membership
+</p>
+
+<p>
+suggestion: NFT owned membership for ais?
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org78a8a42" class="outline-2">
+<h2 id="org78a8a42"><span class="section-number-2">13</span> Do weed a blockchain?</h2>
+<div class="outline-text-2" id="text-13">
+</div>
+<div id="outline-container-org78d89ab" class="outline-3">
+<h3 id="org78d89ab"><span class="section-number-3">13.1</span> Do you need that infrastructure?</h3>
+<div class="outline-text-3" id="text-13-1">
+<ul class="org-ul">
+<li>Uber: <b>you can</b> start your own business by driving people around.</li>
+</ul>
+
+<p>
+\vspace{9pt}
+</p>
+
+<ul class="org-ul">
+<li>Uber (the platform) accumulates trust, and centralizes the market place.</li>
+</ul>
+
+<p>
+\vspace{18pt}
+</p>
+
+<p>
+DI sell your art: <a href="https://andymakes.itch.io/non-non-fungible-token-collection-archipelagos">https://andymakes.itch.io/non-non-fungible-token-collection-archipelagos</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf515676" class="outline-3">
+<h3 id="orgf515676"><span class="section-number-3">13.2</span> No.</h3>
+<div class="outline-text-3" id="text-13-2">
+
+<div id="orgf6e09b2" class="figure">
+<p><img src="images/do_you_need_a_blockchain.jpg" alt="do_you_need_a_blockchain.jpg" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org35474fe" class="outline-2">
+<h2 id="org35474fe"><span class="section-number-2">14</span> Is it innovative?</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+The concept of claiming uniqueness has been around ever since blockchain, so not
+so much of a technological breakthrough but application level innovation <sup><a id="fnr.7" class="footref" href="#fn.7">7</a></sup> &#x2026;
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb945985" class="outline-2">
+<h2 id="orgb945985"><span class="section-number-2">15</span> AEC Applications</h2>
+<div class="outline-text-2" id="text-15">
+</div>
+<div id="outline-container-orgaf07263" class="outline-3">
+<h3 id="orgaf07263"><span class="section-number-3">15.1</span> Contents</h3>
+<div class="outline-text-3" id="text-15-1">
+<p>
+Details, Specs
+</p>
+
+<p>
+can be used to compensate drafters, makers??
+</p>
+
+<p>
+\vspace{24pt}
+</p>
+</div>
+</div>
+
+<div id="outline-container-org92ba95a" class="outline-3">
+<h3 id="org92ba95a"><span class="section-number-3">15.2</span> Data format</h3>
+<div class="outline-text-3" id="text-15-2">
+<p>
+BIM Data
+GML Data
+</p>
+
+<p>
+basically whatever data that traditionally the ownership is unclear..
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org2718a53" class="outline-2">
+<h2 id="org2718a53"><span class="section-number-2">16</span> My Interest</h2>
+<div class="outline-text-2" id="text-16">
+<p>
+Can  NFTs own NFTs??
+</p>
+
+<p>
+\vspace{24pt}
+</p>
+
+<ul class="org-ul">
+<li>Inheritance (chronological relationship)</li>
+</ul>
+
+<p>
+\vspace{18pt}
+</p>
+
+<ul class="org-ul">
+<li>Composition (spatial relationship)</li>
+</ul>
+
+<p>
+\vspace{24pt}
+</p>
+
+<p>
+this becomes more of a smart contract thing to do&#x2026;
+</p>
+
+<p>
+this leads to: <a href="https://yasushisakai.com/lmn_architecture.html">https://yasushisakai.com/lmn_architecture.html</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org96b28b4" class="outline-2">
+<h2 id="org96b28b4"><span class="section-number-2">17</span> wrap-up</h2>
+<div class="outline-text-2" id="text-17">
+</div>
+<div id="outline-container-org13e56d9" class="outline-3">
+<h3 id="org13e56d9"><span class="section-number-3">17.1</span> Hype?</h3>
+<div class="outline-text-3" id="text-17-1">
+<p>
+yep, the whole point is to inflate &rsquo;quantitative trust&rsquo;
+</p>
+</div>
+</div>
+
+<div id="outline-container-org550a998" class="outline-3">
+<h3 id="org550a998"><span class="section-number-3">17.2</span> Fraud?</h3>
+<div class="outline-text-3" id="text-17-2">
+<ul class="org-ul">
+<li>There are thiefs.</li>
+
+<li>Ownership in law terms are very gray on minting art work.</li>
+
+<li>Legislation awaits!</li>
+</ul>
+
+<p>
+<h1 class='org-ref-bib-h1'>Bibliography</h1>
+<ul class='org-ref-bib'><li><a id="graeber2012debt">[graeber2012debt]</a> <a name="graeber2012debt"></a>Graeber, Debt: The first 5000 years, Penguin UK (2012).</li>
+</ul>
+</p>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://www.cnbc.com/2021/03/22/twitter-ceo-jack-dorseys-first-tweet-nft-sells-for-2point9-million.html">https://www.cnbc.com/2021/03/22/twitter-ceo-jack-dorseys-first-tweet-nft-sells-for-2point9-million.html</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://www.theverge.com/2021/3/11/22325054/beeple-christies-nft-sale-cost-everydays-69-million">https://www.theverge.com/2021/3/11/22325054/beeple-christies-nft-sale-cost-everydays-69-million</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">
+For the history of humanity exchanging humans as fungible tokens, read
+Debt by David Graeber <a class='org-ref-reference' href="#graeber2012debt">graeber2012debt</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://twitter.com/zachlieberman">https://twitter.com/zachlieberman</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://twitter.com/mrdoob">https://twitter.com/mrdoob</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://twitter.com/MacTuitui">https://twitter.com/MacTuitui</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7">7</a></sup> <div class="footpara"><p class="footpara">
+DPI, DI, Decentralized Storage
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-04-04 20:53</p>
+<p class="author">Author: Yasushi Sakai</p>
+<p class="date">Created: 2021-05-16 Sun 22:18</p>
+</div>
+</body>
+</html>

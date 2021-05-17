@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-05-16 Sun 22:18 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>超ズボラ版 matrix homeserver をたてる</title>
+<meta name="author" content="Yasushi Sakai" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="http://yasushisakai.com">🏠</a>
+</div>
+<div id="content">
+<h1 class="title">超ズボラ版 matrix homeserver をたてる</h1>
+
+<p>
+超ズボラで matrix サーバーをたてる手順のまとめ。僕もまずは一つ一つ設定して組み立てていきましたが、２回目の時は逆に時間を意識しました。抽象化されていてわかりにくいものがあると思いますが、
+</p>
+
+<div id="outline-container-orge5b1222" class="outline-2">
+<h2 id="orge5b1222"><span class="section-number-2">1</span> 用意するもの</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgcecbe18" class="outline-3">
+<h3 id="orgcecbe18"><span class="section-number-3">1.1</span> Linux based VM</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+僕は Digital Ocean を使っています。10USD/月の メモリが 2G のやつ。ubuntu 18.04 がいろいろ但し書き無しで動きそうなので、選択。
+</p>
+
+<p>
+python3 が入ってるか確認しておいてください。なければ <code>sudo apt install python3</code> 。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5150084" class="outline-3">
+<h3 id="org5150084"><span class="section-number-3">1.2</span> ドメイン</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+多分 IP だけでもいけるのでしょうが、試していない。僕は <code>mirage.city</code> を取得。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5abae86" class="outline-2">
+<h2 id="org5abae86"><span class="section-number-2">2</span> Ansible Playbook を入れる</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Ansible って本当はローカルマシンに入れて、リモートの管理みたいな使い方をするようだけど、よくわからないので、同じサーバーに入れちゃいます。
+</p>
+
+<p>
+最新のものにする必要があるので、ssh 後下記
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">sudo</span> apt update
+<span style="color: #8FBCBB;">sudo</span> apt install software-properties-common
+<span style="color: #8FBCBB;">sudo</span> apt-add-repository --yes --update ppa:ansible/ansible
+<span style="color: #8FBCBB;">sudo</span> apt install ansible
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc30e806" class="outline-2">
+<h2 id="orgc30e806"><span class="section-number-2">3</span> DNS の設定</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+<a href="https://github.com/spantaleev/matrix-docker-ansible-deploy/blob/master/docs/configuring-dns.md">ここ</a>にならい設定する。国内ホスティングサービスだと SRV を設定させてくれなかったり？全機能を使うかどうかおいておいて、とりあえず設定した。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb7ffbc0" class="outline-2">
+<h2 id="orgb7ffbc0"><span class="section-number-2">4</span> Ansible Playbook をクローン</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+基本的な手順は<a href="https://github.com/spantaleev/matrix-docker-ansible-deploy/blob/master/docs/configuring-playbook.md">こちら</a>。(案内になっていない)
+</p>
+
+<p>
+デフォルトの vars.yml に結構親切に書いてあるし、それぞれの bridge 等々の設定方法も一応<a href="https://github.com/spantaleev/matrix-docker-ansible-deploy/blob/master/docs/configuring-playbook.md">ここ</a>を参考にすれば辿れます。
+</p>
+
+<p>
+参考までに、vars.yml をここにご紹介。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">matrix_domain: mirage.city
+matrix_ssl_lets_encrypt_support_email: 'yasushisakai+accounts@pm.me'
+
+# &#12371;&#12428;&#12425;&#12399;&#12497;&#12473;&#12527;&#12540;&#12489;&#12510;&#12493;&#12540;&#12472;&#12515;&#12540;&#31561;&#12391;&#29983;&#25104;&#12375;&#12390;&#12362;&#12367;
+matrix_coturn_turn_static_auth_secret: '&lt;redacted&gt;'
+matrix_synapse_macaroon_secret_key: '&lt;redacted&gt;'
+matrix_postgres_connection_password: '&lt;redacted&gt;'
+
+matrix_synapse_allow_public_rooms_over_federation: true
+
+matrix_mailer_sender_address: "noreply@mirage.city"
+matrix_mailer_relay_use: true
+matrix_mailer_relay_host_name: "mail.privateemail.com"
+# STARTTLS &#12434;&#12469;&#12509;&#12540;&#12488;&#12375;&#12390;&#12356;&#12427;&#12513;&#12540;&#12523;&#12469;&#12540;&#12499;&#12473;&#12391;&#12354;&#12427;&#24517;&#35201;&#12354;&#12426;&#12290;
+# &#24931;&#32722;&#12399;&#12509;&#12540;&#12488;587
+matrix_mailer_relay_host_port: 587
+matrix_mailer_relay_auth: true
+matrix_mailer_relay_auth_username: "&lt;email user&gt;"
+# SMTP&#12398;&#12497;&#12473;&#12527;&#12540;&#12489;
+matrix_mailer_relay_auth_password: "&lt;email password&gt;"
+
+matrix_synapse_admin_enabled: true
+
+matrix_registration_enabled: true
+# &#21516;&#12376;&#12367;&#12497;&#12473;&#12527;&#12540;&#12489;&#12510;&#12493;&#12540;&#12472;&#12515;&#31561;&#12391;&#29983;&#25104;&#12375;&#12390;&#12362;&#12356;&#12383;&#12290;
+matrix_registration_admin_secret: "&lt;redacted&gt;"
+
+##############################################################
+
+# &#22823;&#20307;&#12371;&#12371;&#20197;&#38477;&#12399;&#12289;&#19968;&#24230;synapse&#12364;&#21205;&#20316;&#30906;&#35469;&#12391;&#12365;&#12390;&#12289;matrix&#12398;&#12507;&#12540;&#12512;&#12469;&#12540;&#12496;&#12540;&#12392;&#12375;&#12390;
+# &#19968;&#24540;&#12399;&#20351;&#12360;&#12427;&#12392;&#24605;&#12387;&#12390;&#12363;&#12425;&#12289;&#12356;&#12429;&#12356;&#12429;&#35430;&#12377;&#12290;(&#12381;&#12398;&#12354;&#12392;&#12467;&#12513;&#12531;&#12488;&#12450;&#12454;&#12488;&#12391;&#33391;&#12356;)
+
+matrix_synapse_ext_password_provider_shared_secret_auth_enabled: true
+matrix_synapse_ext_password_provider_shared_secret_auth_shared_secret: &lt;redacted&gt;
+
+matrix_mautrix_whatsapp_enabled: true
+matrix_mautrix_facebook_enabled: true
+matrix_mautrix_hangouts_enabled: true
+
+matrix_appservice_slack_enabled: true
+# slack&#29992;&#12398;&#12450;&#12489;&#12511;&#12531;&#12523;&#12540;&#12512;&#12434;&#20316;&#12426;&#12289;&#12381;&#12398;room id &#12434;&#26360;&#12356;&#12390;&#12362;&#12367;&#12290;
+matrix_appservice_slack_control_room_id: "&lt;room id&gt;"
+
+matrix_appservice_discord_enabled: true
+# discord &#12450;&#12503;&#12522;/&#12412;&#12387;&#12392;&#12398;&#35373;&#23450;&#12391;&#35442;&#24403;&#12398;&#12488;&#12540;&#12463;&#12531;&#12434;&#20837;&#12428;&#12427;&#12290;
+matrix_appservice_discord_client_id: "&lt;client id&gt;"
+matrix_appservice_discord_bot_token: "&lt;token&gt;"
+
+matrix_mx_puppet_discord_enabled: true
+# matrix.domain.com &#12392; domain.com &#12364;&#21516;&#12376;VM&#12384;&#12387;&#12383;&#22580;&#21512;&#12395;&#35373;&#23450;&#12377;&#12427;&#12290;
+# &#12371;&#12358;&#12377;&#12427;&#12392;@username:domain.com&#12392;&#12375;&#12390;&#35469;&#35672;&#12373;&#12428;&#12427;&#12290;(&#65312;username:matrix.domain.com&#12391;&#12399;&#12394;&#12356;)
+matrix_nginx_proxy_base_domain_serving_enabled: true
+
+matrix_synapse_enable_registration: true
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6bab964" class="outline-2">
+<h2 id="org6bab964"><span class="section-number-2">5</span> セットアップとサービス群のスタート</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+で、 <code>setup.yml</code> があるディレクトリまで遡り(レポジトリ root)かきでセットアップを実行。
+</p>
+
+<p>
+以下でセットアップ
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">ansible-playbook -i inventory/hosts setup.yml --tags=setup-all
+</pre>
+</div>
+
+<p>
+以下でスタート
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">ansible-playbook -i inventory/hosts setup.yml --tags=start
+</pre>
+</div>
+
+<p>
+この先ブリッジや機能を追加するために上の <code>vars.yml</code> をいじったら都度 <code>setup-all</code>
+からやる必要あり。 <code>--tags=start-all,start</code> とすると連続でやってくれる。貧弱 VM
+だとメモリが足りないとか言われる場合があるので、その時は <code>--tags=stop</code> で停止してからやると出来た。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org60be2c1" class="outline-2">
+<h2 id="org60be2c1"><span class="section-number-2">6</span> アカウントを作る</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+これで <a href="https://element.domain.com">https://element.domain.com</a> に行けば、アカウント作成ができるので、作って一通りスタートできました。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7107137" class="outline-2">
+<h2 id="org7107137"><span class="section-number-2">7</span> メンテとかログ閲覧</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+本気でこのまま使うにはあまりにも無責任ですが、最低限のメンテにデータのバックアップと、いずれかのブリッジ等動いているサービスのログの見方を示します。
+</p>
+</div>
+
+<div id="outline-container-org061fd0e" class="outline-3">
+<h3 id="org061fd0e"><span class="section-number-3">7.1</span> サーバーデータのバックアップ</h3>
+<div class="outline-text-3" id="text-7-1">
+<div class="org-src-container">
+<pre class="src src-bash">/usr/bin/docker exec <span style="color: #A3BE8C;">\</span>
+--env-file=/matrix/postgres/env-postgres-psql <span style="color: #A3BE8C;">\</span>
+matrix-postgres <span style="color: #A3BE8C;">\</span>
+/usr/local/bin/pg_dumpall -h matrix-postgres <span style="color: #A3BE8C;">\</span>
+| gzip -c <span style="color: #A3BE8C;">\</span>
+&gt; /matrix/postgres.sql.gz
+</pre>
+</div>
+
+<p>
+で、postgres のサーバーのバックアップは取れます。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgac6dd6a" class="outline-3">
+<h3 id="orgac6dd6a"><span class="section-number-3">7.2</span> 各種サービスのログの見方</h3>
+<div class="outline-text-3" id="text-7-2">
+<p>
+matrix に関係があるサービスの一覧を見るには、
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">ls</span> /etc/systemd/system/matrix*.service
+</pre>
+</div>
+
+<p>
+らしく、その一覧から一個選び <code>journalctl</code> 経由で確認。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">journalctl -fu matrix-synapse.service
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb88fe5b" class="outline-3">
+<h3 id="orgb88fe5b"><span class="section-number-3">7.3</span> 各種 docker コンテナのチェック</h3>
+<div class="outline-text-3" id="text-7-3">
+<p>
+あとは、docker コンテナがいっぱい走っているのとあまりかわらないので、
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">docker ps
+</pre>
+</div>
+
+<p>
+でプロセスを見るところから辿っていくのもあり。Docker の知識が必要になってきます。
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-03-26 17:42</p>
+<p class="author">Author: Yasushi Sakai</p>
+<p class="date">Created: 2021-05-16 Sun 22:18</p>
+</div>
+</body>
+</html>

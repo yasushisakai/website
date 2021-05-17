@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-03-11 Thu 07:12 -->
+<!-- 2021-05-16 Sun 22:18 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>rust</title>
@@ -228,11 +228,11 @@
 
 <div id="outline-container-orged88f5c" class="outline-2">
 <h2 id="orged88f5c"><span class="section-number-2">1</span> Rust 関係メモ</h2>
+<div class="outline-text-2" id="text-1">
 </div>
-
-<div id="outline-container-orgb85f6c0" class="outline-2">
-<h2 id="orgb85f6c0"><span class="section-number-2">2</span> Value を持つ Tuple Struct を Serialize すると？</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-orgb85f6c0" class="outline-3">
+<h3 id="orgb85f6c0"><span class="section-number-3">1.1</span> Value を持つ Tuple Struct を Serialize すると？</h3>
+<div class="outline-text-3" id="text-1-1">
 <div class="org-src-container">
 <pre class="src src-rust"><span style="color: #81A1C1;">use</span> <span style="color: #81A1C1;">serde</span>::{<span style="color: #8FBCBB;">Deserialize</span>, <span style="color: #8FBCBB;">Serialize</span>};
 <span style="color: #81A1C1;">use</span> <span style="color: #81A1C1;">serde_json</span>::{json, <span style="color: #8FBCBB;">Value</span>};
@@ -253,9 +253,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgc6cebb3" class="outline-2">
-<h2 id="orgc6cebb3"><span class="section-number-2">3</span> serde<sub>json</sub> の Value の末端を swap する。</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-orgc6cebb3" class="outline-3">
+<h3 id="orgc6cebb3"><span class="section-number-3">1.2</span> serde<sub>json</sub> の Value の末端を swap する。</h3>
+<div class="outline-text-3" id="text-1-2">
 <div class="org-src-container">
 <pre class="src src-rust"><span style="color: #81A1C1;">use</span> <span style="color: #81A1C1;">serde_json</span>::{json, to_value, <span style="color: #8FBCBB;">Value</span>};
 <span style="color: #81A1C1;">use</span> <span style="color: #81A1C1;">std</span>::<span style="color: #81A1C1;">mem</span>::swap;
@@ -291,9 +291,9 @@ swap なので、そのノードの情報は消えちゃう。json object どう
 </div>
 </div>
 
-<div id="outline-container-org08e0871" class="outline-2">
-<h2 id="org08e0871"><span class="section-number-2">4</span> iter を next  してから、collect すると、前 pop になる</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org08e0871" class="outline-3">
+<h3 id="org08e0871"><span class="section-number-3">1.3</span> iter を next  してから、collect すると、前 pop になる</h3>
+<div class="outline-text-3" id="text-1-3">
 <div class="org-src-container">
 <pre class="src src-rust"><span style="color: #81A1C1;">fn</span> <span style="color: #8FBCBB;">main</span>() {
     <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">v</span> = <span style="color: #81A1C1; font-weight: bold;">vec!</span>[<span style="color: #A3BE8C;">"a"</span>, <span style="color: #A3BE8C;">"b"</span>, <span style="color: #A3BE8C;">"c"</span>];
@@ -316,11 +316,262 @@ swap なので、そのノードの情報は消えちゃう。json object どう
 </p>
 </div>
 </div>
+
+<div id="outline-container-orgbc0e4f7" class="outline-3">
+<h3 id="orgbc0e4f7"><span class="section-number-3">1.4</span> String の比較</h3>
+<div class="outline-text-3" id="text-1-4">
+<div class="org-src-container">
+<pre class="src src-rust"><span style="color: #81A1C1;">fn</span> <span style="color: #8FBCBB;">main</span>() {
+    <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">a</span> = <span style="color: #A3BE8C;">"00a"</span>;
+    <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">b</span> = <span style="color: #A3BE8C;">"00b"</span>
+
+    <span style="color: #81A1C1;">if</span> a &lt; b {
+        <span style="color: #81A1C1;">println!</span>(<span style="color: #A3BE8C;">"a"</span>);
+    } <span style="color: #81A1C1;">else</span> {
+        <span style="color: #81A1C1;">println!</span>(<span style="color: #A3BE8C;">"b"</span>)
+    }
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-text">b
+</pre>
+</div>
+
+<p>
+このまま hash の大きさ比べるのに使っちゃえ!
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org74f1d8d" class="outline-3">
+<h3 id="org74f1d8d"><span class="section-number-3">1.5</span> BTreeSet の順番</h3>
+<div class="outline-text-3" id="text-1-5">
+<div class="org-src-container">
+<pre class="src src-rust"><span style="color: #81A1C1;">use</span> <span style="color: #81A1C1;">std</span>::<span style="color: #81A1C1;">collections</span>::<span style="color: #8FBCBB;">HashSet</span>;
+
+<span style="color: #81A1C1;">fn</span> <span style="color: #8FBCBB;">main</span>() {
+    <span style="color: #81A1C1;">let</span> <span style="color: #81A1C1;">mut</span> <span style="color: #D8DEE9;">set</span> = <span style="color: #8FBCBB;">HashSet</span>::new();
+
+    set.insert(<span style="color: #A3BE8C;">"1"</span>);
+    set.insert(<span style="color: #A3BE8C;">"0"</span>);
+
+    <span style="color: #81A1C1;">println!</span>(<span style="color: #A3BE8C;">"</span><span style="color: #A3BE8C; font-style: italic;">{:?}</span><span style="color: #A3BE8C;">"</span>, set);
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-rust"><span style="color: #81A1C1;">use</span> <span style="color: #81A1C1;">std</span>::<span style="color: #81A1C1;">collections</span>::<span style="color: #8FBCBB;">BTreeSet</span>;
+
+<span style="color: #81A1C1;">fn</span> <span style="color: #8FBCBB;">main</span>() {
+    <span style="color: #81A1C1;">let</span> <span style="color: #81A1C1;">mut</span> <span style="color: #D8DEE9;">set</span> = <span style="color: #8FBCBB;">BTreeSet</span>::new();
+
+    set.insert(<span style="color: #A3BE8C;">"1"</span>);
+    set.insert(<span style="color: #A3BE8C;">"0"</span>);
+
+    <span style="color: #81A1C1;">println!</span>(<span style="color: #A3BE8C;">"</span><span style="color: #A3BE8C; font-style: italic;">{:?}</span><span style="color: #A3BE8C;">"</span>, set);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgec1c0ee" class="outline-3">
+<h3 id="orgec1c0ee"><span class="section-number-3">1.6</span> bitcoin hash target 変換</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+hash target は 4byte の変数、整数として示されてる。
+</p>
+
+
+<p>
+例えば、~386,673,224~ を例にあげましょう。
+</p>
+
+<p>
+これをバイトで見てみると。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-rust"><span style="color: #81A1C1;">fn</span> <span style="color: #8FBCBB;">main</span>() {
+    <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">num</span> = 386_673_244u32;
+
+    <span style="color: #81A1C1;">println!</span>(<span style="color: #A3BE8C;">"</span><span style="color: #A3BE8C; font-style: italic;">{:?}</span><span style="color: #A3BE8C;">"</span>, num.to_be_bytes()); <span style="color: #6f7787;">// </span><span style="color: #6f7787;">big-endian</span>
+    <span style="color: #81A1C1;">println!</span>(<span style="color: #A3BE8C;">"</span><span style="color: #A3BE8C; font-style: italic;">{:x}</span><span style="color: #A3BE8C;">"</span>, num);
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-text">[23, 12, 42, 92]
+170c2a5c
+</pre>
+</div>
+
+<p>
+ということは、23 バイト用意して、最初の 3 つが、１２、４２、９２という数字。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">[12, 42, 92, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+</pre>
+</div>
+
+<p>
+sha-256 は 256bit なので、32bytes。右から 23byte 埋める感じ。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-rust"><span style="color: #81A1C1;">use</span> <span style="color: #81A1C1;">sha2</span>::{<span style="color: #8FBCBB;">Digest</span>, <span style="color: #8FBCBB;">Sha256</span>};
+<span style="color: #81A1C1;">use</span> <span style="color: #81A1C1;">std</span>::fmt;
+
+<span style="color: #81A1C1;">fn</span> <span style="color: #8FBCBB;">main</span>() {
+    <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">bits</span> = 386_673_244u32;
+    <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">target_bytes</span> = bits.to_be_bytes();
+
+    <span style="color: #6f7787;">// </span><span style="color: #6f7787;">create 32byte mutable array.</span>
+    <span style="color: #81A1C1;">let</span> <span style="color: #81A1C1;">mut</span> <span style="color: #D8DEE9;">target</span>: [<span style="color: #8FBCBB;">u8</span>; <span style="color: #B48EAD; font-weight: bold;">32</span>] = [<span style="color: #B48EAD; font-weight: bold;">0</span>; <span style="color: #B48EAD; font-weight: bold;">32</span>];
+    target[<span style="color: #B48EAD; font-weight: bold;">32</span> - (target_bytes[<span style="color: #B48EAD; font-weight: bold;">0</span>] <span style="color: #81A1C1;">as</span> <span style="color: #8FBCBB;">usize</span>)] = target_bytes[<span style="color: #B48EAD; font-weight: bold;">1</span>];
+    target[<span style="color: #B48EAD; font-weight: bold;">32</span> - (target_bytes[<span style="color: #B48EAD; font-weight: bold;">0</span>] <span style="color: #81A1C1;">as</span> <span style="color: #8FBCBB;">usize</span>) + <span style="color: #B48EAD; font-weight: bold;">1</span>] = target_bytes[<span style="color: #B48EAD; font-weight: bold;">2</span>];
+    target[<span style="color: #B48EAD; font-weight: bold;">32</span> - (target_bytes[<span style="color: #B48EAD; font-weight: bold;">0</span>] <span style="color: #81A1C1;">as</span> <span style="color: #8FBCBB;">usize</span>) + <span style="color: #B48EAD; font-weight: bold;">2</span>] = target_bytes[<span style="color: #B48EAD; font-weight: bold;">3</span>];
+
+    <span style="color: #81A1C1;">println!</span>(<span style="color: #A3BE8C;">"</span><span style="color: #A3BE8C; font-style: italic;">{:?}</span><span style="color: #A3BE8C;">"</span>, target.to_vec());
+
+    <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">raw</span> = <span style="color: #8FBCBB;">Sha256</span>::digest(b<span style="color: #A3BE8C;">"abc"</span>);
+
+    <span style="color: #81A1C1;">println!</span>(<span style="color: #A3BE8C;">"</span><span style="color: #A3BE8C; font-style: italic;">{:x}</span><span style="color: #A3BE8C;">"</span>, &amp;raw);
+
+    <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">h</span>: <span style="color: #8FBCBB;">Sha256Hash</span> = raw.into();
+
+    <span style="color: #81A1C1;">println!</span>(<span style="color: #A3BE8C;">"</span><span style="color: #A3BE8C; font-style: italic;">{:x}</span><span style="color: #A3BE8C;">"</span>, h);
+
+    <span style="color: #6f7787;">// </span><span style="color: #6f7787;">println!("{}", h &gt; target);</span>
+}
+
+<span style="color: #81A1C1;">struct</span> <span style="color: #8FBCBB;">Sha256Hash</span>([<span style="color: #8FBCBB;">u8</span>; <span style="color: #B48EAD; font-weight: bold;">32</span>]);
+
+<span style="color: #6f7787;">// </span><span style="color: #6f7787;">type Sha256Hash = [u8;32];</span>
+
+<span style="color: #81A1C1;">impl</span> <span style="color: #81A1C1;">fmt</span>::<span style="color: #8FBCBB;">LowerHex</span> <span style="color: #81A1C1;">for</span> <span style="color: #8FBCBB;">Sha256Hash</span> {
+    <span style="color: #81A1C1;">fn</span> <span style="color: #8FBCBB;">fmt</span>(&amp;<span style="color: #81A1C1;">self</span>, <span style="color: #D8DEE9;">_f</span>: &amp;<span style="color: #81A1C1;">mut</span> <span style="color: #81A1C1;">fmt</span>::<span style="color: #8FBCBB;">Formatter</span>&lt;'<span style="color: #D8DEE9;">_</span>&gt;) -&gt; <span style="color: #81A1C1;">fmt</span>::<span style="color: #8FBCBB;">Result</span> {
+        <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">val</span> = <span style="color: #81A1C1;">self</span>.<span style="color: #B48EAD; font-weight: bold;">0</span>;
+        <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">result</span> = val
+            .iter()
+            .map(|n| <span style="color: #81A1C1;">format!</span>(<span style="color: #A3BE8C;">"</span><span style="color: #A3BE8C; font-style: italic;">{:02x}</span><span style="color: #A3BE8C;">"</span>, n))
+            .fold(<span style="color: #8FBCBB;">String</span>::new(), |acc, n| <span style="color: #81A1C1;">format!</span>(<span style="color: #A3BE8C;">"</span><span style="color: #A3BE8C; font-style: italic;">{}{}</span><span style="color: #A3BE8C;">"</span>, acc, n));
+        <span style="color: #81A1C1;">println!</span>(<span style="color: #A3BE8C;">"</span><span style="color: #A3BE8C; font-style: italic;">{}</span><span style="color: #A3BE8C;">"</span>, result);
+        <span style="color: #8FBCBB;">Ok</span>(())
+    }
+}
+
+<span style="color: #81A1C1;">impl</span> <span style="color: #8FBCBB;">From</span>&lt;[<span style="color: #8FBCBB;">u8</span>;<span style="color: #B48EAD; font-weight: bold;">32</span>]&gt; <span style="color: #81A1C1;">for</span> <span style="color: #8FBCBB;">Sha256Hash</span> {
+    <span style="color: #81A1C1;">fn</span> <span style="color: #8FBCBB;">from</span>(<span style="color: #D8DEE9;">num</span>: [<span style="color: #8FBCBB;">u8</span>;<span style="color: #B48EAD; font-weight: bold;">32</span>]) -&gt; <span style="color: #8FBCBB;">Self</span> {
+        <span style="color: #8FBCBB;">Self</span>(num)
+    }
+}
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org099a726" class="outline-2">
+<h2 id="org099a726"><span class="section-number-2">2</span> sha256 の hexdigest から bytes</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-rust"><span style="color: #81A1C1;">use</span> <span style="color: #81A1C1;">sha2</span>::{<span style="color: #8FBCBB;">Digest</span>, <span style="color: #8FBCBB;">Sha256</span>};
+
+<span style="color: #81A1C1;">fn</span> <span style="color: #8FBCBB;">main</span>() {
+    <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">hash</span> = <span style="color: #8FBCBB;">Sha256</span>::digest(b<span style="color: #A3BE8C;">"abc"</span>);
+    <span style="color: #81A1C1;">println!</span>(<span style="color: #A3BE8C;">"</span><span style="color: #A3BE8C; font-style: italic;">{:?}</span><span style="color: #A3BE8C;">"</span>, hash);
+    <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">hex_digest</span> = <span style="color: #81A1C1;">format!</span>(<span style="color: #A3BE8C;">"</span><span style="color: #A3BE8C; font-style: italic;">{:x}</span><span style="color: #A3BE8C;">"</span>, hash); <span style="color: #6f7787;">// </span><span style="color: #6f7787;">64 chars</span>
+
+    <span style="color: #81A1C1;">let</span> <span style="color: #81A1C1;">mut</span> <span style="color: #D8DEE9;">bytes</span> = [<span style="color: #B48EAD; font-weight: bold;">0</span>; <span style="color: #B48EAD; font-weight: bold;">32</span>];
+
+    <span style="color: #81A1C1;">for</span> i <span style="color: #81A1C1;">in</span> <span style="color: #B48EAD; font-weight: bold;">0</span>..<span style="color: #B48EAD; font-weight: bold;">32</span> {
+        <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">a</span> = hex_digest.chars().nth(i * <span style="color: #B48EAD; font-weight: bold;">2</span>).unwrap().to_digit(<span style="color: #B48EAD; font-weight: bold;">16</span>).unwrap() <span style="color: #81A1C1;">as</span> <span style="color: #8FBCBB;">u8</span>;
+        <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">b</span> = hex_digest
+            .chars()
+            .nth(i * <span style="color: #B48EAD; font-weight: bold;">2</span> + <span style="color: #B48EAD; font-weight: bold;">1</span>)
+            .unwrap()
+            .to_digit(<span style="color: #B48EAD; font-weight: bold;">16</span>)
+            .unwrap() <span style="color: #81A1C1;">as</span> <span style="color: #8FBCBB;">u8</span>;
+        <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">c</span> = a * <span style="color: #B48EAD; font-weight: bold;">16</span> + b;
+        bytes[i] = c;
+    }
+
+    <span style="color: #81A1C1;">println!</span>(<span style="color: #A3BE8C;">"</span><span style="color: #A3BE8C; font-style: italic;">{:?}</span><span style="color: #A3BE8C;">"</span>, bytes);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org096a50b" class="outline-2">
+<h2 id="org096a50b"><span class="section-number-2">3</span> HashMap の値を変更する</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-rust"><span style="color: #81A1C1;">use</span> <span style="color: #81A1C1;">std</span>::<span style="color: #81A1C1;">collections</span>::<span style="color: #8FBCBB;">HashMap</span>;
+
+<span style="color: #81A1C1;">fn</span> <span style="color: #8FBCBB;">main</span>() {
+    <span style="color: #81A1C1;">let</span> <span style="color: #81A1C1;">mut</span> <span style="color: #D8DEE9;">hm</span>: <span style="color: #8FBCBB;">HashMap</span>&lt;<span style="color: #8FBCBB;">String</span>, <span style="color: #8FBCBB;">f64</span>&gt; = <span style="color: #8FBCBB;">HashMap</span>::new();
+
+    hm.insert(<span style="color: #A3BE8C;">"a"</span>.to_string(), 0f64);
+
+    <span style="color: #81A1C1;">match</span> hm.get_mut(<span style="color: #A3BE8C;">"a"</span>) {
+        <span style="color: #8FBCBB;">Some</span>(a) =&gt; *a = 1f64,
+        <span style="color: #8FBCBB;">None</span> =&gt; (),
+    };
+
+    <span style="color: #81A1C1;">println!</span>(<span style="color: #A3BE8C;">"</span><span style="color: #A3BE8C; font-style: italic;">{:?}</span><span style="color: #A3BE8C;">"</span>, hm);
+}
+</pre>
+</div>
+
+<p>
+dereference する必要あり。
+</p>
+
+<p>
+{&ldquo;a&rdquo;: 1.0}
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org5b55aaf" class="outline-2">
+<h2 id="org5b55aaf"><span class="section-number-2">4</span> BTreeSet の取捨選択</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-rust"><span style="color: #81A1C1;">use</span> <span style="color: #81A1C1;">std</span>::<span style="color: #81A1C1;">collections</span>::<span style="color: #8FBCBB;">BTreeSet</span>;
+
+<span style="color: #81A1C1;">fn</span> <span style="color: #8FBCBB;">main</span>() {
+    <span style="color: #81A1C1;">let</span> <span style="color: #81A1C1;">mut</span> <span style="color: #D8DEE9;">set</span>: <span style="color: #8FBCBB;">BTreeSet</span>&lt;<span style="color: #8FBCBB;">u32</span>&gt; = <span style="color: #81A1C1; font-weight: bold;">vec!</span>[<span style="color: #B48EAD; font-weight: bold;">1</span>, <span style="color: #B48EAD; font-weight: bold;">2</span>, <span style="color: #B48EAD; font-weight: bold;">3</span>, <span style="color: #B48EAD; font-weight: bold;">4</span>, <span style="color: #B48EAD; font-weight: bold;">5</span>].iter().cloned().collect();
+
+    <span style="color: #81A1C1;">let</span> <span style="color: #D8DEE9;">even</span>: <span style="color: #8FBCBB;">BTreeSet</span>&lt;<span style="color: #8FBCBB;">u32</span>&gt; = set.iter().filter(|x| *x % <span style="color: #B48EAD; font-weight: bold;">2</span> == <span style="color: #B48EAD; font-weight: bold;">0</span>).cloned().collect();
+
+    <span style="color: #6f7787;">// </span><span style="color: #6f7787;">for e in even.iter() {</span>
+    <span style="color: #6f7787;">//     </span><span style="color: #6f7787;">set.take(e);</span>
+    <span style="color: #6f7787;">// </span><span style="color: #6f7787;">}</span>
+
+    set = set.difference(&amp;even).cloned().collect();
+
+    <span style="color: #81A1C1;">println!</span>(<span style="color: #A3BE8C;">"</span><span style="color: #A3BE8C; font-style: italic;">{:?}</span><span style="color: #A3BE8C;">"</span>, even);
+    <span style="color: #81A1C1;">println!</span>(<span style="color: #A3BE8C;">"</span><span style="color: #A3BE8C; font-style: italic;">{:?}</span><span style="color: #A3BE8C;">"</span>, set);
+}
+</pre>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2021-02-21 21:27</p>
 <p class="author">Author: Yasushi Sakai</p>
-<p class="date">Created: 2021-03-11 Thu 07:12</p>
+<p class="date">Created: 2021-05-16 Sun 22:18</p>
 </div>
 </body>
 </html>

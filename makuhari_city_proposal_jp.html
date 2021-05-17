@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-05-16 Sun 22:18 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Makuhari City Proposal (JP)</title>
+<meta name="author" content="Yasushi Sakai" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="http://yasushisakai.com">🏠</a>
+</div>
+<div id="content">
+<h1 class="title">Makuhari City Proposal (JP)</h1>
+
+<div id="outline-container-org16d0385" class="outline-2">
+<h2 id="org16d0385"><span class="section-number-2">1</span> スマートシティの認識と 2 つ環境の捉え方</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+既存スマートシティに関わるプロジェクトはその意味する単語の広さから様々な技術的提案がなされており、定義づけが難しいようにも見える。時代と共に意味する内容が変わることが更に意味を捉えることが難解だ。
+</p>
+
+<p>
+最近だと、オープンデータに対する集約的な整備の動きが盛んになり、都市 OS であったり、国勢調査的なデータ以上に３次元データをも持つデジタルツインといった考え方も出てきている。
+</p>
+
+<p>
+こうしてフィジカルとデジタルの間を架け橋し、後者の解像度をあげることによって様々な産業・サービスの創出やこれを起点に都市の生活を豊かにするプロジェクトがトレンドであると言える。自動運転技術やドローンといった要素技術とそれを構成する IoT ・センサー類とこのような仮想環境と物理環境の間を埋める作業を一つのまとまりとして、スマートシティ技術と呼んでいるのが現状であろう。
+</p>
+
+<p>
+このような見方では、環境があたかも二種類しか存在しないかまるでそれ以外が重要でないような考えに陥りやすい。実世界をデータによって補完し、都市全体でのデジタルトランスフォーメーションを狙うプロジェクトは、この 10 年アメリカの産業を牽引してきた IT 企業が試みてきたが、成功率は低い。その最たるが Google の Sidewalk Lab でのトロント市開発のプロジェクト中止があるだろう。その理由の一つに、住民からの理解と支援が得られずに頓挫したということも一因だと言われている。これらの失敗から学ぶべきことに社会環境に対する視点が足りなかったといえないだろうか。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaf4d38b" class="outline-2">
+<h2 id="orgaf4d38b"><span class="section-number-2">2</span> 三つ目の環境</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+実際バロセロナ市が公共資金を投じて開発を進める住民参加プラットフォーム Decidim もこうした市民参画をサポートするテクノロジーにも注視しているところから垣間見える。
+</p>
+
+<p>
+もちろん 2000 年代から普及しすでに定着した SNS を見過ごしているわけではない。コミュニケーションという名の下、情報によって社会環境を構築するために使われる道具であるが、これらは個人で見えるタイムラインは個々人の選択によって変わる、マルチバース的な表現をとることが多い。これはちょうどユクスキュルが「生物からみた世界」<a class='org-ref-reference' href="#uexkull1992stroll">uexkull1992stroll</a> で示したように、生物それぞれの知覚能力の影響を受けて構築される環世界(Umwelt)をもち、その中で生きているという世界の見方に近い。生物同様、我々一個人の情報の知覚の仕方自体周りの環境から深く影響を受けており、処理の仕方も様々である。それらの情報が、片手で数えられるほどの企業の利益のために搾取され、その使い方も同様の目的を達成するのに最適化されている現状を問題視する報道が多くなったのは誰もが感じられることだろう。その果てに極端に自分の世界をサイロ化させ、お互いへの理解がしにくくなる傾向も指摘されている。こうして、少なくとも社会環境があって、それらは多くの場合多元的な性質を持っている。またそれは異なる意見を持っている集団がお互い合意に達するということが想定されていない。
+</p>
+
+<p>
+スマートシティ政策が依存関係にある情報技術の一端にこうした社会環境が存在しているのにも関わらず、だがあえて選択的に、フィジカルとバーチャルを対比的に扱っていること指摘したい。その上、情報環境上にある SNS 等の社会環境に対して、都市計画や政策がそもそも持っている異なる意見を調停する（統合する）ことに対してあまり機能していないことを理解した上で、社会環境のあるべき融合の仕方を探索する事に一定の意味があると考えられる。
+</p>
+
+<p>
+我々 MIT Media lab City Science でも、ある都市の計画に対して、集団的な合意に達するためにテクノロジーがどのように使えるか、あるいはその裏返し、テクノロジーによって集団的な合意形成そのものが変わっていくかを探るために、レゴを使ったタンジブルプラットフォームを開発してきた。だが間接的に合意に対する支援としてシミュレーションやインタラクションの方法を考えたことがあっても、実際に合意に至る方法論として開発してきたわけではない。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org944c21f" class="outline-2">
+<h2 id="org944c21f"><span class="section-number-2">3</span> 合議の仕組み</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgc4f1ed1" class="outline-3">
+<h3 id="orgc4f1ed1"><span class="section-number-3">3.1</span> 投票の方法</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+さて、群の中で合意を形成するのは、ガバナンスという形での議論は古くは古代アテネから議論されてきた事でもあり、今更考える必要がないようにも見える。アリストテレスの時点で、君主制、貴族制、民主制それぞれの強みと弱みは理解されており、最初にアテナイの丘で 5000 人規模で行っていた直接民主から一つの場所に集まり合議が難しくなったので、次第に間接民主制が選ばれるようなり、現代では様々な形の民主主義の方法論がある。10 年前から新しい形として Liquid Democracy という方法が提案されており、直接民主的な側面を持ちながら、もしその議題に対して十分な理解や時間がなかった場合は、信頼する誰かに自分の票を委任できるというものだ。決め方自体の柔軟性への期待から様々なところで試行されているが、直接民主も間接民主もこの方法で表現できることから、今まで下敷きにしてきた古くからあるこれらの方法の計算上の一般化と見ることもできる。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6d39385" class="outline-3">
+<h3 id="org6d39385"><span class="section-number-3">3.2</span> 分散システムとコンセンサス・アルゴリズム</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+分散システムの命題もこれによく近いものがある。分散システムである Paxos の仕組みを解説するために、レズリーランポートは自分の古代アテネ時代のパクソス等においてハーフタイムで働く官僚がいかに台帳を分散的に管理していたかという問題をベースに論じているように、異なるノードやサーバーやワーカーが一つの台帳に合意する過程を扱う分野でもある。奇しくも、こうした技術は 2000 年代に先の米国の IT 企業が中央集約的に集めた大量のデータをいかに堅牢に集めつつ分析するかというニーズと利害合致し、大きな発展を遂げることになる。こうした土壌の上、ネットワーク障害に加えて悪意のあるノードを想定した分散システム群の前提条件として、ビザンチン将軍問題も提起され、その流れの元出てきた技術としてビットコインがあると言える。それぞれの環境が違う機械（悪意を持っていたり、ネットワーク遅延が発生したり、電源が落ちたり、処理能力に差があったり）を一つの台帳に合意させるというブロックチェーンの基本的な性質は先のユクスキュルの異なる知覚能力を持つ生物の様々な環世界を調停し、雀蜂と蘭のごとく、共生する仕組みとして見ることはできないだろうか。この機械ノード同士の合意を司る仕組みをコンセンサス・アルゴリズムといい、今ではこのブロックチェーンによって人間同士のガバナンスに再輸入する動きがある。端的に DAO という名の下 2016 年から注目を浴びており、投票に使うことができるガバナンストークンを用いて対象の仮想通貨の供給量の決定や、開発の方向性を集団で決議するという動きが出ている。さらに、近年では上の Liquid Democracy に似た委任の考え方を取り入れた DAO も見られるようになった。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga49c176" class="outline-2">
+<h2 id="orga49c176"><span class="section-number-2">4</span> 分散的自律組織は存続可能か</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+これらの取り組みとして大きな実験性を孕んでいるテーマとして、トップがいない、プロトコルによって支えられた調停された団体は存続できるのかという問いがある。分散技術の開発にあたっても、通常であれば、参加ノードの数が増えることで、記憶容量の増加や処理スピードの向上など何かしらのメリットが期待されるが、データの堅牢性とこれらの性質はトレードオフである。リキッドデモクラシーに対する批判も果たしてこの方法既存の方法よりも効率的なのかという疑問が出てきている。これらの批判を検証するために、端的にこうした DAO 的な形で運用される組織を一度作り上げ、それらを持続させるために何が必要かを考える具体的な実験が必要だ。
+</p>
+</div>
+
+<div id="outline-container-orgc27986f" class="outline-3">
+<h3 id="orgc27986f"><span class="section-number-3">4.1</span> 実験</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+都市 DAO 的を試行する実験として基本的な流れは以下である。
+</p>
+
+<ol class="org-ol">
+<li>上記の名の下、賛同する住人を集める。</li>
+
+<li>アートを通じた公共資産を集団合議によって制作する。</li>
+
+<li>世間一般に公開し、都市 DAO の存在を宣言する。</li>
+
+<li>アートを撤去し、デジタル情報としてアーカイブする。</li>
+
+<li>NFT 上でアセットを管理し、売却や維持等を集団合議によって決め、運用していく。</li>
+
+<li>2 に戻る。</li>
+</ol>
+
+<p>
+基本的に全ての事項に関して集団合議をすることができるが、ここでは 2 と 5 を最初の試行対象として捉え、この際に使う合議システムとしては、酒井が２年前から開発・使っている liquid democracy モジュールを使うことが想定されており、各議題の審議には適当であると思われるインスタントメッセンジャー(matrix)・グループチャットシステム及び掲示板システム(reddit, decidim)を補完的に利用する。
+</p>
+
+<p>
+アート作品に関しては、広義の意味での DAO 的な実験とはいえ、それらの持続性を検証するには公共資産の存在が必要である。この実験では、都市壁画というメディアを使い、それらのコミッション・キュレーションを行う。集団決定によって作られた作品は NFT という形で保存され、所有を分配できる形にする。これを最初の共有資産として運営していき、売却あるいは維持する割合を合議する。壁画アートをプロキシとして扱い都市の文脈で言う公共資産にあたり、例えば公園やその界隈の歩道の整備であったり、あるいは空気の質や騒音政策にあたる。実際こうした都市壁画をその周りの文化活動の表出として積極的に既存の広告の代替として見せる動きもあるくらいだ。
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgb7f172f" class="outline-3">
+<h3 id="orgb7f172f"><span class="section-number-3">4.2</span> 実験 II</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+実験 I で行っていることは限定的で狭義の意味での合意形成である。ここで、議論されているレベルと はもう一つ抽象度が高いガバナンスについて触れておく必要がある。具 体的には、そもそもこのプロジェクトはどのようなプロセスを踏んで承認されるべきなのか、住人受け入れのプロセス、NFT 利用の是非や、酒井が作った合議シテムを使うことに対する合議であったりすることだ。これを次の実験として捉える。実験 I はいわば、各要素技術としてそれらが機能するかというメカニカルなレベルでのテストケースである。実験 II では、上に述べたメタレベルのガバナンスに対する補正を行い、ひきづつき実験 I のような創作活動の持続可能性を探究していく。これによりようやく、実験者というアーキテクトが存在し、部分的独善性をもった運用から、真の意味での分散自律組織としてバランスを取り始めると言える。
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-03-30 18:23</p>
+<p class="author">Author: Yasushi Sakai</p>
+<p class="date">Created: 2021-05-16 Sun 22:18</p>
+</div>
+</body>
+</html>

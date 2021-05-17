@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-05-16 Sun 22:18 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>solidity</title>
+<meta name="author" content="Yasushi Sakai" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="http://yasushisakai.com">🏠</a>
+</div>
+<div id="content">
+<h1 class="title">solidity</h1>
+
+<div id="outline-container-org108eb34" class="outline-2">
+<h2 id="org108eb34"><span class="section-number-2">1</span> 必ず必要なもの</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+<pre class="src src-solidity"><span style="color: #6f7787;">// </span><span style="color: #6f7787;">SPDX-Licence-Identifier: GPL-3.0</span>
+<span style="color: #81A1C1;">pragma</span> solidity ^<span style="color: #B48EAD; font-weight: bold;">0.7</span>.<span style="color: #B48EAD; font-weight: bold;">0</span>;
+</pre>
+</div>
+
+<p>
+は必須。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org173f586" class="outline-2">
+<h2 id="org173f586"><span class="section-number-2">2</span> 刻々と変わるので注意</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+結構 <code>0.7.0</code> -&gt; <code>0.8.0</code> ってだけでいろいろ仕様が変わっているので、注意が必要。
+</p>
+
+<p>
+<a href="https://docs.soliditylang.org/en/latest/080-breaking-changes.html">https://docs.soliditylang.org/en/latest/080-breaking-changes.html</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org56b1508" class="outline-2">
+<h2 id="org56b1508"><span class="section-number-2">3</span> 消してもデフォルト値になる</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-solidity">
+<span style="color: #81A1C1;">contract</span> <span style="color: #D8DEE9;">Example</span> {
+
+    <span style="color: #81A1C1;">struct</span> <span style="color: #D8DEE9;">Player</span>{
+        <span style="color: #8FBCBB;">string</span> name;
+    }
+
+    <span style="color: #81A1C1;">constructor</span>() {
+        Player <span style="color: #81A1C1;">public</span> bob = Player({name: <span style="color: #A3BE8C;">"Bob"</span>});
+    }
+
+    <span style="color: #81A1C1;">function</span> <span style="color: #8FBCBB;">deleteBob</span>() <span style="color: #81A1C1;">external</span> {
+        <span style="color: #81A1C1;">delete</span> bob;
+    }
+}
+</pre>
+</div>
+
+<p>
+これで、 <code>bob</code> を消しても、 <code>null</code> にならない。空文字列（数字なら 0）になるだけ。id とかやるときに注意が必要。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga101ae6" class="outline-2">
+<h2 id="orga101ae6"><span class="section-number-2">4</span> Map</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+ちょっとでも複雑なことをしようとすると、keyvalue ペアがあると楽。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-solidity"><span style="color: #81A1C1;">contract</span> <span style="color: #D8DEE9;">Example</span> {
+
+    <span style="color: #81A1C1;">mapping</span> (<span style="color: #8FBCBB;">string</span> =&gt; <span style="color: #8FBCBB;">uint</span>) <span style="color: #8FBCBB;">usersAge</span> <span style="color: #81A1C1;">public</span>;
+
+    <span style="color: #81A1C1;">constructor</span>(){
+        usersAge['bob'] = <span style="color: #B48EAD; font-weight: bold;">35</span>;
+    }
+
+    <span style="color: #81A1C1;">function</span> <span style="color: #8FBCBB;">getAge</span>(<span style="color: #8FBCBB;">string</span> <span style="color: #81A1C1;">memory</span> _user) <span style="color: #81A1C1;">external</span> <span style="color: #81A1C1;">view</span> <span style="color: #81A1C1;">returns</span>(<span style="color: #8FBCBB;">uint</span>) {
+        <span style="color: #81A1C1;">return</span> usersAge[_user];
+    }
+
+    <span style="color: #81A1C1;">function</span> <span style="color: #8FBCBB;">setAge</span>(<span style="color: #8FBCBB;">string</span> <span style="color: #81A1C1;">memory</span> _user, <span style="color: #8FBCBB;">uint</span> <span style="color: #81A1C1;">memory</span> _age) <span style="color: #81A1C1;">external</span> {
+        usersAge[_user] = _age;
+    }
+
+    <span style="color: #81A1C1;">function</span> <span style="color: #8FBCBB;">deleteUser</span>(<span style="color: #8FBCBB;">string</span> <span style="color: #81A1C1;">memory</span> _user) <span style="color: #81A1C1;">external</span> {
+        <span style="color: #81A1C1;">delete</span> usersAge[_user]
+    }
+
+}
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfbe91cc" class="outline-2">
+<h2 id="orgfbe91cc"><span class="section-number-2">5</span> Arrays</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+3 種類ある。
+</p>
+
+<ul class="org-ul">
+<li>Storage Arrays: ブロックチェーン状に記録されるもの</li>
+
+<li><p>
+Memory Arrays: コントラクト内の関数内と引数として使われる配列
+</p>
+
+<div class="org-src-container">
+<pre class="src src-solidity"><span style="color: #81A1C1;">function</span> <span style="color: #8FBCBB;">foo</span>(<span style="color: #8FBCBB;">uint</span>[] <span style="color: #81A1C1;">memory</span> _ary) <span style="color: #81A1C1;">internal</span> {
+
+    <span style="color: #8FBCBB;">uint</span>[] <span style="color: #81A1C1;">memory</span> x = _ary;
+}
+</pre>
+</div>
+<p>
+である必要あり。固定長。ガスが安いから使われる。
+</p></li>
+
+<li><p>
+Call Data Arrays: 外部データの引数として使われる配列
+</p>
+
+<div class="org-src-container">
+<pre class="src src-solidity"><span style="color: #81A1C1;">function</span> <span style="color: #8FBCBB;">foo</span>(<span style="color: #8FBCBB;">uint</span>[] calldata _ary) <span style="color: #81A1C1;">external</span> {
+}
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org685509d" class="outline-2">
+<h2 id="org685509d"><span class="section-number-2">6</span> Internal と External functions</h2>
+<div class="outline-text-2" id="text-6">
+<div class="org-src-container">
+<pre class="src src-solidity"><span style="color: #81A1C1;">contract</span> <span style="color: #D8DEE9;">A</span> {
+
+    <span style="color: #8FBCBB;">uint</span> <span style="color: #81A1C1;">public</span> x = <span style="color: #B48EAD; font-weight: bold;">42</span>;
+
+    <span style="color: #81A1C1;">function</span> <span style="color: #8FBCBB;">externalDouble</span>() <span style="color: #81A1C1;">external</span> {
+        _double(x);
+    }
+
+    <span style="color: #81A1C1;">function</span> <span style="color: #8FBCBB;">_double</span>(<span style="color: #8FBCBB;">uint</span> _input) <span style="color: #81A1C1;">internal</span> <span style="color: #81A1C1;">pure</span> <span style="color: #81A1C1;">returns</span>(<span style="color: #8FBCBB;">uint</span>){
+        <span style="color: #6f7787;">// </span><span style="color: #6f7787;">_input is cloned, relationship of x is lost here</span>
+        _input = _input * <span style="color: #B48EAD; font-weight: bold;">2</span>;
+        <span style="color: #81A1C1;">return</span> _input;
+    }
+}
+</pre>
+</div>
+
+<p>
+プリミティブは値渡しなので変化しません。配列とか Mapping とかは参照渡し。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga1a410c" class="outline-2">
+<h2 id="orga1a410c"><span class="section-number-2">7</span> どこにメモリを保存する?</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+配列や struct みたいなコピーするのにコストが高いデータは、その変数をどこに保存するか指定する必要がある。(出ないと無駄に blockchain に記録される。ガスが高いし。)
+</p>
+
+<p>
+配列の種類同様、保存場所は memory, storage, calldata の 3 つ。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-solidity"><span style="color: #81A1C1;">contract</span> <span style="color: #D8DEE9;">A</span> {
+
+    <span style="color: #8FBCBB;">uint</span>[] <span style="color: #81A1C1;">public</span> x = [<span style="color: #B48EAD; font-weight: bold;">1</span>,<span style="color: #B48EAD; font-weight: bold;">2</span>,<span style="color: #B48EAD; font-weight: bold;">3</span>];
+
+    <span style="color: #81A1C1;">function</span> <span style="color: #8FBCBB;">externalChange</span>() <span style="color: #81A1C1;">external</span> {
+        _internalChange(x);
+    }
+
+    <span style="color: #81A1C1;">function</span> <span style="color: #8FBCBB;">_internalChange</span>(<span style="color: #8FBCBB;">uint</span> [] <span style="color: #81A1C1;">storage</span> _x) <span style="color: #81A1C1;">internal</span> <span style="color: #81A1C1;">returns</span>(<span style="color: #8FBCBB;">uint</span>[] <span style="color: #81A1C1;">memory</span>){
+        <span style="color: #81A1C1;">for</span>(<span style="color: #8FBCBB;">uint</span> i <span style="color: #81A1C1;">in</span> _x) {
+            _x[i] = _x[i] * <span style="color: #B48EAD; font-weight: bold;">2</span>;
+            <span style="color: #81A1C1;">return</span> _x;
+        }
+    }
+}
+</pre>
+</div>
+
+<p>
+<code>(uint [] storage _x)</code> でブロックチェーンに記録したものを取り込んでいるので、 <code>x</code> は参照渡しになり、変更が反映される。
+</p>
+
+<p>
+引数が <code>storage</code> のところを <code>memory</code> にすると、 <code>_internalChange</code> 関数内で drop されるので、値渡しすなわち、値の反映は行われない。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-solidity">
+<span style="color: #81A1C1;">function</span> <span style="color: #8FBCBB;">externalChange</span>(<span style="color: #8FBCBB;">uint</span>[] calldata _x) <span style="color: #81A1C1;">public</span> <span style="color: #81A1C1;">returns</span>(<span style="color: #8FBCBB;">uint</span>[] <span style="color: #81A1C1;">memory</span>) {
+    <span style="color: #6f7787;">//</span><span style="color: #6f7787;">_x[0] = 12; // can't do this, calldata is immutable</span>
+    <span style="color: #8FBCBB;">uint</span>[] _y <span style="color: #81A1C1;">memory</span> = _x; <span style="color: #6f7787;">// </span><span style="color: #6f7787;">pass in value (clone);</span>
+
+    _y[<span style="color: #B48EAD; font-weight: bold;">0</span>] = <span style="color: #B48EAD; font-weight: bold;">12</span>;
+
+    <span style="color: #81A1C1;">return</span> _y;
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org04b8294" class="outline-2">
+<h2 id="org04b8294"><span class="section-number-2">8</span> 関数</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-orge28b9bc" class="outline-3">
+<h3 id="orge28b9bc"><span class="section-number-3">8.1</span> 可視領域は 4 つ <code>public</code>, <code>private</code>, <code>external</code>, <code>internal</code></h3>
+<div class="outline-text-3" id="text-8-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">public</th>
+<th scope="col" class="org-left">private</th>
+<th scope="col" class="org-left">external</th>
+<th scope="col" class="org-left">internal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">外でも中でも</td>
+<td class="org-left">コントラクト内のみ</td>
+<td class="org-left">外からのみ</td>
+<td class="org-left">コントラクトとその継承</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+言わずもがなもっともきつい(private より)にしておいた方がセキュリティ的に良い。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd7df43e" class="outline-3">
+<h3 id="orgd7df43e"><span class="section-number-3">8.2</span> 制限子 <code>pure</code>, <code>view</code>, <code>payable</code></h3>
+<div class="outline-text-3" id="text-8-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">pure</th>
+<th scope="col" class="org-left">view</th>
+<th scope="col" class="org-left">payable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">読み書き不可</td>
+<td class="org-left">読みのみ</td>
+<td class="org-left">ETH を受け取れる</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org2953982" class="outline-3">
+<h3 id="org2953982"><span class="section-number-3">8.3</span> modifier</h3>
+<div class="outline-text-3" id="text-8-3">
+<div class="org-src-container">
+<pre class="src src-solidity"><span style="color: #81A1C1;">modifier</span> <span style="color: #D8DEE9;">checkAmount</span>(<span style="color: #8FBCBB;">uint</span> _amount) {
+    <span style="color: #81A1C1;">require</span>(<span style="color: #81A1C1;">msg</span>.amount &gt;= _amount, <span style="color: #A3BE8C;">"Not enough ether"</span>);
+    _;
+}
+
+<span style="color: #81A1C1;">function</span> <span style="color: #8FBCBB;">pay</span>() <span style="color: #81A1C1;">payable</span> <span style="color: #81A1C1;">external</span> checkAmount(<span style="color: #B48EAD; font-weight: bold;">10</span> <span style="color: #81A1C1;">ether</span>) {
+    <span style="color: #6f7787;">// </span><span style="color: #6f7787;">do your thing</span>
+}
+</pre>
+</div>
+
+<p>
+いろんなチェックをするのに <code>modifier</code> を使う、この場合、必要な <code>eth</code> をこのコントラクト関数に入れないと弾く仕組み。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgecd28db" class="outline-2">
+<h2 id="orgecd28db"><span class="section-number-2">9</span> コントラクトの継承</h2>
+<div class="outline-text-2" id="text-9">
+<div class="org-src-container">
+<pre class="src src-solidity"><span style="color: #81A1C1;">contract</span> <span style="color: #D8DEE9;">B</span> {
+    <span style="color: #8FBCBB;">address</span> <span style="color: #81A1C1;">payable</span> <span style="color: #81A1C1;">public</span> owner;
+    <span style="color: #81A1C1;">constructor</span>(){
+        owner = <span style="color: #81A1C1;">msg</span>.sender;
+    }
+}
+
+<span style="color: #81A1C1;">contract</span> <span style="color: #D8DEE9;">A</span> <span style="color: #81A1C1;">is</span> B {
+
+    <span style="color: #81A1C1;">constructor</span>(){
+        super;
+    }
+
+}
+
+</pre>
+</div>
+
+<p>
+<code>super</code> は継承元の constructor を呼ぶ。 <code>modifiers</code> も子供コントラクトから読み込めます。
+</p>
+
+<p>
+別ファイルのコントラクトを読み込む場合は、
+</p>
+<div class="org-src-container">
+<pre class="src src-solidity">
+<span style="color: #81A1C1;">import</span> <span style="color: #A3BE8C;">"./B.sol"</span>;
+</pre>
+</div>
+
+<p>
+とすれば良い。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org087c242" class="outline-2">
+<h2 id="org087c242"><span class="section-number-2">10</span> 外部コントラクトの利用</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+*継承ではない
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Callable.sol</label><pre class="src src-solidity">
+<span style="color: #81A1C1;">contract</span> <span style="color: #D8DEE9;">Callable</span> {
+    <span style="color: #8FBCBB;">uint</span> <span style="color: #81A1C1;">public</span> number = <span style="color: #B48EAD; font-weight: bold;">20</span>;
+    <span style="color: #81A1C1;">function</span> <span style="color: #8FBCBB;">getNumber</span>() <span style="color: #81A1C1;">external</span> <span style="color: #81A1C1;">returns</span>(<span style="color: #8FBCBB;">uint</span>){
+        <span style="color: #81A1C1;">return</span> number;
+    }
+}
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>Caller.sol</label><pre class="src src-solidity">
+<span style="color: #81A1C1;">import</span> <span style="color: #A3BE8C;">"./Callable.sol"</span>;
+
+<span style="color: #81A1C1;">contract</span> <span style="color: #D8DEE9;">Caller</span>{
+
+    <span style="color: #8FBCBB;">address</span> <span style="color: #81A1C1;">public</span> callableAddress;
+
+    <span style="color: #81A1C1;">function</span> <span style="color: #8FBCBB;">setCallableAddress</span>(<span style="color: #8FBCBB;">address</span> _address) <span style="color: #81A1C1;">external</span> {
+        callableAddress = _address;
+    }
+
+    <span style="color: #81A1C1;">function</span> <span style="color: #8FBCBB;">getCallableNumber</span>() <span style="color: #81A1C1;">external</span> {
+        Callable callable = Callable(callableAddress);
+        <span style="color: #81A1C1;">return</span> callable.getNumber();
+    }
+}
+
+</pre>
+</div>
+
+<p>
+Collable.sol を先にデプロイしておく必要あり。それで <code>setCallableAddress</code> にアドレスを入れてあげて、それを使っていく。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org141e42c" class="outline-2">
+<h2 id="org141e42c"><span class="section-number-2">11</span> ライブラリを使う</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+ライブラリを使うのは、外部コントラクトを使ったり、継承とはちょっと違う。ライブラリは計算のコンテキストが呼び出した側なのに対して、他の二つの例は呼び出された環境。
+</p>
+
+<p>
+github.com でおもむろにファイルを指定して
+</p>
+
+<div class="org-src-container">
+<pre class="src src-solidity"><span style="color: #81A1C1;">import</span> <span style="color: #A3BE8C;">"https://....foo.sol"</span>;
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-solidity"><span style="color: #81A1C1;">contract</span> <span style="color: #D8DEE9;">A</span>{
+    <span style="color: #81A1C1;">using</span> Foo <span style="color: #81A1C1;">for</span> <span style="color: #8FBCBB;">uint</span>;
+
+    <span style="color: #8FBCBB;">uint</span> <span style="color: #81A1C1;">public</span> x = <span style="color: #B48EAD; font-weight: bold;">10</span>;
+
+    <span style="color: #81A1C1;">function</span> <span style="color: #8FBCBB;">addx</span>(<span style="color: #8FBCBB;">uint</span> _z) <span style="color: #81A1C1;">external</span> <span style="color: #81A1C1;">view</span> <span style="color: #81A1C1;">returns</span>(<span style="color: #8FBCBB;">uint</span>) {
+        <span style="color: #81A1C1;">return</span> x.add(_z);
+    }
+}
+</pre>
+</div>
+
+<p>
+<code>using XXX for uint;</code> の箇所はちょっとインターフェースだったりダックタイピング的なシンタックス。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-solidity"><span style="color: #81A1C1;">function</span> <span style="color: #8FBCBB;">add</span>(<span style="color: #8FBCBB;">uint</span> _x, <span style="color: #8FBCBB;">uint</span> _y) <span style="color: #81A1C1;">internal</span> <span style="color: #81A1C1;">pure</span> <span style="color: #81A1C1;">returns</span>(<span style="color: #8FBCBB;">uint</span>) {
+    <span style="color: #81A1C1;">return</span> _x + _y;
+}
+</pre>
+</div>
+
+<p>
+みたいなことが起きている想定で、第一引数が <code>self</code> 見たくなる。
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-04-11 15:08</p>
+<p class="author">Author: Yasushi Sakai</p>
+<p class="date">Created: 2021-05-16 Sun 22:18</p>
+</div>
+</body>
+</html>

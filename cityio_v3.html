@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-05-16 Sun 22:18 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>cityio v3</title>
+<meta name="author" content="Yasushi Sakai" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css"/>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="http://yasushisakai.com">🏠</a>
+</div>
+<div id="content">
+<h1 class="title">cityio v3</h1>
+
+<div id="outline-container-orgd5c0ca0" class="outline-2">
+<h2 id="orgd5c0ca0"><span class="section-number-2">1</span> Status of this Memo</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+\vspace{40pt}
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">This document specifies an City Science Best Pactices for the
+City Scope Community, and requests discussion and suggestions for
+improvements. Distribution of this memo is unlimited.
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5492324" class="outline-2">
+<h2 id="org5492324"><span class="section-number-2">2</span> Overview</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+version 3 has less lines of code and has more features stepping towards a more
+version controlled archive than a simple json dump.
+</p>
+</div>
+
+<div id="outline-container-orgc721ca4" class="outline-3">
+<h3 id="orgc721ca4"><span class="section-number-3">2.1</span> before</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+\vspace{20pt}
+</p>
+
+<div id="orgcdb86ff" class="figure">
+<p><img src="images/irasutoya/norimono_gomisyusyusya_man.png" alt="norimono_gomisyusyusya_man.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0e59596" class="outline-3">
+<h3 id="org0e59596"><span class="section-number-3">2.2</span> after</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+\vspace{15pt}
+</p>
+
+<div id="org677cf46" class="figure">
+<p><img src="images/irasutoya/money_choubo.png" alt="money_choubo.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org12b7801" class="outline-2">
+<h2 id="org12b7801"><span class="section-number-2">3</span> Breaking Changes</h2>
+<div class="outline-text-2" id="text-3">
+
+<div id="org5cddb2d" class="figure">
+<p><img src="images/irasutoya/shopping_tsuuhan_trouble_kikai_man.png" alt="shopping_tsuuhan_trouble_kikai_man.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgc6123a5" class="outline-2">
+<h2 id="orgc6123a5"><span class="section-number-2">4</span> Stricter Protocols</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgebc9835" class="outline-3">
+<h3 id="orgebc9835"><span class="section-number-3">4.1</span> Trailing slashes are required</h3>
+<div class="outline-text-3" id="text-4-1">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> https://cityiotest.mirage.city/api/tables/list
+</pre>
+</div>
+
+<p>
+Won&rsquo;t work. <b>Except Deep Get/Post endpoints</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfcc1f33" class="outline-3">
+<h3 id="orgfcc1f33"><span class="section-number-3">4.2</span> Header needs &rsquo;Content-Type: application/json&rsquo;</h3>
+<div class="outline-text-3" id="text-4-2">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST -d <span style="color: #A3BE8C;">'{"v":41}'</span> <span style="color: #A3BE8C;">\</span>
+<span style="color: #6f7787;"># </span><span style="color: #6f7787;">-H "Content-Type: application/json" \</span>
+https://cityiotest.mirage.city/api/table/new_table/
+</pre>
+</div>
+
+<p>
+Also will not work. <code>Content-Type:application/json</code> is commented out.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd8042ad" class="outline-2">
+<h2 id="orgd8042ad"><span class="section-number-2">5</span> &rsquo;update&rsquo; endpoint</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+\vspace{10pt}
+</p>
+
+<p>
+shorter table update endpoint
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> <span style="color: #A3BE8C;">\</span>
+-d <span style="color: #A3BE8C;">'{"v":"data"}'</span> <span style="color: #A3BE8C;">\</span>
+https://cityiotest.mirage.city/api/table/update/new_table/
+</pre>
+</div>
+
+<p>
+\vspace{5pt}
+</p>
+
+<p>
+will be
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST -H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> <span style="color: #A3BE8C;">\</span>
+-d <span style="color: #A3BE8C;">'{"new":"test"}'</span> <span style="color: #A3BE8C;">\</span>
+https://cityiotest.mirage.city/api/table/new_table/
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-text">{
+  "id":"HNEEDUBTAL6zGbD81stzAXLveguv97kGS1MNBQbDEHqv",
+  "name":"new_table",
+  "status":"ok"
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org08e1d26" class="outline-2">
+<h2 id="org08e1d26"><span class="section-number-2">6</span> &rsquo;list&rsquo; endpoint</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Was redundant having full url output, now only the table list will be listed. <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> https://cityiotest.mirage.city/api/tables/list/
+</pre>
+</div>
+
+<p>
+\vspace{10pt}
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">[
+  "new_table",
+  "test",
+  "branch"
+]
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org60be1d1" class="outline-2">
+<h2 id="org60be1d1"><span class="section-number-2">7</span> New things</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+\vspace{10pt}
+</p>
+
+
+<div id="org6bd66ab" class="figure">
+<p><img src="images/irasutoya/present_arigata_meiwaku.png" alt="present_arigata_meiwaku.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc3172c1" class="outline-2">
+<h2 id="orgc3172c1"><span class="section-number-2">8</span> Rollback (1/2)</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+Tables are saved in a linked list data structure, you can roll back to
+previous versions of the same table by using the <code>id</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> https://cityiotest.mirage.city/api/table/test/
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-text">{
+ ...
+  "meta": {
+    "hash": "8tFUU1YRaENHRBdsWg5q8FFC7jgwZi2Uxi9HAApDsVo1",
+    "hashes": { ... },
+    "id": "14Z4435BHHknD2F3jd68diL5NhMcNHspX7CcRTXVWGrT",
+    "timestamp": "2021-03-27T21:15:44.869320546+00:00"
+  },
+ ...
+}
+</pre>
+</div>
+
+<p>
+The <code>hash</code> field is generated by concatenating the <code>hashes</code>. This is for
+comparing the uniqueness of the data. The <code>id</code> is to point a specific point
+within the history.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb15ffaf" class="outline-2">
+<h2 id="orgb15ffaf"><span class="section-number-2">9</span> Rollback (2/2)</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+The <code>GET</code> commit endpoint will show information about the parent commit id.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> https://cityiotest.mirage.city/api/commit/14Z443...VWGrT/
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-text">{
+  "tree_id": "8tFUU1YRaENHRBdsWg5q8FFC7jgwZi2Uxi9HAApDsVo1",
+  "parent": "GmJxu8Lq4vT2xx2HaW9nrmTJdprdKkkrFYFkQ8Mq8UcC",
+  "timestamp": "2021-03-27T21:15:44.869320546+00:00"
+}
+</pre>
+</div>
+
+<p>
+The <code>parent</code> field is another <code>commit id</code> so, we can get this again.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> https://cityiotest.mirage.city/api/commit/GmJxu8...Mq8UcC/
+</pre>
+</div>
+
+<p>
+You can go on until the parent becomes <code>"0"</code> (origin).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd605e2a" class="outline-2">
+<h2 id="orgd605e2a"><span class="section-number-2">10</span> Branching</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+Once we can jump back using rollback, similar to <code>git tag</code> you
+can manifest a previous version to show up as the <code>HEAD</code> of a table.
+</p>
+
+<p>
+\vspace{10pt}
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST <span style="color: #A3BE8C;">\</span>
+https://cityiotest.mirage.city/api/table/raw/branch/GmJxu8.../
+</pre>
+</div>
+
+<p>
+This will now add a table called <code>branch</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">{"id":"branch","status":"ok"}
+</pre>
+</div>
+
+<p>
+This data structure is better in saving history, and duplication cost is very
+small (only the pointers.)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgce61e34" class="outline-2">
+<h2 id="orgce61e34"><span class="section-number-2">11</span> Deep Post</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+You can now deep post (currently lets you deep get), if the path of that object
+exists. This is similar to <code>mkdir</code> without the <code>-p</code> or <code>--parent</code> option which
+recursively retrieves the object.
+</p>
+
+<p>
+\vspace{10pt}
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST <span style="color: #A3BE8C;">\</span>
+-H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> <span style="color: #A3BE8C;">\</span>
+-d <span style="color: #A3BE8C;">'{"cars":true, "bikes":false, "pev": true, "walk": false}'</span> <span style="color: #A3BE8C;">\</span>
+https://cityiotest.mirage.city/api/table/new_table/new_module/setting
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-text">{"commit":"GjM9wDpQJV5H5cGfZWnSKnJwtCimVQJB38RerPg2mfdm","status":"ok"}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb47a97a" class="outline-2">
+<h2 id="orgb47a97a"><span class="section-number-2">12</span> Module Level Caching</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+Modules can be individually posted, and therefore will be cached. You can ask
+cityio if this was previously calculated, and avoid expensive calculation or
+sending redundant data.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> -X POST <span style="color: #A3BE8C;">\</span>
+-H <span style="color: #A3BE8C;">"Content-Type:application/json"</span> <span style="color: #A3BE8C;">\</span>
+-d <span style="color: #A3BE8C;">'{"data":"blob"}'</span> <span style="color: #A3BE8C;">\</span>
+https://cityiotest.mirage.city/api/module/
+</pre>
+</div>
+
+<p>
+This will return it&rsquo;s <code>module id</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">{"id":"3mFuwA1tfMJPRLxhqTcmRuZ43Yap98ohxgZmrwuNjNmR","status":"ok"}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8FBCBB;">curl</span> https://cityiotest.mirage.city/api/module/3mFuwA...jNmR/
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-text">{"data":"blob"}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8f55233" class="outline-2">
+<h2 id="org8f55233"><span class="section-number-2">13</span> Upcoming</h2>
+<div class="outline-text-2" id="text-13">
+
+<div id="org44310d7" class="figure">
+<p><img src="images/irasutoya/ai_pet_family.png" alt="ai_pet_family.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd4da973" class="outline-3">
+<h3 id="orgd4da973"><span class="section-number-3">13.1</span> Websocket server, tied to db</h3>
+<div class="outline-text-3" id="text-13-1">
+<p>
+Pub, sub (broadcasting) table data,
+miro like mouse movement for the frontend&#x2026;
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga5900ca" class="outline-3">
+<h3 id="orga5900ca"><span class="section-number-3">13.2</span> Simpler Auth, cityio sends you emails</h3>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+Ariel requested to show the current hashes?
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-03-25 19:32</p>
+<p class="author">Author: Yasushi Sakai</p>
+<p class="date">Created: 2021-05-16 Sun 22:18</p>
+</div>
+</body>
+</html>
